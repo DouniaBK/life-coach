@@ -28,8 +28,8 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['8000-douniabk-lifecoach-18y80zrvje2.ws-eu101.gitpod.io', 'life-coach.herokuapp.com', 'localhost']
-
+ALLOWED_HOSTS = ['8000-douniabk-lifecoach-18y80zrvje2.ws-eu101.gitpod.io']
+ALLOWED_HOSTS = ['life-coach.herokuapp.com', 'localhost']
 
 # Application definition
 
@@ -86,7 +86,7 @@ WSGI_APPLICATION = 'lifecoach.wsgi.application'
 #    }
 # }
 DATABASES = {
-    'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
+    'default': dj_database_url.parse(os.environ.get("postgres://fgonwqut:lQOvK9iC3LgreDcvEOh0T6FBUxEkL5_a@snuffleupagus.db.elephantsql.com/fgonwqut"))
 }
 
 # Password validation
