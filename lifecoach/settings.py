@@ -33,7 +33,7 @@ ALLOWED_HOSTS = ['life-coach.herokuapp.com', 'localhost', '8000-douniabk-lifecoa
 # Application definition
 
 INSTALLED_APPS = [
-   # 'django.contrib.admin',
+    'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',

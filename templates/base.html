@@ -1,0 +1,164 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html class="h-100">
+
+<head>
+    <title>Life Coach Site</title>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous">
+    </script>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+
+</head>
+
+<body class="d-flex flex-column h-100 main-bg">
+<header>
+    <!-- Navigation -->
+
+    <nav class="navbar navbar-expand-lg fixed-top navbar-scroll navbar-light bg-light">
+        <div class="container-fluid">
+          
+           <!-- Navbar brand <a class="navbar-brand" href="#">Life Coaching </a>-->
+            <a class="navbar-brand mt-2 mt-lg-0" href="#">
+                <img
+                src="{% static 'images/life-coaching-logo.png' %}"
+                height="300"
+                alt="Life Coaching Logo"
+                loading="lazy"
+                />
+            </a>
+
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+            <ul class="navbar-nav ">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Coaching Services</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Free Resources
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li><a class="dropdown-item" href="#" target="_blank">Cancer Recovery Workbook</a></li>
+                  <li><a class="dropdown-item" href="#" target="_blank">Gratitude Journal</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="#" target="_blank">Podcast</a></li>
+                </ul>
+              </li>
+              </li>
+              {% if user.is_authenticated %}
+              <div class= "justify-content-end">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Logout</a>
+                </li>
+                {% else %}
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Register</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Login</a>
+                </li>
+            </div>
+              {% endif %}
+            </ul>
+          </div>
+        </div>
+      </nav>
+    <!-- Background image -->
+     <div id= "intro" class="p-5 text-center bg-image">
+        <div class="mask" style="background-color: rgba(0, 0, 0, 0.6);">
+            <div class="d-flex justify-content-center align-items-center h-100">
+            <div class="text-white">
+                <h1 class="mb-3">Life Coach</h1>
+                <h5 class="mb-4">This is a space devoted to helping cancer survivors live their best lives.</h5>
+            </div>
+            </div>
+        </div>
+    </div>
+    <!-- Background image -->
+</header>
+    <main class="flex-shrink-0 main-bg">
+        {% block content %}
+        <!-- Content Goes here -->
+        {% endblock content %}
+    </main>
+
+    <!-- Footer -->
+    <footer class="text-center text-white fixed-bottom" style="background-color: #f1f1f1;">
+        <!-- Grid container -->
+        <div class="container pt-4">
+          <!-- Section: Social media -->
+          <section class="mb-4">
+            <!-- Facebook -->
+            <a
+              class="btn btn-link btn-floating btn-lg text-dark m-1"
+              href="https://www.facebook.com/profile.php?id=100089570544968"
+              role="button"
+              data-mdb-ripple-color="dark"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+      
+            <!-- Twitter -->
+            <a
+              class="btn btn-link btn-floating btn-lg text-dark m-1"
+              href="https://twitter.com/NatalieCoaching"
+              role="button"
+              data-mdb-ripple-color="dark"
+              ><i class="fab fa-twitter"></i
+            ></a>
+      
+            <!-- Instagram -->
+            <a
+              class="btn btn-link btn-floating btn-lg text-dark m-1"
+              href="https://instagram.com/natalie_lifecoaching?igshid=YmMyMTA2M2Y="
+              role="button"
+              data-mdb-ripple-color="dark"
+              ><i class="fab fa-instagram"></i
+            ></a>
+            
+            <!-- Tiktok -->
+            <a
+            class="btn btn-link btn-floating btn-lg text-dark m-1"
+            href="https://www.tiktok.com/@natalie_lifecoaching?_t=8cCyi2R5Oh8&_r=1"
+            role="button"
+            data-mdb-ripple-color="dark"
+            ><i class="fab fa-tiktok"></i
+     ></a>
+
+            <!-- Email -->
+            <a
+              class="btn btn-link btn-floating btn-lg text-dark m-1"
+              href="hello@natalieriedecoaching.com"
+              role="button"
+              data-mdb-ripple-color="dark"
+              ><i class="fas fa-envelope "></i>
+            </a>
+          </section>
+          <!-- Section: Social media -->
+        </div>
+        <!-- Grid container -->
+      
+        <!-- Copyright -->
+        <div class="text-center text-dark p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+          © 2023 Copyright:
+          <a class="text-dark" href="#">Natalie Riede Coaching</a>
+        </div>
+        <!-- Copyright -->
+      </footer>
+</body>
+
+</html>
