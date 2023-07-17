@@ -1,5 +1,15 @@
 body {
-    background-color:  #edede1;
+    background-color:  #ffffff;
+}
+/*Navigation*/
+.container {
+  position:relative !important;
+  margin-left: auto;
+  margin-right: auto;
+  top: 0 !important;
+  left: 0;
+  right: 0;
+  z-index: 1000;
 }
 
 .navbar {
@@ -8,14 +18,22 @@ body {
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
-    padding-top: 2.5rem;
-    padding-bottom: 2.5rem;
+    background-color: #dfd0c7!important;
+    padding: 0px;
 }
+
+/*LOGIN Btn*/
+.btn-danger {
+  color: #fff;
+  background-color: #ef8791;
+  border-color: #ef8791;
+}
+
 
 /* Color of the links BEFORE scroll */
 .navbar-scroll .nav-link,
 .navbar-scroll .navbar-toggler .fa-bars {
-  color: #fff;
+  color: #dfd0c7!important;;
 }
 
 /* Color of the links AFTER scroll */
@@ -26,7 +44,7 @@ body {
 
 /* Color of the navbar AFTER scroll */
 .navbar-scrolled {
-  background-color: #fff;
+  background-color: #dfd0c7!important;
 }
 
 /* An optional height of the navbar AFTER scroll */
@@ -34,8 +52,77 @@ body {
   padding-top: 5px;
   padding-bottom: 5px;
 }
+/* navbar logo 
+.navbar-light .navbar-brand {
+  color: rgba(0,0,0,.9);
+  max-height: 7rem;
+  max-width: 9rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}*/
 
-#intro {
-    background-image: url("../static/images/background-beach.jpg");
-    height: 400px;
+/*Background image*/
+
+.c-img {
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
 }
+
+
+/*Carousel*/
+
+.mb-3 {
+  color: #fff;
+  font-family: initial;
+}
+
+.mb-4 {
+  color: #fff;
+  font-family: initial;
+}
+.c-item {
+  width: 100vw !important;
+  height: 50vh;
+  z-index: 1;
+}
+
+
+#carouselExampleTouch {
+  width: 100%;
+  height: 50vh;
+}
+
+.carousel-control-next {
+  z-index: 5;
+}
+
+.carousel-control-prev {
+  z-index: 5;
+}
+
+.carousel-indicators {
+  z-index: 5;
+}
+
+.carousel-caption {
+  height: 90%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/*Footer*/
+
+footer {
+  background-color: #93c8cfbd;
+}
+
+
+
+/*index content*/
+
+/*About me*/
+

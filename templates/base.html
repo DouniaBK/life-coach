@@ -22,28 +22,25 @@
 
 <body class="d-flex flex-column h-100 main-bg">
 <header>
-    <!-- Navigation -->
 
-    <nav class="navbar navbar-expand-lg fixed-top navbar-scroll navbar-light bg-light">
-        <div class="container-fluid">
-          
-           <!-- Navbar brand <a class="navbar-brand" href="#">Life Coaching </a>-->
-            <a class="navbar-brand mt-2 mt-lg-0" href="#">
-                <img
-                src="{% static 'images/life-coaching-logo.png' %}"
-                height="300"
-                alt="Life Coaching Logo"
-                loading="lazy"
-                />
-            </a>
-
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light">
+      <div class="container z-index-1 position-absolute top-2 right-0 p-3">
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarExample01"
+            aria-controls="navbarExample01"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <i class="fas fa-bars"></i>
           </button>
-          <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
-            <ul class="navbar-nav ">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
+          <div class="collapse navbar-collapse" id="navbarExample01">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+              <li class="nav-item active">
+                <a class="nav-link" aria-current="page" href="#">Home</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#">Coaching Services</a>
@@ -59,54 +56,112 @@
                   <li><a class="dropdown-item" href="#" target="_blank">Podcast</a></li>
                 </ul>
               </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">About</a>
               </li>
-              {% if user.is_authenticated %}
-              <div class= "justify-content-end">
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Logout</a>
-                </li>
-                {% else %}
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Register</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Login</a>
-                </li>
-            </div>
-              {% endif %}
             </ul>
+            
+          </div>
+          <div class=" nav-item-btn justify-content-end">
+                <button type="button" class="nav-link btn btn-danger me-3">
+                  Member Login
+                </button>
           </div>
         </div>
-      </nav>
-    <!-- Background image -->
-     <div id= "intro" class="p-5 text-center bg-image">
-        <div class="mask" style="background-color: rgba(0, 0, 0, 0.6);">
-            <div class="d-flex justify-content-center align-items-center h-100">
-            <div class="text-white">
-                <h1 class="mb-3">Life Coach</h1>
-                <h5 class="mb-4">This is a space devoted to helping cancer survivors live their best lives.</h5>
-            </div>
-            </div>
+
+
+
+
+      <div id="carouselExampleTouch" class="carousel slide active" data-bs-touch="true">
+
+        <div class="carousel-indicators">
+          <button
+            type="button"
+            data-bs-target="#carouselExampleTouch"
+            data-bs-slide-to="0"
+            class="active"
+            aria-current="true"
+            aria-label="Slide 1"
+          ></button>
+          <button
+            type="button"
+            data-bs-target="#carouselExampleTouch"
+            data-bs-slide-to="1"
+            aria-label="Slide 2"
+          ></button>
+          <button
+            type="button"
+            data-bs-target="#carouselExampleTouch"
+            data-bs-slide-to="2"
+            aria-label="Slide 3"
+          ></button>
         </div>
-    </div>
-    <!-- Background image -->
+        <div class="carousel-inner">
+          <div class="carousel-item active c-item">
+            <div class="carousel-caption">
+                <div class="carouselItemWrapper">
+                 <h1 class="mb-3">Natalie Rider Coaching</h1>
+                 <h4 class="mb-4">A space devoted to helping cancer survivors live their best lives.</h4>
+                </div>
+            </div>
+          </div>
+
+          <div class="carousel-item c-item">
+            <div class="carousel-caption">
+                <div class="carouselItemWrapper">
+                 <h1 class="mb-3">Natalie Rider Coaching</h1>
+                 <h4 class="mb-4">Where awesomeness enters your body.</h4>
+                </div>
+            </div>
+          </div>
+
+          <div class="carousel-item c-item">
+            <div class="carousel-caption">
+                <div class="carouselItemWrapper">
+                 <h1 class="mb-3">Natalie Rider Coaching</h1>
+                 <h4 class="mb-4">Where Natialie kicks your ass off the sofa.</h4>
+                </div>
+            </div>
+          </div>
+
+      </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleTouch" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleTouch" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+     </div>
+     
+
+
+
+
+     <img src="{% static 'images/the_quiet.webp' %}" class="d-block w-100 c-img" alt="sunset on the beach"/>
+    </nav>
+
 </header>
     <main class="flex-shrink-0 main-bg">
         {% block content %}
-        <!-- Content Goes here -->
+        <!-- Index Content Goes here -->
+        
         {% endblock content %}
     </main>
 
     <!-- Footer -->
-    <footer class="text-center text-white fixed-bottom" style="background-color: #f1f1f1;">
+    <footer class="footer text-center text-white fixed-bottom">
         <!-- Grid container -->
-        <div class="container pt-4">
+        <div class="container p-2">
           <!-- Section: Social media -->
-          <section class="mb-4">
+          <section class="">
             <!-- Facebook -->
             <a
               class="btn btn-link btn-floating btn-lg text-dark m-1"
-              href="https://www.facebook.com/profile.php?id=100089570544968"
+              href="https://www.facebook.com"
+              target="_blank"
               role="button"
               data-mdb-ripple-color="dark"
               ><i class="fab fa-facebook-f"></i
@@ -115,7 +170,8 @@
             <!-- Twitter -->
             <a
               class="btn btn-link btn-floating btn-lg text-dark m-1"
-              href="https://twitter.com/NatalieCoaching"
+              href="https://twitter.com"
+              target="_blank"
               role="button"
               data-mdb-ripple-color="dark"
               ><i class="fab fa-twitter"></i
@@ -124,7 +180,8 @@
             <!-- Instagram -->
             <a
               class="btn btn-link btn-floating btn-lg text-dark m-1"
-              href="https://instagram.com/natalie_lifecoaching?igshid=YmMyMTA2M2Y="
+              href="https://instagram.com"
+              target="_blank"
               role="button"
               data-mdb-ripple-color="dark"
               ><i class="fab fa-instagram"></i
@@ -133,7 +190,8 @@
             <!-- Tiktok -->
             <a
             class="btn btn-link btn-floating btn-lg text-dark m-1"
-            href="https://www.tiktok.com/@natalie_lifecoaching?_t=8cCyi2R5Oh8&_r=1"
+            href="https://www.tiktok.com"
+            target="_blank"
             role="button"
             data-mdb-ripple-color="dark"
             ><i class="fab fa-tiktok"></i
@@ -143,6 +201,7 @@
             <a
               class="btn btn-link btn-floating btn-lg text-dark m-1"
               href="hello@natalieriedecoaching.com"
+              target="_blank"
               role="button"
               data-mdb-ripple-color="dark"
               ><i class="fas fa-envelope "></i>
@@ -153,9 +212,9 @@
         <!-- Grid container -->
       
         <!-- Copyright -->
-        <div class="text-center text-dark p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+        <div class="text-center text-dark p-2" style="background-color: rgba(0, 0, 0, 0.2);">
           © 2023 Copyright:
-          <a class="text-dark" href="#">Natalie Riede Coaching</a>
+          <a class="text-dark" href="#">Natalie Rider Coaching</a>
         </div>
         <!-- Copyright -->
       </footer>
