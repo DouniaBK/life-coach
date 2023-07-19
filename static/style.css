@@ -22,11 +22,17 @@ body {
     padding: 0px;
 }
 
+#nav-text {
+  color: #fff!important;
+}
 /*LOGIN Btn*/
 .btn-danger {
-  color: #fff;
   background-color: #ef8791;
   border-color: #ef8791;
+}
+
+#login-btn{
+  color: #fff;
 }
 
 
@@ -125,4 +131,60 @@ footer {
 /*index content*/
 
 /*About me*/
+#about-me {
+  display: flex;
+  justify-content: center !important;
+  flex-wrap: wrap;
+}
 
+#about-me-p {
+  text-align: justify; 
+  text-shadow: 0 0 black;
+  color: black;
+}
+
+/*Coaching Services*/
+
+#coaching-services {
+  display: flex;
+  justify-content: center !important;
+  flex-wrap: wrap;
+}
+
+.nav-link {
+  color: #dc354599;
+}
+
+#coaching-services-p {
+  text-align: justify; 
+}
+
+#booking-btn {
+  margin: 1rem;
+}
+/*divider image
+#divider-img {
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+}*/
+/*Testimonials*/
+#testimonials {
+  display: flex;
+  justify-content: center !important;
+  flex-wrap: wrap;
+  padding-bottom: 4rem;
+}
+.testimonial-card .card-up {
+  height: 120px;
+  overflow: hidden;
+  border-top-left-radius: 0.25rem;
+  border-top-right-radius: 0.25rem;
+}
+.testimonial-card .avatar {
+  width: 110px;
+  margin-top: -60px;
+  overflow: hidden;
+  border: 3px solid #fff;
+  border-radius: 50%;
+}
