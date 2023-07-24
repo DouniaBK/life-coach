@@ -2,7 +2,7 @@ from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
 
 from .forms import CustomUserCreationForm, CustomUserChangeForm
-from .models import CustomUser, testimonial
+from .models import CustomUser, Testimonial
 
 
 class CustomUserAdmin(UserAdmin):
@@ -27,16 +27,12 @@ class CustomUserAdmin(UserAdmin):
     ordering = ("email",)
 
 
-@admin.register(testimonial)
+@admin.register(Testimonial)
 class TestimonyAdmin(admin.ModelAdmin):
 
-    list_display = ('name', 'body', 'created_on', 'approved')
-    list_filter = ('approved', 'created_on')
-    search_fields = ('name', 'email', 'body')
-    actions = ['approved_testimonials']
-
-    def approved_testimonials(self, request, queryset):
-        queryset.update(approved=True)
+    list_display = ('name', 'status')
+    list_filter = ('status', 'name')
+    search_fields = ('name', 'status')
 
 
 admin.site.register(CustomUser, CustomUserAdmin)

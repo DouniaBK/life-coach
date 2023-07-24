@@ -1,5 +1,5 @@
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm
-from .models import CustomUser, testimonial
+from .models import CustomUser, Testimonial
 from django import forms
 
 
@@ -17,5 +17,5 @@ class CustomUserChangeForm(UserChangeForm):
 
 class TestimonyForm(forms.ModelForm):
     class Meta:
-        model = testimonial
+        model = Testimonial
         fields = ("body",)

@@ -23,16 +23,13 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
         return self.email
 
 
-class testimonial(models.Model):
+class Testimonial(models.Model):
     name = models.CharField(max_length=80)
-    email = models.EmailField()  # perhpas needs to be deleted 
-    title = models.CharField(max_length=200, unique=True)
     body = models.TextField()
-    created_on = models.DateTimeField(auto_now_add=True)
-    approved = models.BooleanField(default=False)
+    status = models.IntegerField(choices=STATUS, default=0)
 
     class Meta:
-        ordering = ["created_on"]
+        ordering = ["-name"]
 
     def __str__(self):
         return f'Testimony {self.body} by {self.name}'

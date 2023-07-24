@@ -28,7 +28,7 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['life-coach.herokuapp.com', 'localhost', '8000-douniabk-lifecoach-18y80zrvje2.ws-eu101.gitpod.io', 'life-coach-d09ed2f9c678.herokuapp.com']
+ALLOWED_HOSTS = ['life-coach.herokuapp.com', 'localhost', '8000-douniabk-lifecoach-18y80zrvje2.ws-eu102.gitpod.io', 'life-coach-d09ed2f9c678.herokuapp.com']
 
 # Application definition
 
@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'django_admin_logs',
     'cloudinary_storage',
     'django.contrib.staticfiles',
     'cloudinary',
@@ -141,3 +142,4 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Models
 AUTH_USER_MODEL = "coachapp.CustomUser"
+DJANGO_ADMIN_LOGS_DELETABLE = True
