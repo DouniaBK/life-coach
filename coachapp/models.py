@@ -32,4 +32,4 @@ class Testimonial(models.Model):
         ordering = ["-name"]
 
     def __str__(self):
-        return f'Testimony {self.body} by {self.name}'
+        return f'Testimony {self.body} by {self.name}' # change the string to just title

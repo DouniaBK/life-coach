@@ -191,6 +191,7 @@ footer {
   justify-content: center !important;
   flex-wrap: wrap;
   padding-bottom: 4rem;
+  flex-direction: row;
 }
 .testimonial-card .card-up {
   height: 22px;
@@ -204,4 +205,8 @@ footer {
   overflow: hidden;
   border: 3px solid #fff;
   border-radius: 50%;
+}
+
+.card{
+  width: 100%;
 }
