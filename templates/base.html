@@ -40,7 +40,7 @@
           <div class="collapse navbar-collapse" id="navbarExample01">
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
               <li class="nav-item active">
-                <a class="nav-link" aria-current="page" id="nav-text" href="#">Home</a>
+                <a class="nav-link" aria-current="page" id="nav-text" name= "" href="#">Home</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" id="nav-text" href="#">Coaching Services</a>
@@ -63,13 +63,11 @@
             
           </div>
           <div class=" nav-item-btn justify-content-end">
-                <button type="button" class="nav-link btn btn-danger me-3" id="login-btn">
+                <a type="button" class="nav-link btn btn-danger me-3" id="login-btn" name= "login" href="{% url 'login' %}">
                   Member Login
-                </button>
+                </a>
           </div>
         </div>
-
-
 
 
       <div id="carouselExampleTouch" class="carousel slide active" data-bs-touch="true">
@@ -309,7 +307,7 @@
                     </div>
                   </div>
                   <!-- Tabs content -->
-                  <button type="button" class=" btn btn-danger" id="booking-btn" href="/login">
+                  <button type="button" class=" btn btn-danger" id="booking-btn">
                     Book a Call
                 </button>
             </div>

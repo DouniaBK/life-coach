@@ -33,3 +33,5 @@ class Testimonial(models.Model):
 
     def __str__(self):
         return f'Testimony {self.body} by {self.name}' # change the string to just title
+
+

@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'cloudinary',
     'coachapp',
+    'members',
 ]
 
 
@@ -143,3 +144,4 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # Models
 AUTH_USER_MODEL = "coachapp.CustomUser"
 DJANGO_ADMIN_LOGS_DELETABLE = True
+AUTHENTICATION_BACKENDS = ['members.backends.EmailBackend']
