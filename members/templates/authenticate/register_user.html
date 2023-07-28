@@ -3,7 +3,12 @@
 {% load static %}
 
 
-
+{% if form.errors %}
+	<div class="alert alert-warning alert-dismissible fade show" role="alert">
+            There was an error with your form...
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+{% endif %}
 
 {% if user.is_authenticated %}
 <h1 class="p-2 text-center mb-5 text-warning">You Are Already Signed in!</h1>
@@ -13,8 +18,9 @@
 
 <div class="bg-white fPersian">
 <div class="shadow p-4 mb-5 bg-body bg-body rounded text-black  m-5">
-    <h1 class="text-black p-3 ">Sign Up</h1>
-<form method="POST" action="{% url 'login' %}">
+    <h1 class="text-black p-3 ">Register</h1>
+
+<form method="POST" name="register_user"  action="{% url 'register_user' %}">
     {% csrf_token %}
 
        {{ form.as_p }}
@@ -24,10 +30,9 @@
         </br>
         <label class="form-label fs-3 mt-5">Already Have An Account?</label>
         </br>
-        <a href="{% url 'login' %}" class="btn btn-primary">Sign in</a>
+        <a href="{% url 'login' %}"  name="login" class="btn btn-primary">Login</a>
 </form>
 </div>
 <br/><br/><br/>
 </div>
 {% endif %}
-{% endblock %}
