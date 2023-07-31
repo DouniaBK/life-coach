@@ -7,7 +7,7 @@ from django import forms
 class CustomUserCreationForm(UserCreationForm):
     class Meta:
         model = CustomUser
-        fields = ("email",)
+        fields = ("email", 'last_name', 'first_name')
 
 
 class CustomUserChangeForm(UserChangeForm):
@@ -28,7 +28,10 @@ class CustomAuthenticationForm(AuthenticationForm):
 
 class CustomUserCreationForm(UserCreationForm):
     email = forms.EmailField(required=True)
+    last_name = forms.CharField(required=True)
+    first_name = forms.CharField(required=True)
+    address = forms.CharField(required=True)
     
     class Meta:
         model = CustomUser
-        fields = ('email', 'password1', 'password2')
+        fields = ('email', 'last_name', 'first_name', 'password1', 'password2')

@@ -9,6 +9,9 @@ from django.conf import settings
 
 STATUS = ((0, "Draft"), (1, "Published"))
 class CustomUser(AbstractBaseUser, PermissionsMixin):
+    first_name = models.CharField(max_length=50, default='Client')
+    last_name = models.CharField(max_length=100, default='Client')
+    address = models.CharField(max_length=400, default='Address')
     email = models.EmailField(("Email Address"), unique=True)
     is_staff = models.BooleanField(default=False)
     is_active = models.BooleanField(default=True)
@@ -32,6 +35,6 @@ class Testimonial(models.Model):
         ordering = ["-name"]
 
     def __str__(self):
-        return f'Testimony {self.body} by {self.name}' # change the string to just title
+        return f'{self.name}' # change the string to return self.name
 
 

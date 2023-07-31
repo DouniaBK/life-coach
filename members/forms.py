@@ -5,10 +5,10 @@ from coachapp.models import CustomUser
 
 
 class RegisterUserForm(UserCreationForm):
-    email = forms.EmailField()
     first_name = forms.CharField(max_length=50)
     last_name = forms.CharField(max_length=100)
-
+    address = forms.CharField(max_length=400)
+    email = forms.EmailField()
     class Meta:
         model = CustomUser
-        fields = ('first_name', 'last_name', 'email', 'password1', 'password2')
+        fields = ('first_name', 'last_name', 'email', 'address', 'password1', 'password2')

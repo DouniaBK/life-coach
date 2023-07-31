@@ -4,10 +4,6 @@ from django.contrib.auth.base_user import BaseUserManager
 class CustomUserManager(BaseUserManager):
     """ An email is needed for authentification """
     def create_user(self, email, password, **extra_fields):
-        print("create_user")
-        print(email)
-        print(password)
-        print(extra_fields)
         if not email:
             raise ValueError(_("A valid Email address must be entered"))
         email = self.normalize_email(email)
