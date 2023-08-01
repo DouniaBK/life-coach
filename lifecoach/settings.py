@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'cloudinary',
     'coachapp',
     'members',
+    'booking',
 ]
 
 

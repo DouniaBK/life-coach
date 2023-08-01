@@ -1,8 +1,8 @@
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin, User
-from django.utils import timezone
 from .managers import CustomUserManager
 from django.conf import settings
+from django.utils import timezone
 
 
 # Create your models here.
@@ -36,5 +36,4 @@ class Testimonial(models.Model):
 
     def __str__(self):
         return f'{self.name}' # change the string to return self.name
-
 
