@@ -11,7 +11,10 @@
 {% endif %}
 
 {% if user.is_authenticated %}
-<h1 class="p-2 text-center mb-5 text-warning">You Are Already Signed in!</h1>
+    <h1 class="p-2 text-center mb-5 text-warning">You are Logged In!</h1>
+    <a type="button" class="nav-link btn btn-danger me-3" id="login-btn" name= "booking" href="{% url 'booking' %}">
+        Book an Appointment
+    </a>
 
 {% else %}
 

@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'coachapp',
     'members',
     'booking',
+    "bootstrap_datepicker_plus",
 ]
 
 
