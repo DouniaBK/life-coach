@@ -8,19 +8,19 @@ from django.contrib import messages
 
 def booking(request):
     
+    offset_param = int(request.GET.get('offset', "0"))
+
+    offset_weeks = timedelta(weeks=offset_param)
+
     # Get todays date and weekday
-    t_current = datetime.now()
-    print('Datetime is:', t_current)
+    t_current = datetime.now() + offset_weeks
     
     # get day of week as an integer
     weekday = t_current.weekday()
-    print('Day of a week is:', weekday)
 
     days_of_the_week = {}
     for i in range(0-weekday, 7-weekday):
         t_day = t_current + timedelta(days=i)
-        print('t_day weekday: ', t_day.weekday())
-        print('t_day day: ', t_day.strftime("%m/%d/%Y"))
         days_of_the_week[t_day.weekday()] = t_day.strftime("%m/%d/%Y")
 
     # if this is a POST request we need to process the form data
@@ -42,4 +42,4 @@ def booking(request):
         
     # if a GET (or any other method) we'll create a blank form
     form = CoachingSessionInputFormFrontEnd()
-    return render(request, 'booking.html', {'form': form, 'weekdays': days_of_the_week})
+    return render(request, 'booking.html', {'form': form, 'weekdays': days_of_the_week, 'currentWeekOffset': offset_param})

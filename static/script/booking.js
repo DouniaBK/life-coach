@@ -10,3 +10,7 @@ function onClickCallback(d, t) {
     
 }
 
+function onClickSelect() {
+    console.log("asdsadasdsad")
+}
+

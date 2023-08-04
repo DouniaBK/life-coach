@@ -21,31 +21,56 @@
                 </select>
             </div>
 
-            <div class="row d-flex flex-row">
-
-                {% for weekday, value in weekdays.items %}   
-                    <div class="d-flex flex-column">
-                        <div class="jajaja_IamLord" onclick="onClickCallback('{{value}}', '{{14}}')" style="
-                            height: 50px;
-                            width: 50px;
-                            background: rgb(184, 184, 184);
-                            cursor: pointer;"></div>
-                        <div class="jajaja_IamLord" onclick="onClickCallback('{{value}}', '{{15}}')" style="
-                            height: 50px;
-                            width: 50px;
-                            background: rgb(226, 226, 226);
-                            cursor: pointer;"></div>
-                        <div class="jajaja_IamLord" onclick="onClickCallback('{{value}}', '{{16}}')" style="
-                            height: 50px;
-                            width: 50px;
-                            background: rgb(184, 184, 184);
-                            cursor: pointer;"></div>
-                    </div>
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <li >
+                  <a href="{% url 'booking' %}?offset={{currentWeekOffset|add:-1}}">previous week</a>
+                </li>
+                <li >
+                  <a href="{% url 'booking' %}?offset={{currentWeekOffset|add:1}}">next week</a>
+                </li>
+              </ul>
+            <div class="scheduler">
+            <table class="paleBlueRows">
+                <thead>
+                <tr>
+                <th>Monday {{weekdays.0}}</th>
+                <th>Tuesday  {{weekdays.1}}</th>
+                <th>Wednesday  {{weekdays.2}}</th>
+                <th>Thursday  {{weekdays.3}}</th>
+                <th>Friday  {{weekdays.4}}</th>
+                <th>Saturday  {{weekdays.5}}</th>
+                <th>Sunday  {{weekdays.6}}</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                {% for weekday, value in weekdays.items %}
+                    <td style="cursor: pointer;" onclick="onClickCallback('{{value}}', '{{13}}')">13:00</td>
                 {% endfor %}
-                
+                </tr>
+                <tr>
+                {% for weekday, value in weekdays.items %}
+                    <td style="cursor: pointer;" onclick="onClickCallback('{{value}}', '{{14}}')">14:00</td>
+                {% endfor %}
+                </tr>
+                <tr>
+                {% for weekday, value in weekdays.items %}
+                    <td style="cursor: pointer;" onclick="onClickCallback('{{value}}', '{{15}}')">15:00</td>
+                {% endfor %}
+                </tr>
+                <tr>
+                    {% for weekday, value in weekdays.items %}
+                        <td style="cursor: pointer;" onclick="onClickCallback('{{value}}', '{{16}}')">16:00</td>
+                    {% endfor %}
+                </tr>
+                <tr>
+                    {% for weekday, value in weekdays.items %}
+                        <td style="cursor: pointer;" onclick="onClickCallback('{{value}}', '{{17}}')">17:00</td>
+                    {% endfor %}
+                </tr>
+                </tbody>
+                </table>
             </div>
-
-
                 <!-- Appointment -->
             <div class="mt-3">
                 <h3 class="">Select an appointment:</h3>
