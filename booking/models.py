@@ -1,11 +1,13 @@
 
 
+
+
 from django.db import models
 from datetime import datetime
 from django.contrib.auth.models import User
 from django.utils import timezone
 from coachapp.models import CustomUser
-from datetime import timedelta
+from datetime import timedelta, date, time
 
 
 # Create your models here.
@@ -17,12 +19,15 @@ COACHING_SERVICES_CHOICES = (
     ("Breakthrough to Freedom", "Breakthrough to Freedom"),
     )
 
-
-class Appointment(models.Model):
+class CoachingSession(models.Model):
     user = models.ForeignKey(CustomUser, on_delete=models.CASCADE, null=True, blank=True)
     service = models.CharField(max_length=200, choices=COACHING_SERVICES_CHOICES, default="")
     time = models.DateTimeField(default=datetime.now, blank=True)
     duration = models.DurationField(default=timedelta(minutes=60))
 
     def __str__(self):
-        return f'{self.user} | time: {self.time}'
+        return f'{self.user} | service: {self.service}'
+
+'''
+'''
+

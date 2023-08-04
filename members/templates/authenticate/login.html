@@ -12,18 +12,27 @@
 {% endif %}	
 
 	<div class="shadow p-4 mb-5 bg-body rounded">
-	<h1>Register</h1>
+	<h1>Log In</h1>
 <br/>
 
 
-		<form action="{% url 'register_user' %}" method=POST>
-			{% csrf_token %}
-
-			{{ form.as_p }}
-    <br/><br/>
-			<input type="submit" value="Submit" class="btn btn-secondary">
-
-		</form>
+<form method="POST" action="" class="">
+	{% csrf_token %}
+		<div class="mb-3">
+		  <label for="exampleInputEmail1" class="form-label fs-2">Email</label>
+		  <input type="text" width="" class="form-control form-control-lg" name="email" aria-describedby="emailHelp" placeholder="Username...">
+		</div>
+		<div class="mb-3">
+		  <label for="exampleInputPassword1" class="form-label fs-2">Password</label>
+		  <input type="password" class="form-control form-control-lg" placeholder="Password..." name="password">
+		</div>
+		<button type="submit" class="btn btn-primary">Log In</button>
+		</br>
+		<label class="form-label fs-3 mt-5">Don't Have An Account?</label>
+		</br>
+		<a href="{% url 'register_user' %}" name="register_user" class="btn btn-primary">Register</a> 
+	  </br>
+</form>
 		
 </div>
 <br/><br/>	

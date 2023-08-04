@@ -19,7 +19,7 @@ def login_user(request):
             return redirect('index')
         else:
             messages.success(request, ("Login Failed! Please, Try Again."))	
-            return redirect('login')	
+            return redirect('booking')	
 
     else:
         return render(request, 'authenticate/login.html', {})
@@ -41,7 +41,7 @@ def register_user(request):
             user = authenticate(username=username, password=password)
             login(request, user)
             messages.success(request, ('Registration Successful!'))
-            return redirect('index')
+            return redirect('booking')
     else:
         form = RegisterUserForm()
 

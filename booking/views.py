@@ -1,56 +1,45 @@
-from django.shortcuts import render
-from datetime import datetime, timezone
+from django.shortcuts import render, redirect
+from datetime import datetime, timezone, timedelta
 from bootstrap_datepicker_plus.widgets import DateTimePickerInput
-from .forms import AppointmentInputForm
+from .forms import CoachingSessionInputFormFrontEnd
+from django.contrib import messages
 
 # Create your views here.
 
-
 def booking(request):
+    
+    # Get todays date and weekday
+    t_current = datetime.now()
+    print('Datetime is:', t_current)
+    
+    # get day of week as an integer
+    weekday = t_current.weekday()
+    print('Day of a week is:', weekday)
+
+    days_of_the_week = {}
+    for i in range(0-weekday, 7-weekday):
+        t_day = t_current + timedelta(days=i)
+        print('t_day weekday: ', t_day.weekday())
+        print('t_day day: ', t_day.strftime("%m/%d/%Y"))
+        days_of_the_week[t_day.weekday()] = t_day.strftime("%m/%d/%Y")
+
     # if this is a POST request we need to process the form data
     if request.method == "POST":
         # create a form instance and populate it with data from the request:
-        form = AppointmentInputForm(request.POST)
+        form = CoachingSessionInputFormFrontEnd(request.POST)
         # check whether it's valid:
         if form.is_valid():
+            your_object = form.save(commit=False)
+            your_object.user = request.user
+            your_object.save()
             # process the data in form.cleaned_data as required
-            # ...
+            service = form.cleaned_data['service']
+            time = form.cleaned_data['time']
+            messages.success(request, ('Your appointment has been booked.'))
             # redirect to a new URL:
-            return HttpResponseRedirect("/thanks/")
-
+        else:
+            print("Error", form.errors)
+        
     # if a GET (or any other method) we'll create a blank form
-    else:
-        form = AppointmentInputForm()
-
-    return render(request, 'booking.html', {'form': form})
-
-
-
-"""
-    local = datetime.now()
-    time_utc = datetime.utcnow()
-    
-    form = null
-    if request.method == "POST":
-        # create a form instance and populate it with data from the request:
-        form = AppointmentInputForm(request.POST)
-
-    local_conv = local.strftime("%m/%d/%Y, %H:%M:%S")
-    time_utc_conv = time_utc.strftime("%m/%d/%Y, %H:%M:%S")
-    dt_now_conv = time_utc.strftime("%m/%d/%Y, %H:%M:%S")
-
-    today_to_utc_conv = local.utcnow().strftime("%m/%d/%Y, %H:%M:%S")
-
-    date = 1
-    weekdays = valid
-
-def validWeekday(days):
-    #Loop days you want in the next 21 days:
-    today = datetime.now()
-    weekdays = []
-    for i in range (0, days):
-        x = today + timedelta(days=i)
-        y = x.strftime('%A')
-        if y == 'Monday' or y == 'Saturday' or y == 'Wednesday':
-            weekdays.append(x.strftime('%Y-%m-%d'))
-    return weekdays"""
+    form = CoachingSessionInputFormFrontEnd()
+    return render(request, 'booking.html', {'form': form, 'weekdays': days_of_the_week})
