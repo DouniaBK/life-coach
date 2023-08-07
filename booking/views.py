@@ -3,6 +3,7 @@ from datetime import datetime, timezone, timedelta
 from bootstrap_datepicker_plus.widgets import DateTimePickerInput
 from .forms import CoachingSessionInputFormFrontEnd
 from django.contrib import messages
+from .models import CoachingSession
 
 # Create your views here.
 
@@ -23,6 +24,26 @@ def booking(request):
         t_day = t_current + timedelta(days=i)
         days_of_the_week[t_day.weekday()] = t_day.strftime("%m/%d/%Y")
 
+    # Check in database for existing sessions during that week
+    start_dt = datetime(2023, 8, 7)
+    end_dt = datetime(2023, 8, 12)
+    all_sessions = CoachingSession.objects.filter(time__gte=start_dt, time__lt=end_dt)
+
+    sessions_of_the_week = {}
+    for d in days_of_the_week:
+        date_of_that_day = days_of_the_week[d]
+        date_time_object_lower = datetime.strptime(date_of_that_day, "%m/%d/%Y")
+        date_time_object_upper = date_time_object_lower + timedelta(days=1)
+        days_sessions = all_sessions.filter(time__gte=date_time_object_lower, time__lte=date_time_object_upper)
+
+        sessions_of_the_week[d] = []
+        for s in days_sessions:
+            sessions_time_hours = s.time.strftime("%H")
+            sessions_of_the_week[d].append(sessions_time_hours)
+
+
+
+
     # if this is a POST request we need to process the form data
     if request.method == "POST":
         # create a form instance and populate it with data from the request:
@@ -42,4 +63,4 @@ def booking(request):
         
     # if a GET (or any other method) we'll create a blank form
     form = CoachingSessionInputFormFrontEnd()
-    return render(request, 'booking.html', {'form': form, 'weekdays': days_of_the_week, 'currentWeekOffset': offset_param})
+    return render(request, 'booking.html', {'form': form, 'weekdays': days_of_the_week, 'currentWeekOffset': offset_param, 'weeksSessions': sessions_of_the_week})

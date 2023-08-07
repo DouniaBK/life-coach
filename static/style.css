@@ -264,3 +264,8 @@ table.paleBlueRows tfoot {
 table.paleBlueRows tfoot td {
   font-size: 14px;
 }
+
+.disableME {
+  background-color: rgb(158, 158, 158);
+  cursor: auto !important;
+}

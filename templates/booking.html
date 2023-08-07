@@ -22,10 +22,10 @@
             </div>
 
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                <li >
+                <li>
                   <a href="{% url 'booking' %}?offset={{currentWeekOffset|add:-1}}">previous week</a>
                 </li>
-                <li >
+                <li>
                   <a href="{% url 'booking' %}?offset={{currentWeekOffset|add:1}}">next week</a>
                 </li>
               </ul>
@@ -43,31 +43,60 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                {% for weekday, value in weekdays.items %}
-                    <td style="cursor: pointer;" onclick="onClickCallback('{{value}}', '{{13}}')">13:00</td>
-                {% endfor %}
-                </tr>
-                <tr>
-                {% for weekday, value in weekdays.items %}
-                    <td style="cursor: pointer;" onclick="onClickCallback('{{value}}', '{{14}}')">14:00</td>
-                {% endfor %}
-                </tr>
-                <tr>
-                {% for weekday, value in weekdays.items %}
-                    <td style="cursor: pointer;" onclick="onClickCallback('{{value}}', '{{15}}')">15:00</td>
-                {% endfor %}
-                </tr>
-                <tr>
-                    {% for weekday, value in weekdays.items %}
-                        <td style="cursor: pointer;" onclick="onClickCallback('{{value}}', '{{16}}')">16:00</td>
-                    {% endfor %}
-                </tr>
-                <tr>
-                    {% for weekday, value in weekdays.items %}
-                        <td style="cursor: pointer;" onclick="onClickCallback('{{value}}', '{{17}}')">17:00</td>
-                    {% endfor %}
-                </tr>
+                    <tr>
+                        {% for weekday, value in weekdays.items %}
+                            <td class="{% for session_day, session_values in weeksSessions.items %}{% if session_day == weekday %}{% if '13' in session_values %}disableME{% endif %}{% endif %}{% endfor %}" 
+                                style="cursor: pointer;" 
+                                onclick="{% for session_day, session_values in weeksSessions.items %}{% if session_day == weekday %}{% if not '13' in session_values %}onClickCallback('{{value}}', '{{13}}') {% endif %}{% endif %}{% endfor %}">
+                                13:00
+                            </td>
+                        {% endfor %}
+                    </tr>
+                    <tr>
+                        {% for weekday, value in weekdays.items %}
+                            <td class="{% for session_day, session_values in weeksSessions.items %}{% if session_day == weekday %}{% if '14' in session_values %}disableME{% endif %}{% endif %}{% endfor %}" 
+                                style="cursor: pointer;" 
+                                onclick="{% for session_day, session_values in weeksSessions.items %}{% if session_day == weekday %}{% if not '14' in session_values %}onClickCallback('{{value}}', '{{14}}'){% endif %}{% endif %}{% endfor %}">
+                                14:00
+                            </td>
+                        {% endfor %}
+                    </tr>
+                    <tr>
+                        {% for weekday, value in weekdays.items %}
+                            <td class="{% for session_day, session_values in weeksSessions.items %}{% if session_day == weekday %}{% if '15' in session_values %}disableME{% endif %}{% endif %}{% endfor %}" 
+                                style="cursor: pointer;" 
+                                onclick="{% for session_day, session_values in weeksSessions.items %}{% if session_day == weekday %}{% if not '15' in session_values %}onClickCallback('{{value}}', '{{15}}'){% endif %}{% endif %}{% endfor %}">
+                                15:00
+                            </td>
+                        {% endfor %}
+                    </tr>
+                    <tr>
+                        {% for weekday, value in weekdays.items %}
+                            <td class="{% for session_day, session_values in weeksSessions.items %}{% if session_day == weekday %}{% if '16' in session_values %}disableME{% endif %}{% endif %}{% endfor %}" 
+                                style="cursor: pointer;" 
+                                onclick="{% for session_day, session_values in weeksSessions.items %}{% if session_day == weekday %}{% if not '16' in session_values %}onClickCallback('{{value}}', '{{16}}'){% endif %}{% endif %}{% endfor %}">
+                                16:00
+                            </td>
+                        {% endfor %}
+                    </tr>
+                    <tr>
+                        {% for weekday, value in weekdays.items %}
+                            <td class="{% for session_day, session_values in weeksSessions.items %}{% if session_day == weekday %}{% if '17' in session_values %}disableME{% endif %}{% endif %}{% endfor %}" 
+                                style="cursor: pointer;" 
+                                onclick="{% for session_day, session_values in weeksSessions.items %}{% if session_day == weekday %}{% if not '17' in session_values %}onClickCallback('{{value}}', '{{17}}'){% endif %}{% endif %}{% endfor %}">
+                                17:00
+                            </td>
+                        {% endfor %}
+                    </tr>
+                    <tr>
+                        {% for weekday, value in weekdays.items %}
+                            <td class="{% for session_day, session_values in weeksSessions.items %}{% if session_day == weekday %}{% if '18' in session_values %}disableME{% endif %}{% endif %}{% endfor %}" 
+                                style="cursor: pointer;" 
+                                onclick="{% for session_day, session_values in weeksSessions.items %}{% if session_day == weekday %}{% if not '18' in session_values %}onClickCallback('{{value}}', '{{18}}'){% endif %}{% endif %}{% endfor %}">
+                                18:00
+                            </td>
+                        {% endfor %}
+                    </tr>
                 </tbody>
                 </table>
             </div>
