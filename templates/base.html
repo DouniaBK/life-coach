@@ -59,6 +59,19 @@
               <li class="nav-item">
                 <a class="nav-link" id="nav-text" id="nav-text" name="about" href="{% url 'about' %}">About</a>
               </li>
+
+
+              {% if user.is_authenticated %}
+              <li class="nav-item">
+                <a class="nav-link" id="nav-text" href="booking">My Schedule</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" id="nav-text" href="members/user_profile">Profile</a>
+              </li>
+              {% endif %}
+
+
+
             </ul>
             
           </div>

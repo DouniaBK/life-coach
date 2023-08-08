@@ -12,3 +12,14 @@ class RegisterUserForm(UserCreationForm):
     class Meta:
         model = CustomUser
         fields = ('first_name', 'last_name', 'email', 'address', 'password1', 'password2')
+
+        
+
+class EditProfile(forms.ModelForm):
+    first_name = forms.CharField(max_length=50, disabled=True)
+    last_name = forms.CharField(max_length=100)
+    address = forms.CharField(max_length=400)
+    email = forms.EmailField()
+    class Meta:
+        model = CustomUser
+        fields = ('first_name', 'last_name', 'email', 'address')

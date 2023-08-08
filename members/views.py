@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from django.contrib.auth.forms import UserCreationForm
-from .forms import RegisterUserForm
+from .forms import RegisterUserForm, EditProfile
 
 # Members views are here.
 
@@ -46,3 +46,25 @@ def register_user(request):
         form = RegisterUserForm()
 
     return render(request, 'authenticate/register_user.html', {'form': form,})
+
+    
+def user_profile(request):
+    
+    is_edit = request.GET.get('edit', "false") == 'true'
+
+    user = request.user
+
+    form = EditProfile()
+
+    if request.method == "POST":
+        form = EditProfile(request.POST)
+        if form.is_valid():
+            form.save()
+            username = form.cleaned_data['email']
+            password = form.cleaned_data['password1']
+            user = authenticate(username=username, password=password)
+            login(request, user)
+            messages.success(request, ('Registration Successful!'))
+            return redirect('booking')
+
+    return render(request, 'user_profile.html', {'form': form, 'is_edit': is_edit,})

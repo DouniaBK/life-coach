@@ -1,0 +1,33 @@
+<title>Profile</title>
+
+{% load static %}
+
+
+{% if form.errors %}
+	<div class="alert alert-warning alert-dismissible fade show" role="alert">
+            There was an error with your form...
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+{% endif %}
+
+<div class="bg-white fPersian">
+<div class="shadow p-4 mb-5 bg-body bg-body rounded text-black  m-5">
+    <h1 class="text-black p-3 ">Profile</h1>
+
+<form method="POST" name="user_profile"  action="{% url 'user_profile' %}">
+    {% csrf_token %}
+
+       {{ form.as_p }}
+
+        <br/>
+
+        {% if is_edit %}
+            <button type="submit" class="btn btn-primary" name= "booking" href="{% url 'user_profile' %}">Cancel</button>
+            <button type="submit" class="btn btn-primary" name= "booking" href="{% url 'user_profile' %}?edit=true">Save</button>
+        {% endif %}
+
+</form>
+<a class="btn btn-primary" name= "booking" href="{% url 'user_profile' %}?edit=true">Edit Profile</a>
+</div>
+<br/><br/><br/>
+</div>

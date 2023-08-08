@@ -70,6 +70,7 @@ def booking(request):
             time = form.cleaned_data['time']
             messages.success(request, ('Your appointment has been booked.'))
             # redirect to a new URL:
+            return HttpResponseRedirect("/booking")
         else:
             print("Error", form.errors)
         
