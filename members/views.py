@@ -54,17 +54,11 @@ def user_profile(request):
 
     user = request.user
 
-    form = EditProfile()
-
-    if request.method == "POST":
-        form = EditProfile(request.POST)
-        if form.is_valid():
-            form.save()
-            username = form.cleaned_data['email']
-            password = form.cleaned_data['password1']
-            user = authenticate(username=username, password=password)
-            login(request, user)
-            messages.success(request, ('Registration Successful!'))
-            return redirect('booking')
+    form = EditProfile(request.POST or None, instance=user)
+    
+    if request.method == "POST" and form.is_valid() and is_edit:
+        form.save()
+        
+        return redirect('user_profile')
 
     return render(request, 'user_profile.html', {'form': form, 'is_edit': is_edit,})

@@ -16,7 +16,7 @@ class RegisterUserForm(UserCreationForm):
         
 
 class EditProfile(forms.ModelForm):
-    first_name = forms.CharField(max_length=50, disabled=True)
+    first_name = forms.CharField(max_length=50)
     last_name = forms.CharField(max_length=100)
     address = forms.CharField(max_length=400)
     email = forms.EmailField()
