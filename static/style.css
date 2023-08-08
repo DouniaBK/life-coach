@@ -269,3 +269,11 @@ table.paleBlueRows tfoot td {
   background-color: rgb(158, 158, 158);
   cursor: auto !important;
 }
+
+.cancel_session_container {
+    margin: 1rem;
+    /* width: auto; */
+    border: 1px solid grey;
+    padding: 5px;
+    width: 30%;
+}

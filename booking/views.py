@@ -42,6 +42,18 @@ def booking(request):
             sessions_of_the_week[d].append(sessions_time_hours)
 
 
+    # Get all appointments of the user
+   
+    all_user_sessions_templ = []
+    all_user_sessions = CoachingSession.objects.filter(user=request.user)
+    for us in all_user_sessions:
+        info = {}
+        info["id"] =us.id
+        info["time"] = us.time.strftime("%m/%d/%Y at %H:%M")
+
+        all_user_sessions_templ.append(info)
+
+
 
 
     # if this is a POST request we need to process the form data
@@ -63,4 +75,9 @@ def booking(request):
         
     # if a GET (or any other method) we'll create a blank form
     form = CoachingSessionInputFormFrontEnd()
-    return render(request, 'booking.html', {'form': form, 'weekdays': days_of_the_week, 'currentWeekOffset': offset_param, 'weeksSessions': sessions_of_the_week})
+    return render(request, 'booking.html', {'form': form, 'weekdays': days_of_the_week, 'currentWeekOffset': offset_param, 'weeksSessions': sessions_of_the_week, 'allUserSessions': all_user_sessions_templ})
+
+
+    
+def cancel(request):
+    # this cancels
