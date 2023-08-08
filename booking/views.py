@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404, HttpResponseRedirect
 from datetime import datetime, timezone, timedelta
 from bootstrap_datepicker_plus.widgets import DateTimePickerInput
 from .forms import CoachingSessionInputFormFrontEnd
@@ -79,5 +79,11 @@ def booking(request):
 
 
     
-def cancel(request):
+def cancel_session(request):
     # this cancels
+    id = int(request.GET.get('id', "-1"))
+    booked_session = get_object_or_404(CoachingSession, id=id) 
+    if request.method == "GET":
+        booked_session.delete()
+        return HttpResponseRedirect("/booking")
+    return render(request, "booking.html", context)

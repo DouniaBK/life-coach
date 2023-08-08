@@ -119,7 +119,7 @@
     <div class="cancel_session_container">
         
     {{session.time}}
-    <a href="" class="btn btn-primary shadow text-center">Cancel</a>
+    <a href="{% url 'cancel_session' %}?id={{session.id}}" class="btn btn-primary shadow text-center">Cancel</a>
 
     </div>
     {% endfor %}
