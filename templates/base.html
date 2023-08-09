@@ -56,14 +56,11 @@
                   <li><a class="dropdown-item" href="#" target="_blank">Podcast</a></li>
                 </ul>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" id="nav-text" id="nav-text" name="about" href="{% url 'about' %}">About</a>
-              </li>
 
 
               {% if user.is_authenticated %}
               <li class="nav-item">
-                <a class="nav-link" id="nav-text" href="booking">My Schedule</a>
+                <a type="button" class="btn btn-primary" data-mdb-toggle="modal" data-mdb-target="#exampleModal" class="nav-link" id="nav-text" href="booking">My Schedule</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" id="nav-text" href="members/user_profile">Profile</a>
@@ -167,149 +164,14 @@
 </header>
     <main class="flex-shrink-0 main-bg">
       <div>
+        <!-- Introduction Coache go here-->
         {% include 'about.html' %}
       </div>
-      
-          <div class="container coaching-services">
-            <div class="row " id="coaching-services">
-                <div class="mb-1 col-10 pb-1 pt-3 text-center">
-                    <h3>Coaching Services</h3>
-                    <p class="lead">
-                        Get to know the four 1:1 programs I offer and book
-                        a free 30-minute discovery call with me to
-                        explore how I can support you in achieving
-                        your goals and transforming your life.
-                      </p>
-                      
-                </div>
-                <div class="col-10 col-10 pb-3 pt-3 text-center">
-                    <!-- Tabs navs -->
-                    <ul class="nav nav-tabs nav-justified mb-3" id="ex1" role="tablist">
-                        <li class="nav-item" role="presentation">
-                          <a
-                            class="nav-link active lead "
-                            id="ex3-tab-1"
-                            data-bs-toggle="tab"
-                            href="#ex3-tabs-1"
-                            role="tab"
-                            aria-controls="ex3-tabs-1"
-                            aria-selected="true"
-                            >Freedom and Thrive</a
-                          >
-                        </li>
-                        <li class="nav-item" role="presentation">
-                          <a
-                            class="nav-link lead"
-                            id="ex3-tab-2"
-                            data-bs-toggle="tab"
-                            href="#ex3-tabs-2"
-                            role="tab"
-                            aria-controls="ex3-tabs-2"
-                            aria-selected="true"
-                            >Ignite Your Potential</a
-                          >
-                        </li>
-                        <li class="nav-item" role="presentation">
-                          <a
-                            class="nav-link lead"
-                            id="ex3-tab-3"
-                            data-bs-toggle="tab"
-                            href="#ex3-tabs-3"
-                            role="tab"
-                            aria-controls="ex3-tabs-3"
-                            aria-selected="true"
-                            >Unleash Your Extraordinary Life</a
-                          >
-                        </li>
-                        <li class="nav-item" role="presentation">
-                            <a
-                              class="nav-link lead"
-                              id="ex3-tab-3"
-                              data-bs-toggle="tab"
-                              href="#ex3-tabs-4"
-                              role="tab"
-                              aria-controls="ex3-tabs-4"
-                              aria-selected="true"
-                              >Breakthrough to Freedom</a
-                            >
-                          </li>
-                      </ul>
-                      <!-- Tabs navs -->
-                      
-                      <!-- Tabs content -->
-                      <div class="tab-content mb-2" id="ex2-content">
-                        <div
-                          class="tab-pane fade show active"
-                          id="ex3-tabs-1"
-                          role="tabpanel"
-                          aria-labelledby="ex3-tab-1"
-                        >
-                        <h4> 12 Week Program total of 10 sessions</h4>
-                        <p class="lead" id="coaching-services-p">
-                            A transformative 12-week program 
-                            designed exclusively for cancer patients on their journey to 
-                            reclaiming their lives. Whether you've recently been diagnosed, 
-                            are currently undergoing treatment, or have completed your 
-                            treatment and are seeking guidance for the future, this program
-                            is tailored to meet your unique needs and empower you to thrive   
-                        </p>  
-                        </div>
-                        <div
-                          class="tab-pane fade"
-                          id="ex3-tabs-2"
-                          role="tabpanel"
-                          aria-labelledby="ex3-tab-2"
-                        >
-                        <h4> The Transformational 4-Session Journey </h4>
-                        <p class="lead" id="coaching-services-p">
-                            In these four personalised one-hour coaching sessions, we will
-                            embark on a deep exploration of your goals, dreams, and aspirations,
-                            meticulously tailoring our approach to your unique needs. Whether
-                            you're striving for career advancement, seeking clarity in relationships,
-                            aiming to overcome self-doubt, or desiring a greater sense of purpose,
-                            we will work together to overcome any obstacles that stand in your way.   
-                        </p> 
-                        </div>
-                        <div
-                          class="tab-pane fade"
-                          id="ex3-tabs-3"
-                          role="tabpanel"
-                          aria-labelledby="ex3-tab-3"
-                        >
-                        <h4> A Journey of 8 Transformative Sessions </h4>
-                        <p class="lead" id="coaching-services-p">
-                            For those seeking a more comprehensive experience, 
-                            "Unleash Your Extraordinary: A Journey of 8 Transformative Sessions" 
-                            offers an immersive series of eight one-hour bespoke coaching sessions.
-                            This captivating program delves even deeper into your unique journey,
-                            providing invaluable insights, guidance, and support every step of the way.   
-                        </p> 
-                        </div>
-                        <div
-                          class="tab-pane fade"
-                          id="ex3-tabs-4"
-                          role="tabpanel"
-                          aria-labelledby="ex3-tabs-4"
-                        >
-                        <h4> Rapid Transformation for Lasting Change</h4>
-                        <p class="lead" id="coaching-services-p">
-                            Experience Rapid Transformation and Unleash Your Full Potential in
-                            a Single Power-Packed Session! Are you tired of being held back by
-                            fears, phobias, or negative habits that are keeping you from living 
-                            your best life? Imagine the exhilarating feeling of breaking free from
-                            limitations and stepping into a world of endless possibilities.
-                            Now, you can achieve that incredible transformation in just a few hours with my incredible breakthrough session.
-                      
-                        </p> 
-                        </div>
-                      </div>
-                      <!-- Tabs content -->
-                      <a type="button" class=" btn btn-danger" id="booking-btn" href="{% url 'booking' %}">
-                        Book a Call
-                      </a>
-                </div>
-            </div>
-        </div>
+      <div>
+        <!-- Coaching Services go here-->
+        {% include 'services.html' %}
+      </div>
+          
         <!--Devider Image-->
           <img src="{% static 'images/devider-img.png' %}" class="img-fluid" id="divider-img" alt="Responsive image">
 

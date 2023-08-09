@@ -86,9 +86,9 @@ body {
 /*Background image*/
 
 .c-img {
-  height: 100%;
-  object-fit: cover;
+  height: -webkit-fill-available;
   position: absolute;
+  object-position: 0 0;
 }
 
 
@@ -277,3 +277,73 @@ table.paleBlueRows tfoot td {
     padding: 5px;
     width: 30%;
 }
+
+/*Login*/
+
+
+.login-box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 400px;
+  padding: 40px;
+  transform: translate(-50%, -50%);
+  background: rgb(243 141 141 / 71%);
+  box-sizing: border-box;
+  box-shadow: 0 15px 25px rgba(146, 146, 226, 0.363);
+  border-radius: 10px;
+}
+
+.login-box h1 {
+  margin: 0 0 30px;
+  padding: 0;
+  color: #fff;
+  text-align: center;
+}
+
+.login-box .user-box {
+  position: relative;
+}
+
+.login-box .user-box input {
+  width: 100%;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #fff;
+  margin-bottom: 30px;
+  border: none;
+  border-bottom: 1px solid #fff;
+  outline: none;
+  background: transparent;
+}
+
+.login-box .user-box label {
+  display: inline-block;
+  width: 100%;
+  position: relative;
+  margin: 0 0 0.5em;
+  font-weight: bold;
+  color: #222;
+}
+
+#btn-form {
+  color: #fff;
+  background-color: #17a2b8b0;
+  font-size: larger;
+  font-weight: 500;
+  border: none;
+
+}
+
+#body-form {
+  background-color: #e3391529;;
+
+}
+
+#form-p{
+  color: #117a8b;
+  padding: 13px;
+  margin-top: 2;
+  margin-bottom: 2;
+}
+
