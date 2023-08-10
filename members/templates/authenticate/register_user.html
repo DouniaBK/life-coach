@@ -8,59 +8,59 @@
 
 <body id="body-form">
     <div class="row">
-{% if form.errors %}
-	<div class="alert alert-warning alert-dismissible fade show" role="alert">
-            There was an error with your form...
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-    </div>
-{% endif %}
+            {% if form.errors %}
+                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                        There was an error with your form...
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            {% endif %}
 
-{% if user.is_authenticated %}
-    <h1 class="p-2 text-center mb-5 text-warning">You are Logged In!</h1>
-    <a type="button" class="nav-link btn btn-danger me-3" id="login-btn" name= "booking" href="{% url 'booking' %}">
-        Book an Appointment
-    </a>
+            {% if user.is_authenticated %}
+                <h1 class="p-2 text-center mb-5 text-warning">You are Logged In!</h1>
+                <a type="button" class="nav-link btn btn-danger me-3" id="login-btn" name= "booking" href="{% url 'booking' %}">
+                    Book an Appointment
+                </a>
 
-{% else %}
+            {% else %}
 
 
-<div class="login-box">
-    <h1>Register</h1>
+            <div class="login-box">
+                <h1>Register</h1>
 
-<form method="POST" name="register_user"  action="{% url 'register_user' %}">
-    {% csrf_token %}
-    <div class="form-outline mb-4">
-        <label class="form-label" for="first_name">First Name</label>
-        <input type="text" id="first_name" class="form-control" name="first_name" aria-describedby="emailHelp">
-    </div>
-    <div class="form-outline mb-4">
-        <label class="form-label" for="last_name">Last Name</label>
-        <input type="text" id="last_name" class="form-control" name="last_name" aria-describedby="emailHelp">
-    </div>
+                    <form method="POST" name="register_user"  action="{% url 'register_user' %}">
+                        {% csrf_token %}
+                        <div class="form-outline mb-4">
+                            <label class="form-label" for="first_name">First Name</label>
+                            <input type="text" id="first_name" class="form-control" name="first_name" aria-describedby="emailHelp">
+                        </div>
+                        <div class="form-outline mb-4">
+                            <label class="form-label" for="last_name">Last Name</label>
+                            <input type="text" id="last_name" class="form-control" name="last_name" aria-describedby="emailHelp">
+                        </div>
 
-    <div class="form-outline mb-4">
-        <label class="form-label" for="address">Address</label>
-        <input type="text" id="address" class="form-control" name="address" aria-describedby="emailHelp">
-    </div>
-    <div class="form-outline mb-4">
-        <label class="form-label" for="email">email</label>
-        <input type="email" id="email" class="form-control" name="email" aria-describedby="emailHelp">
-    </div>
-    <div class="form-outline mb-4">
-        <label class="form-label" for="password1">Password</label>
-        <input type="password" id="password1" class="form-control" name="password1" aria-describedby="emailHelp">
-    </div>
-    <div class="form-outline mb-4">
-        <label class="form-label" for="password2">Confirm Password</label>
-        <input type="password" id="password2" class="form-control" name="password2" aria-describedby="emailHelp">
-    </div>
+                        <div class="form-outline mb-4">
+                            <label class="form-label" for="address">Address</label>
+                            <input type="text" id="address" class="form-control" name="address" aria-describedby="emailHelp">
+                        </div>
+                        <div class="form-outline mb-4">
+                            <label class="form-label" for="email">email</label>
+                            <input type="email" id="email" class="form-control" name="email" aria-describedby="emailHelp">
+                        </div>
+                        <div class="form-outline mb-4">
+                            <label class="form-label" for="password1">Password</label>
+                            <input type="password" id="password1" class="form-control" name="password1" aria-describedby="emailHelp">
+                        </div>
+                        <div class="form-outline mb-4">
+                            <label class="form-label" for="password2">Confirm Password</label>
+                            <input type="password" id="password2" class="form-control" name="password2" aria-describedby="emailHelp">
+                        </div>
 
-        <button type="submit" class="btn btn-primary btn-block" id="btn-form" name="booking" href="{% url 'booking' %}">Book a Session</button>
-        <div class="text-center">
-            <p id="form-p">Already Have An Account?</p>
-        <a href="{% url 'login' %}"  name="login" id="btn-form" class="btn btn-primary btn-block">Login</a>
-        </div></form>
-</div>
-</div>
+                            <button type="submit" class="btn btn-primary btn-block" id="btn-form" name="booking" href="{% url 'booking' %}">Book a Session</button>
+                            <div class="text-center">
+                                <p id="form-p">Already Have An Account?</p>
+                            <a href="{% url 'login' %}"  name="login" id="btn-form" class="btn btn-primary btn-block">Login</a>
+                            </div></form>
+            </div>
+    </div>
 </body>
 {% endif %}

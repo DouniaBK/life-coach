@@ -39,6 +39,23 @@ body {
     font-size: larger;
 }
 
+/*LOGIN Icon*/
+.fa-user:before {
+  content: "\f007";
+  color: #4fa3bf;
+  padding: 3px;
+}
+
+ul.dropdown-menu.show {
+  top: 100%;
+  margin-top: 0.125rem;
+  background-color: #ffffffed;
+}
+
+.dropdown-menu[data-bs-popper] {
+  right: 0!important;
+  left: auto;
+}
 /*LOGIN Btn*/
 .btn-danger {
   background-color: #ef8791;
@@ -49,6 +66,9 @@ body {
   color: #fff;
 }
 
+li {
+  list-style: none;
+}
 
 /* Color of the links BEFORE scroll */
 .navbar-scroll .nav-link,
@@ -179,8 +199,28 @@ footer {
 
 #booking-btn {
   margin: 1rem;
-  width: 8rem;
+  width: 11rem;
 }
+
+
+/*Booking Sessions*/
+#no-account-p{
+  color: #000000;
+}
+
+#scheduler-container{
+  background: rgb(255 255 255 / 87%);
+  box-sizing: border-box;
+  box-shadow: 0 15px 25px rgba(146, 146, 226, 0.363);
+  border-radius: 10px;
+}
+
+#scheduler-next{
+  display: flex;
+  justify-content: space-around;
+}
+
+
 /*divider image*/
 #divider-img {
   background-color: #0dcaf008;
@@ -211,13 +251,7 @@ footer {
   width: 100%;
 }
 
-/*Booking Sessions*/
 
-.jajaja_IamLord {
-  height: 50px;
-  width: 50px;
-  background: red;
-}
 
 /*Calendar Table*/
 
@@ -346,4 +380,6 @@ table.paleBlueRows tfoot td {
   margin-top: 2;
   margin-bottom: 2;
 }
+
+
 
