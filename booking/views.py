@@ -39,11 +39,12 @@ def booking(request):
         sessions_of_the_week[d] = []
         for s in days_sessions:
             sessions_time_hours = s.time.strftime("%H")
+            isme = s.user == request.user
+            if isme:
+                sessions_time_hours = sessions_time_hours + 'me'
             sessions_of_the_week[d].append(sessions_time_hours)
 
-
     # Get all appointments of the user
-   
     all_user_sessions_templ = []
     all_user_sessions = CoachingSession.objects.filter(user=request.user)
     for us in all_user_sessions:
@@ -53,8 +54,9 @@ def booking(request):
 
         all_user_sessions_templ.append(info)
 
-
-
+    hours_vec = []
+    for i in range(8,21):
+        hours_vec.append(str(i))
 
     # if this is a POST request we need to process the form data
     if request.method == "POST":
@@ -76,7 +78,7 @@ def booking(request):
         
     # if a GET (or any other method) we'll create a blank form
     form = CoachingSessionInputFormFrontEnd()
-    return render(request, 'booking.html', {'form': form, 'weekdays': days_of_the_week, 'currentWeekOffset': offset_param, 'weeksSessions': sessions_of_the_week, 'allUserSessions': all_user_sessions_templ})
+    return render(request, 'booking.html', {'form': form, 'weekdays': days_of_the_week, 'currentWeekOffset': offset_param, 'weeksSessions': sessions_of_the_week, 'allUserSessions': all_user_sessions_templ, 'scheduleHours': hours_vec})
 
 
     

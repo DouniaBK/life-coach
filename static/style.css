@@ -299,9 +299,26 @@ table.paleBlueRows tfoot td {
   font-size: 14px;
 }
 
+
+table td {
+  border: 1px solid  rgb(255, 255, 255)
+}
+
+table td:hover {
+  background: rgb(172 218 225);
+}
+
+table td:visited {
+  background: rgb(172 218 225);
+}
+
 .disableME {
-  background-color: rgb(158, 158, 158);
+  background-color: rgb(204, 204, 204) !important;
   cursor: auto !important;
+}
+
+.isMine {
+  background: rgb(172 218 225) !important;
 }
 
 .cancel_session_container {
@@ -379,6 +396,16 @@ table.paleBlueRows tfoot td {
   padding: 13px;
   margin-top: 2;
   margin-bottom: 2;
+}
+
+#nav-form{
+  position: absolute!important;
+}
+
+#nav-form-link{
+  color: #ffffff;
+  font-size: x-large;
+  display: block;
 }
 
 

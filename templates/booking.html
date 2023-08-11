@@ -8,8 +8,29 @@
 {% if user.is_authenticated %}
 <body id="body-form">
     
+        <header>
+            <!-- Navbar -->
+            <nav class="nav" id="nav-form">
+                <a class="nav-link active" id="nav-form-link" href="{% url 'index' %}">Home</a>
+                <a class="nav-link" id="nav-form-link" name= "user_profile" href="{% url 'user_profile' %}">Profile</a>
+                <a class="nav-link" id="nav-form-link" name= "logout" href="{% url 'logout' %}">
+                    Logout
+                  </a>
+
+            </nav>
+            <!-- Navbar -->
+            <!-- Jumbotron -->
+            <div class="p-5 text-center" 
+                style=" background-color: #117a8bb5!important; background-image: url('../static/images/selfcare.png');
+            height: 400px;">
+              <h1 class="mb-3">Natalie Coaching</h1>
+              <h4 class="mb-3">Succeed without the guilt</h4>
+            </div>
+            <!-- Jumbotron -->
+          </header>
+
 	<div class="row p-5">
-    
+
     <div class="container" id="scheduler-container">
         <form method="post" name="booking"   action="{% url 'booking' %}" class="" required>
              <div class="col-9 pb-3"></div>
@@ -27,7 +48,7 @@
             -->
 
             <div class="table-responsive">
-            <table class="table table-hover">
+            <table class="table">
                 <thead class="thead-light">
                 <tr>
                 <th scope="col">Monday {{weekdays.0}}</th>
@@ -40,66 +61,18 @@
                 </tr>
                 </thead>
                 <tbody>
+                    {% for hour in scheduleHours %}
                     <tr>
-                        {% for weekday, value in weekdays.items %}
-                            <td scope="row" 
-                                class="{% for session_day, session_values in weeksSessions.items %}{% if session_day == weekday %}{% if '13' in session_values %}disableME{% endif %}{% endif %}{% endfor %}" 
-                                style="cursor: pointer;" 
-                                onclick="{% for session_day, session_values in weeksSessions.items %}{% if session_day == weekday %}{% if not '13' in session_values %}onClickCallback('{{value}}', '{{13}}') {% endif %}{% endif %}{% endfor %}">
-                                13:00
-                            </td>
-                        {% endfor %}
+                            {% for weekday, value in weekdays.items %}
+                                <td scope="row" 
+                                    class="{% for session_day, session_values in weeksSessions.items %}{% if session_day == weekday %}   {% if hour in session_values %}disableME{% endif %} {% if hour|add:"me" in session_values %}disableME isMine{% endif %} {% endif %}{% endfor %}" 
+                                    style="cursor: pointer;" 
+                                    onclick="{% for session_day, session_values in weeksSessions.items %}{% if session_day == weekday %}{% if not hour in session_values %}onClickCallback('{{value}}', '{{hour}}') {% endif %}{% endif %}{% endfor %}">
+                                    {{hour}}:00
+                                </td>
+                            {% endfor %}
                     </tr>
-                    <tr>
-                        {% for weekday, value in weekdays.items %}
-                            <td scope="row" 
-                                class="{% for session_day, session_values in weeksSessions.items %}{% if session_day == weekday %}{% if '14' in session_values %}disableME{% endif %}{% endif %}{% endfor %}" 
-                                style="cursor: pointer;" 
-                                onclick="{% for session_day, session_values in weeksSessions.items %}{% if session_day == weekday %}{% if not '14' in session_values %}onClickCallback('{{value}}', '{{14}}'){% endif %}{% endif %}{% endfor %}">
-                                14:00
-                            </td>
-                        {% endfor %}
-                    </tr>
-                    <tr>
-                        {% for weekday, value in weekdays.items %}
-                            <td scope="row" 
-                                class="{% for session_day, session_values in weeksSessions.items %}{% if session_day == weekday %}{% if '15' in session_values %}disableME{% endif %}{% endif %}{% endfor %}" 
-                                style="cursor: pointer;" 
-                                onclick="{% for session_day, session_values in weeksSessions.items %}{% if session_day == weekday %}{% if not '15' in session_values %}onClickCallback('{{value}}', '{{15}}'){% endif %}{% endif %}{% endfor %}">
-                                15:00
-                            </td>
-                        {% endfor %}
-                    </tr>
-                    <tr>
-                        {% for weekday, value in weekdays.items %}
-                            <td scope="row" 
-                                class="{% for session_day, session_values in weeksSessions.items %}{% if session_day == weekday %}{% if '16' in session_values %}disableME{% endif %}{% endif %}{% endfor %}" 
-                                style="cursor: pointer;" 
-                                onclick="{% for session_day, session_values in weeksSessions.items %}{% if session_day == weekday %}{% if not '16' in session_values %}onClickCallback('{{value}}', '{{16}}'){% endif %}{% endif %}{% endfor %}">
-                                16:00
-                            </td>
-                        {% endfor %}
-                    </tr>
-                    <tr>
-                        {% for weekday, value in weekdays.items %}
-                            <td scope="row" 
-                                class="{% for session_day, session_values in weeksSessions.items %}{% if session_day == weekday %}{% if '17' in session_values %}disableME{% endif %}{% endif %}{% endfor %}" 
-                                style="cursor: pointer;" 
-                                onclick="{% for session_day, session_values in weeksSessions.items %}{% if session_day == weekday %}{% if not '17' in session_values %}onClickCallback('{{value}}', '{{17}}'){% endif %}{% endif %}{% endfor %}">
-                                17:00
-                            </td>
-                        {% endfor %}
-                    </tr>
-                    <tr>
-                        {% for weekday, value in weekdays.items %}
-                            <td scope="row" 
-                                class="{% for session_day, session_values in weeksSessions.items %}{% if session_day == weekday %}{% if '18' in session_values %}disableME{% endif %}{% endif %}{% endfor %}" 
-                                style="cursor: pointer;" 
-                                onclick="{% for session_day, session_values in weeksSessions.items %}{% if session_day == weekday %}{% if not '18' in session_values %}onClickCallback('{{value}}', '{{18}}'){% endif %}{% endif %}{% endfor %}">
-                                18:00
-                            </td>
-                        {% endfor %}
-                    </tr>
+                    {% endfor %}
                 </tbody>
                 </table>
                 </div>
@@ -150,5 +123,7 @@
 </div>
 </div>
 </div>
+      <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+      <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
 </body>
   
