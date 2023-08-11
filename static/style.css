@@ -211,8 +211,10 @@ footer {
 #scheduler-container{
   background: rgb(255 255 255 / 87%);
   box-sizing: border-box;
-  box-shadow: 0 15px 25px rgba(146, 146, 226, 0.363);
   border-radius: 10px;
+  min-height: 87vh;
+  padding: 5rem;
+  border: 1px solid #c3c3c3;
 }
 
 #scheduler-next{
@@ -383,12 +385,11 @@ table td:visited {
   font-size: larger;
   font-weight: 500;
   border: none;
-
+  width: auto;
 }
 
 #body-form {
-  background-color: #e3391529;;
-
+  background-color: #e3391514;
 }
 
 #form-p{
@@ -398,9 +399,20 @@ table td:visited {
   margin-bottom: 2;
 }
 
+.form-label{
+  color: black;
+}
+
+.btn-primary {
+  color: #fff !important;
+  background-color: #17a2b8b0 !important;
+  border: none !important;
+}
+
 #nav-form{
   background-color: #ffffff;
   padding: 1rem;
+  border-bottom: 1px solid #c3c3c3;
 }
 
 #nav-form-link{
@@ -409,5 +421,56 @@ table td:visited {
   display: block;
 }
 
+/*Profile*/
 
+
+.profile-box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 400px;
+  padding: 40px;
+  transform: translate(-50%, -50%);
+  background: rgb(243 141 141 / 71%);
+  box-sizing: border-box;
+  box-shadow: 0 15px 25px rgba(146, 146, 226, 0.363);
+  border-radius: 10px;
+}
+
+.profile-box h1 {
+  margin: 0 0 30px;
+  padding: 0;
+  color: #fff;
+  text-align: center;
+}
+
+.profile-box .user-box {
+  position: relative;
+}
+
+.profile-box .user-box input {
+  width: 100%;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #fff;
+  margin-bottom: 30px;
+  border: none;
+  border-bottom: 1px solid #fff;
+  outline: none;
+  background: transparent;
+}
+
+.profile-box .user-box label {
+  display: inline-block;
+  width: 100%;
+  position: relative;
+  margin: 0 0 0.5em;
+  font-weight: bold;
+  color: #222;
+}
+
+.form-profile > p {
+  display: flex;
+  flex-direction: column;
+}
 

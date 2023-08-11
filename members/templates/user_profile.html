@@ -7,7 +7,24 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
 <body id="body-form">
-    <div class="row"></div>
+    <header>
+        <!-- Navbar -->
+        <nav class="nav" id="nav-form">
+            <a class="nav-link active" id="nav-form-link" href="{% url 'index' %}">Home</a>
+            <a class="nav-link" id="nav-form-link" name= "booking" href="{% url 'booking' %}">Coaching Session</a>
+            <a class="nav-link" id="nav-form-link" name= "logout" href="{% url 'logout' %}">Logout</a>
+
+        </nav>
+        <!-- Navbar -->
+        <!-- Jumbotron 
+        <div class="p-5 text-center bg-image" style=" background-color: #117a8bb5!important;">
+        <img src="{% static 'images/selfcare.png' %}" class="img-fluid" alt="Responsive image">
+          <h1 class="mb-3">Natalie Coaching</h1>
+          <h4 class="mb-3">Succeed without the guilt</h4>
+        </div>-->
+        <!-- Jumbotron -->
+      </header>
+    <div class="row p-5">
 
             {% if form.errors %}
                 <div class="alert alert-warning alert-dismissible fade show" role="alert">
@@ -16,37 +33,42 @@
                 </div>
             {% endif %}
 
-                <div class="login-box">
+                <div class="container" id="scheduler-container">
 
-                    <h1>Register</h1>
+                    <h1>Profile</h1>
 
                     <form method="POST" name="user_profile"  action="{% url 'user_profile' %}">
                         {% csrf_token %}
-
+                        <div class="form-profile">
                         {{ form.as_p }}
+                        </div>
                         <!--
                         <div class="form-outline mb-4">
-                            <label class="form-label" for="first_name">First Name</label>
-                            <input type="text" id="first_name" class="form-control" name="first_name" aria-describedby="emailHelp">
+                            <label class="form-label" for="id_first_name">First Name</label>
+                            <input type="text" id="id_first_name" class="form-control" name="first_name" aria-describedby="first_name" required>
                         </div>
                         <div class="form-outline mb-4">
-                            <label class="form-label" for="last_name">Last Name</label>
-                            <input type="text" id="last_name" class="form-control" name="last_name" aria-describedby="emailHelp">
-                        </div>
-
-                        <div class="form-outline mb-4">
-                            <label class="form-label" for="address">Address</label>
-                            <input type="text" id="address" class="form-control" name="address" aria-describedby="emailHelp">
+                            <label class="form-label" for="id_last_name">Last Name</label>
+                            <input type="text" id="id_last_name" class="form-control" name="last_name" aria-describedby="last_name" required>
                         </div>
                         <div class="form-outline mb-4">
-                            <label class="form-label" for="email">email</label>
-                            <input type="email" id="email" class="form-control" name="email" aria-describedby="emailHelp">
-                        </div>-->
+                            <label class="form-label" for="id_email">Email</label>
+                            <input type="email" id="id_email" class="form-control" name="email" aria-describedby="email" required>
+                        </div>
+                        <div class="form-outline mb-4">
+                            <label class="form-label" for="id_address">Home Address</label>
+                            <input type="text" id="id_address" class="form-control" name="address" aria-describedby="address" required>
+                        </div>
+                        -->
                         {% if is_edit %}
+                        <div style="display:flex; width: 100%; justify-content: space-between;">
                             <button type="submit" class="btn btn-primary" name= "booking" href="{% url 'user_profile' %}">Cancel</button>
                             <button type="submit" class="btn btn-primary" name= "booking" href="{% url 'user_profile' %}?edit=true">Save</button>
+                        </div>
+                           
+                        {% else %}
+                            <a class="btn btn-primary btn-block" id="btn-form" name= "booking" href="{% url 'user_profile' %}?edit=true">Edit Profile</a>
                         {% endif %}
-                        <a class="btn btn-primary btn-block" id="btn-form" name= "booking" href="{% url 'user_profile' %}?edit=true">Edit Profile</a>
                     </form>
                     
                 </div>
