@@ -6,7 +6,6 @@ from django.contrib import messages
 from .models import CoachingSession
 
 # Create your views here.
-
 def booking(request):
     
     offset_param = int(request.GET.get('offset', "0"))
