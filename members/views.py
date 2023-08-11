@@ -51,12 +51,14 @@ def register_user(request):
 def user_profile(request):
     
     is_edit = request.GET.get('edit', "false") == 'true'
+    is_edit_post = request.POST.get('edit', "false") == 'true'
+    is_edit_raw = request.GET.get('edit', "false")
 
     user = request.user
 
     form = EditProfile(request.POST or None, instance=user)
     
-    if request.method == "POST" and form.is_valid() and is_edit:
+    if request.method == "POST" and form.is_valid():
         form.save()
         
         return redirect('user_profile')

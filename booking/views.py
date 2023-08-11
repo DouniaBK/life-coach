@@ -8,6 +8,9 @@ from .models import CoachingSession
 # Create your views here.
 def booking(request):
     
+    h_min = 8
+    h_max = 21
+
     offset_param = int(request.GET.get('offset', "0"))
 
     offset_weeks = timedelta(weeks=offset_param)
@@ -43,6 +46,13 @@ def booking(request):
                 sessions_time_hours = sessions_time_hours + 'me'
             sessions_of_the_week[d].append(sessions_time_hours)
 
+    # Fill in all sessions in the past (grey out past days sessions in scheduler)
+    for d in days_of_the_week:
+        if d <= weekday:
+            for i in range(h_min, h_max):
+                if not str(i) in sessions_of_the_week[d] and not (str(i) + "me") in sessions_of_the_week[d]:
+                    sessions_of_the_week[d].append(str(i))
+
     # Get all appointments of the user
     all_user_sessions_templ = []
     all_user_sessions = CoachingSession.objects.filter(user=request.user)
@@ -54,7 +64,7 @@ def booking(request):
         all_user_sessions_templ.append(info)
 
     hours_vec = []
-    for i in range(8,21):
+    for i in range(h_min, h_max):
         hours_vec.append(str(i))
 
     # if this is a POST request we need to process the form data

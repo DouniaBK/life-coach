@@ -399,12 +399,13 @@ table td:visited {
 }
 
 #nav-form{
-  position: absolute!important;
+  background-color: #ffffff;
+  padding: 1rem;
 }
 
 #nav-form-link{
-  color: #ffffff;
-  font-size: x-large;
+  color: #000000;
+  font-size: large;
   display: block;
 }
 
