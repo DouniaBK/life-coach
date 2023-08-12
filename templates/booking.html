@@ -77,7 +77,9 @@
                 </div>
                 <div id="scheduler-next">
                     <span>
-                      <a href="{% url 'booking' %}?offset={{currentWeekOffset|add:-1}}"><i class="fas fa-angle-left"></i> < PREVIOUS WEEK</a>
+                        {% if not isThisWeek %}
+                            <a href="{% url 'booking' %}?offset={{currentWeekOffset|add:-1}}"><i class="fas fa-angle-left"></i> < PREVIOUS WEEK</a>
+                        {% endif %} 
                     </span>
                     <span>
                       <a href="{% url 'booking' %}?offset={{currentWeekOffset|add:1}}">NEXT WEEK > </a>

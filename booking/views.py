@@ -12,6 +12,8 @@ def booking(request):
     h_max = 21
 
     offset_param = int(request.GET.get('offset', "0"))
+    if offset_param < 0:
+        offset_param = 0
 
     offset_weeks = timedelta(weeks=offset_param)
 
@@ -20,6 +22,7 @@ def booking(request):
     
     # get day of week as an integer
     weekday = t_current.weekday()
+
 
     days_of_the_week = {}
     for i in range(0-weekday, 7-weekday):
@@ -47,11 +50,14 @@ def booking(request):
             sessions_of_the_week[d].append(sessions_time_hours)
 
     # Fill in all sessions in the past (grey out past days sessions in scheduler)
-    for d in days_of_the_week:
-        if d <= weekday:
-            for i in range(h_min, h_max):
-                if not str(i) in sessions_of_the_week[d] and not (str(i) + "me") in sessions_of_the_week[d]:
-                    sessions_of_the_week[d].append(str(i))
+    week_now = int(datetime.now().strftime("%V"))
+    week_current = int(t_current.strftime("%V"))
+    if week_current == week_now:
+        for d in days_of_the_week:
+            if d <= weekday:
+                for i in range(h_min, h_max):
+                    if not str(i) in sessions_of_the_week[d] and not (str(i) + "me") in sessions_of_the_week[d]:
+                        sessions_of_the_week[d].append(str(i))
 
     # Get all appointments of the user
     all_user_sessions_templ = []
@@ -87,9 +93,13 @@ def booking(request):
         
     # if a GET (or any other method) we'll create a blank form
     form = CoachingSessionInputFormFrontEnd()
-    return render(request, 'booking.html', {'form': form, 'weekdays': days_of_the_week, 'currentWeekOffset': offset_param, 'weeksSessions': sessions_of_the_week, 'allUserSessions': all_user_sessions_templ, 'scheduleHours': hours_vec})
-
-
+    return render(request,  'booking.html', {'form': form, 
+                            'weekdays': days_of_the_week, 
+                            'currentWeekOffset': offset_param, 
+                            'weeksSessions': sessions_of_the_week, 
+                            'allUserSessions': all_user_sessions_templ, 
+                            'scheduleHours': hours_vec,
+                            'isThisWeek': week_current == week_now})
     
 def cancel_session(request):
     # this cancels
