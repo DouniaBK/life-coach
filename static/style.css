@@ -474,3 +474,7 @@ table td:visited {
   flex-direction: column;
 }
 
+.h1 {
+  margin-bottom: 1rem !important;
+}
+

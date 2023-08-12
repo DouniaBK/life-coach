@@ -13,8 +13,6 @@ class RegisterUserForm(UserCreationForm):
         model = CustomUser
         fields = ('first_name', 'last_name', 'email', 'address', 'password1', 'password2')
 
-        
-
 class EditProfile(forms.ModelForm):
     first_name = forms.CharField(max_length=50)
     last_name = forms.CharField(max_length=100)
