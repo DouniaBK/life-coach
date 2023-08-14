@@ -18,7 +18,7 @@ body {
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
-    background-color: #dfd0c7!important;
+    background-color:#ffe0e6!important;
     padding: 0px;
 }
 
@@ -32,7 +32,7 @@ body {
 }
 
 #nav-text {
-    color: #fb8490!important;
+    color: #3b536b!important;
     font-weight: 800;
     line-height: 1.2;
     font-family: emoji;
@@ -113,7 +113,15 @@ li {
 
 
 /*Carousel*/
-
+#carousel {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #dfd0c7!important;
+    padding: 0px;
+}
 .mb-3 {
   color: #fff;
   font-family: initial;

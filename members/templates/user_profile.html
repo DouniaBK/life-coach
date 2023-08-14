@@ -1,29 +1,10 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block profile %}
+
 <title>Profile</title>
 
-{% load static %}
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-<link rel="stylesheet" type="text/css" href=" {% static 'style.css' %} ">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
-<body id="body-form">
-    <header>
-        <!-- Navbar -->
-        <nav class="nav" id="nav-form">
-            <a class="nav-link active" id="nav-form-link" href="{% url 'index' %}">Home</a>
-            <a class="nav-link" id="nav-form-link" name= "booking" href="{% url 'booking' %}">Coaching Session</a>
-            <a class="nav-link" id="nav-form-link" name= "logout" href="{% url 'logout' %}">Logout</a>
-
-        </nav>
-        <!-- Navbar -->
-        <!-- Jumbotron 
-        <div class="p-5 text-center bg-image" style=" background-color: #117a8bb5!important;">
-        <img src="{% static 'images/selfcare.png' %}" class="img-fluid" alt="Responsive image">
-          <h1 class="mb-3">Natalie Coaching</h1>
-          <h4 class="mb-3">Succeed without the guilt</h4>
-        </div>-->
-        <!-- Jumbotron -->
-      </header>
     <div class="row p-5">
 
             {% if form.errors %}
@@ -33,10 +14,9 @@
                 </div>
             {% endif %}
 
-                <div class="container" id="scheduler-container">
+                <div class="container-fluid" id="scheduler-container">
 
-                    <h1>Settings</h1>
-                    <h3>Profile</h3>
+                    <h3>Profile Settings</h3>
 
                     <form method="POST" name="user_profile"  action="{% url 'user_profile' %}">
                         {% csrf_token %}
@@ -77,4 +57,5 @@
 
 </div>
 </div>
-</body>
+
+ {% endblock profile %}

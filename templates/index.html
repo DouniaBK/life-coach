@@ -1,8 +1,126 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block content %} 
-             <!--Testimonials go here-->
-        
-{% endblock content %}
+{% block index %} 
+<main class="flex-shrink-0 main-bg">
+    <div id="carousel">
+        <div id="carouselExampleTouch" class="carousel slide active" data-bs-touch="true">
 
+          <div class="carousel-indicators">
+            <button
+              type="button"
+              data-bs-target="#carouselExampleTouch"
+              data-bs-slide-to="0"
+              class="active"
+              aria-current="true"
+              aria-label="Slide 1"
+            ></button>
+            <button
+              type="button"
+              data-bs-target="#carouselExampleTouch"
+              data-bs-slide-to="1"
+              aria-label="Slide 2"
+            ></button>
+            <button
+              type="button"
+              data-bs-target="#carouselExampleTouch"
+              data-bs-slide-to="2"
+              aria-label="Slide 3"
+            ></button>
+          </div>
+          <div class="carousel-inner">
+            <div class="carousel-item active c-item">
+              <div class="carousel-caption">
+                  <div class="carouselItemWrapper">
+                  <h1 class="mb-3">Natalie Rider Coaching</h1>
+                  <h4 class="mb-4">A space devoted to helping cancer survivors live their best lives.</h4>
+                  </div>
+              </div>
+            </div>
+
+            <div class="carousel-item c-item">
+              <div class="carousel-caption">
+                  <div class="carouselItemWrapper">
+                  <h1 class="mb-3">Natalie Rider Coaching</h1>
+                  <h4 class="mb-4">Where awesomeness enters your body.</h4>
+                  </div>
+              </div>
+            </div>
+
+            <div class="carousel-item c-item">
+              <div class="carousel-caption">
+                  <div class="carouselItemWrapper">
+                  <h1 class="mb-3">Natalie Rider Coaching</h1>
+                  <h4 class="mb-4">Where Natialie kicks your ass off the sofa.</h4>
+                  <a type="button" class=" btn btn-danger" id="booking-btn" href="{% url 'register_user' %}" name="register_user">Get Started </a>
+                  </div>
+              </div>
+            </div>
+        </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleTouch" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleTouch" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+    
+        <img src="{% static 'images/the_quiet.webp' %}" class="d-block w-100 c-img" alt="sunset on the beach"/>
+    </div>
+    <div>
+        <!--  Introduction Coache go here--> 
+        {% include 'about.html' %}
+    </div>
+    <div>
+        <!--Coaching Services go here--> 
+        {% include 'services.html' %}
+    </div>
+       <!--Devider Image-->  
+      
+        <img src="{% static 'images/devider-img.png' %}" class="img-fluid" id="divider-img" alt="Responsive image">
+            
+    {% block content %}
+        <!--Testimonials go here-->
+          <div class="container">
+          <div class="row" id="testimonials">
+          <div class="mb-1 col-10 pb-2 pt-3">
+                <section>
+                    <div class="row d-flex justify-content-center">
+                    <div class="col-md-10 col-xl-8 text-center">
+                        <h3 class="mb-2">Testimonials</h3>
+                        <p class="mb-2 pb-2 mb-md-5 pb-md-0">
+                        Love from the community
+                        </p>
+                    </div>
+                    </div>
+                
+                    <div class="row text-center d-flex align-items-stretch">
+                    {% for testimonial in all_testimonials %}   
+                    <div class="col-md-4 mb-5 mb-md-0 d-flex align-items-stretch">
+                        <div class="card testimonial-card">
+                        <div class="card-up" style="background-color: #f2e1c3;"></div>
+                        <div class="card-body">
+                            <h4 class="mb-5">{{testimonial.name}}</h4>
+                            <hr />
+                            <p class="dark-grey-text mt-4">
+                            <i class="fas fa-quote-left pe-2"></i>{{testimonial.body}}
+                            </p>
+                        </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </section>
+          
+          </div>
+          </div>
+          </div>
+        
+    {% endblock content %}
+  
+  </main>
+
+ {% endblock index %}
+
+ 

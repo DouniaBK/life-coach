@@ -1,3 +1,4 @@
+
 {% load static %}
 
 <!DOCTYPE html>
@@ -21,185 +22,110 @@
 </head>
 
 <body class="d-flex flex-column h-100 main-bg">
-<header>
+    <header>
 
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light">
-      <div class="container z-index-1 position-absolute top-2 right-0 p-3">
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarExample01"
-            aria-controls="navbarExample01"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <i class="fas fa-bars"></i>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarExample01">
-            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-              <li class="nav-item active">
-                <a class="nav-link" aria-current="page" id="nav-text" name= "index" href="{% url 'index' %}">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" id="nav-text" href="#">Coaching Services</a>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" id="nav-text" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Free Resources
-                </a>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <li><a class="dropdown-item" href="#" target="_blank">Cancer Recovery Workbook</a></li>
-                  <li><a class="dropdown-item" href="#" target="_blank">Gratitude Journal</a></li>
-                  <li><hr class="dropdown-divider"></li>
-                  <li><a class="dropdown-item" href="#" target="_blank">Podcast</a></li>
-                </ul>
-              </li>
-
-
-              {% if user.is_authenticated %}
-                <li class="nav-item">
-                  <a class="nav-link" id="nav-text" href="booking"> Coaching Sessions</a>
-                </li>
-              {% endif %}
-            </div> 
-              <!-- Icon dropdown -->
-              <li class="nav-item me-3 me-lg-0 dropdown">
-                <a
-                  class="nav-link dropdown-toggle"
-                  href="{% url 'login' %}"
-                  id="navbarDropdown"
-                  role="button"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="true"
-                >
-                  <i class="fas fa-user"></i>
-                </a>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  {% if user.is_authenticated %}
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-light">
+          <div class="container z-index-1 position-absolute top-2 right-0 p-3">
+              <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarExample01"
+                aria-controls="navbarExample01"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+              >
+                <i class="fas fa-bars"></i>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarExample01">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                  <li class="nav-item active">
+                    <a class="nav-link" aria-current="page" id="nav-text" name= "index" href="{% url 'index' %}">Home</a>
+                  </li>
                   <li class="nav-item">
-                    <a class="nav-link" id="nav-text" href="members/user_profile">Profile</a>
+                    <a class="nav-link" id="nav-text" href="#">Coaching Services</a>
                   </li>
-                  <li>
-                    <a class="dropdown-item" class="nav-link" id="nav-text" name= "logout" href="{% url 'logout' %}">
-                      Logout
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="nav-text" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Free Resources
                     </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <li><a class="dropdown-item" href="#" target="_blank">Cancer Recovery Workbook</a></li>
+                      <li><a class="dropdown-item" href="#" target="_blank">Gratitude Journal</a></li>
+                      <li><hr class="dropdown-divider"></li>
+                      <li><a class="dropdown-item" href="#" target="_blank">Podcast</a></li>
+                    </ul>
                   </li>
-                  {% else %}
-                  <li>
-                    <a class="dropdown-item" class="nav-link" id="nav-text" name= "register_user" href="{% url 'register_user' %}">
-                      Register
+
+
+                  {% if user.is_authenticated %}
+                    <li class="nav-item">
+                      <a class="nav-link" id="nav-text" href="{% url 'booking' %}"> Coaching Sessions</a>
+                    </li>
+                  {% endif %}
+                </div> 
+                  <!-- Icon dropdown -->
+                  <li class="nav-item me-3 me-lg-0 dropdown">
+                    <a
+                      class="nav-link dropdown-toggle"
+                      href="{% url 'login' %}"
+                      id="navbarDropdown"
+                      role="button"
+                      data-bs-toggle="dropdown"
+                      aria-expanded="true"
+                    >
+                      <i class="fas fa-user"></i>
                     </a>
-                  </li>
-                  <li><hr class="dropdown-divider" /></li>
-                  <li>
-                    <a class="dropdown-item" class="nav-link" id="nav-text" name= "login" href="{% url 'login' %}">
-                      Login
-                    </a>
-                  </li>
-                    {% endif %}
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      {% if user.is_authenticated %}
+                      <li class="nav-item">
+                        <a class="nav-link" id="nav-text" href="{% url 'user_profile' %}">Profile</a>
+                      </li>
+                      <li>
+                        <a class="dropdown-item" class="nav-link" id="nav-text" name= "logout" href="{% url 'logout' %}">
+                          Logout
+                        </a>
+                      </li>
+                      {% else %}
+                      <li>
+                        <a class="dropdown-item" class="nav-link" id="nav-text" name= "register_user" href="{% url 'register_user' %}">
+                          Register
+                        </a>
+                      </li>
+                      <li><hr class="dropdown-divider" /></li>
+                      <li>
+                        <a class="dropdown-item" class="nav-link" id="nav-text" name= "login" href="{% url 'login' %}">
+                          Login
+                        </a>
+                      </li>
+                        {% endif %}
+                    </ul>
+                  
+
                 </ul>
-              
+              </div></div> 
 
-            </ul>
-          </div></div> 
+            </nav>
+    </header>
 
-          
+    <main class="flex-shrink-0 main-bg"></main>
+        {% block index %} 
+        <!-- Index Content -->
+        {% endblock index %}
 
+        {% block profile %}
+        <!-- Profile Content -->
+        {% endblock profile %}
 
-      <div id="carouselExampleTouch" class="carousel slide active" data-bs-touch="true">
+        {% block booking %}
+        <!-- Coaching Sessions Content -->
+        {% endblock booking %}
 
-        <div class="carousel-indicators">
-          <button
-            type="button"
-            data-bs-target="#carouselExampleTouch"
-            data-bs-slide-to="0"
-            class="active"
-            aria-current="true"
-            aria-label="Slide 1"
-          ></button>
-          <button
-            type="button"
-            data-bs-target="#carouselExampleTouch"
-            data-bs-slide-to="1"
-            aria-label="Slide 2"
-          ></button>
-          <button
-            type="button"
-            data-bs-target="#carouselExampleTouch"
-            data-bs-slide-to="2"
-            aria-label="Slide 3"
-          ></button>
-        </div>
-        <div class="carousel-inner">
-          <div class="carousel-item active c-item">
-            <div class="carousel-caption">
-                <div class="carouselItemWrapper">
-                 <h1 class="mb-3">Natalie Rider Coaching</h1>
-                 <h4 class="mb-4">A space devoted to helping cancer survivors live their best lives.</h4>
-                </div>
-            </div>
-          </div>
-
-          <div class="carousel-item c-item">
-            <div class="carousel-caption">
-                <div class="carouselItemWrapper">
-                 <h1 class="mb-3">Natalie Rider Coaching</h1>
-                 <h4 class="mb-4">Where awesomeness enters your body.</h4>
-                </div>
-            </div>
-          </div>
-
-          <div class="carousel-item c-item">
-            <div class="carousel-caption">
-                <div class="carouselItemWrapper">
-                 <h1 class="mb-3">Natalie Rider Coaching</h1>
-                 <h4 class="mb-4">Where Natialie kicks your ass off the sofa.</h4>
-                </div>
-            </div>
-          </div>
-
-      </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleTouch" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleTouch" data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </button>
-      </div>
-     
-
-
-
-
-     <img src="{% static 'images/the_quiet.webp' %}" class="d-block w-100 c-img" alt="sunset on the beach"/>
-   
-    </nav>
-
-</header>
-    <main class="flex-shrink-0 main-bg">
-      <div>
-        <!-- Introduction Coache go here-->
-        {% include 'about.html' %}
-      </div>
-      <div>
-        <!-- Coaching Services go here-->
-        {% include 'services.html' %}
-      </div>
-          
-        <!--Devider Image-->
-          <img src="{% static 'images/devider-img.png' %}" class="img-fluid" id="divider-img" alt="Responsive image">
-
-          {% block content %} 
-             <!--Testimonials go here-->
-        
-          {% endblock content %}
-    
+        {% block register_user %}
+        <!-- Register User Form -->
+        {% endblock register_user %}
     </main>
-
     <!-- Footer -->
     <footer class="footer text-center text-white sticky-bottom">
         <!-- Grid container -->

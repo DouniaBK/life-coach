@@ -10,18 +10,20 @@ from django.contrib import messages
 #def index(request):
 #    return render(request, 'index.html')
 
-def testimonial(request):
+def index(request):
     all_testimonials = Testimonial.objects.filter(status='1')
-    return render(request, 'testimonials.html', { 'all_testimonials': all_testimonials})
+    return render(request, 'index.html', { 'all_testimonials': all_testimonials})
 
 #def login_user(request):
 #    return render(request, 'login.html', {})
 
 # def home(request):
 #    return render(request, 'index.html')
-
+'''
 def index(request):
     return render(request, 'index.html', {})
-
+'''
+# 
 def about(request):
     return render(request, 'about.html', {})
+# 

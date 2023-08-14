@@ -1,13 +1,11 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block register_user %}
 <title>Sign Up</title>
 
-{% load static %}
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-<link rel="stylesheet" type="text/css" href=" {% static 'style.css' %} ">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
-<body id="body-form">
-    <div class="row">
+<div class="row p-5">
             {% if form.errors %}
                 <div class="alert alert-warning alert-dismissible fade show" role="alert">
                         There was an error with your form...
@@ -15,16 +13,10 @@
                 </div>
             {% endif %}
 
-            {% if user.is_authenticated %}
-                <h1 class="p-2 text-center mb-5 text-warning">You are Logged In!</h1>
-                <a type="button" class="nav-link btn btn-danger me-3" id="login-btn" name= "booking" href="{% url 'booking' %}">
-                    Book an Appointment
-                </a>
-
-            {% else %}
+           
 
 
-            <div class="login-box">
+            <div class="container-fluid" id="scheduler-container">
                 <h1>Register</h1>
 
                     <form method="POST" name="register_user"  action="{% url 'register_user' %}">
@@ -62,5 +54,6 @@
                             </div></form>
             </div>
     </div>
-</body>
-{% endif %}
+
+
+{% endblock register_user %}
