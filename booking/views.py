@@ -31,8 +31,8 @@ def booking(request):
             days_of_the_week[t_day.weekday()] = t_day.strftime("%m/%d/%Y")
 
         # Check in database for existing sessions during that week
-        start_dt = datetime(2023, 8, 7)
-        end_dt = datetime(2023, 8, 12)
+        start_dt = t_current.replace(hour=0, minute=0, second=0, microsecond=0) + timedelta(days=(0-weekday))
+        end_dt = start_dt + timedelta(days=7)
         all_sessions = CoachingSession.objects.filter(time__gte=start_dt, time__lt=end_dt)
 
         sessions_of_the_week = {}
