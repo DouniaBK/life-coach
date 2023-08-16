@@ -43,7 +43,10 @@ def register_user(request):
             if user is not None:
                 login(request, user)
                 messages.success(request, ('Registration Successful!'))
-                return redirect('booking')
+                if register_to_book:
+                    return redirect('/booking?rtb=true')
+                else:
+                    return redirect('/booking')
             else:
                 return redirect('index')
     else:

@@ -38,7 +38,7 @@
                 <h3 class="pb-4">Register</h3>
                 
 
-                    <form method="POST" name="register_user"  action="{% url 'register_user' %}">
+                    <form method="POST" name="register_user"  action="{% url 'register_user' %}{% if register_to_book %}?rtb=true{% endif %}">
                         {% csrf_token %}
                         <div class="form-outline mb-4">
                             <label class="form-label" for="first_name">First Name</label>

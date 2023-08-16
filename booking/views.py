@@ -10,6 +10,9 @@ def booking(request):
     
     try:
         register_to_book = request.GET.get('rtb', "false") == 'true'
+        success = False
+        if register_to_book:
+            success = request.GET.get('success', "false") == 'true'
 
         h_min = 8
         h_max = 21
@@ -90,7 +93,10 @@ def booking(request):
                 time = form.cleaned_data['time']
                 messages.success(request, ('Your appointment has been booked.'))
                 # redirect to a new URL:
-                return HttpResponseRedirect("/booking")
+                if register_to_book:
+                    return HttpResponseRedirect("/booking?rtb=true&success=true")
+                else:
+                    return HttpResponseRedirect("/booking")
             else:
                 print("Error", form.errors)
             
@@ -103,8 +109,10 @@ def booking(request):
                                 'allUserSessions': all_user_sessions_templ, 
                                 'scheduleHours': hours_vec,
                                 'isThisWeek': week_current == week_now,
-                                'register_to_book': register_to_book})
-    except: 
+                                'register_to_book': register_to_book,
+                                'register_book_success': success})
+    except Exception as e:
+        print(e.message, e.args)
         return HttpResponseRedirect("index")
     
 def cancel_session(request):

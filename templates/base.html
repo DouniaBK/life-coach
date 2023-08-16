@@ -46,19 +46,6 @@
                   <li class="nav-item">
                     <a class="nav-link" id="nav-text" href="{% url 'services' %}">Coaching Services</a>
                   </li>
-                  <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" id="nav-text" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                      Free Resources
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                      <li><a class="dropdown-item" href="#" target="_blank">Cancer Recovery Workbook</a></li>
-                      <li><a class="dropdown-item" href="#" target="_blank">Gratitude Journal</a></li>
-                      <li><hr class="dropdown-divider"></li>
-                      <li><a class="dropdown-item" href="#" target="_blank">Podcast</a></li>
-                    </ul>
-                  </li>
-
-
                   {% if user.is_authenticated %}
                     <li class="nav-item">
                       <a class="nav-link" id="nav-text" href="{% url 'booking' %}"> Coaching Sessions</a>
