@@ -44,7 +44,7 @@
                     <a class="nav-link" aria-current="page" id="nav-text" name= "index" href="{% url 'index' %}">Home</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" id="nav-text" href="#">Coaching Services</a>
+                    <a class="nav-link" id="nav-text" href="{% url 'services' %}">Coaching Services</a>
                   </li>
                   <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" id="nav-text" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -79,8 +79,8 @@
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                       {% if user.is_authenticated %}
-                      <li class="nav-item">
-                        <a class="nav-link" id="nav-text" href="{% url 'user_profile' %}">Profile</a>
+                      <li>
+                        <a class="dropdown-item" class="nav-link" id="nav-text" href="{% url 'user_profile' %}">Profile</a>
                       </li>
                       <li>
                         <a class="dropdown-item" class="nav-link" id="nav-text" name= "logout" href="{% url 'logout' %}">
@@ -125,6 +125,10 @@
         {% block register_user %}
         <!-- Register User Form -->
         {% endblock register_user %}
+
+        {% block Coaching-Services %}
+        <!-- Detailed Coaching Services-->
+        {% endblock Coaching-Services %}
     </main>
     <!-- Footer -->
     <footer class="footer text-center text-white sticky-bottom">

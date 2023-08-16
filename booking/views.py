@@ -9,6 +9,8 @@ from .models import CoachingSession
 def booking(request):
     
     try:
+        register_to_book = request.GET.get('rtb', "false") == 'true'
+
         h_min = 8
         h_max = 21
 
@@ -100,7 +102,8 @@ def booking(request):
                                 'weeksSessions': sessions_of_the_week, 
                                 'allUserSessions': all_user_sessions_templ, 
                                 'scheduleHours': hours_vec,
-                                'isThisWeek': week_current == week_now})
+                                'isThisWeek': week_current == week_now,
+                                'register_to_book': register_to_book})
     except: 
         return HttpResponseRedirect("index")
     

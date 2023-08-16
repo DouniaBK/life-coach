@@ -4,8 +4,8 @@
 {% block profile %}
 
 <title>Profile</title>
-
-    <div class="row">
+<div id="body-form">
+    <div class="col-8" id="col-form">
 
             {% if form.errors %}
                 <div class="alert alert-warning alert-dismissible fade show" role="alert">
@@ -16,7 +16,7 @@
 
                 <div class="container-fluid" id="scheduler-container">
 
-                    <h3>Profile Settings</h3>
+                    <h3 class="pb-4">Profile Settings</h3>
 
                     <form method="POST" name="user_profile"  action="{% url 'user_profile' %}">
                         {% csrf_token %}
@@ -26,18 +26,19 @@
 
                         {% if is_edit %}
                             <div style="display:flex; width: 100%; justify-content: space-between;">
-                                <button type="submit" class="btn btn-primary" name= "booking" href="{% url 'user_profile' %}">Cancel</button>
-                                <button type="submit" class="btn btn-primary" name= "booking" href="{% url 'user_profile' %}?edit=true">Save</button>
+                                <button type="submit" class="btn btn-primary" id="del-form" name= "booking" href="{% url 'user_profile' %}">Cancel</button>
+                                <button type="submit" class="btn btn-primary" id="del-form"  name= "booking" href="{% url 'user_profile' %}?edit=true">Save</button>
                             </div>
                            
                         {% else %}
-                            <a class="btn btn-primary btn-block" id="btn-form" name= "booking" href="{% url 'user_profile' %}?edit=true">Edit Profile</a>
+                            <a class="btn btn-primary btn-block" id="del-form" name= "booking" href="{% url 'user_profile' %}?edit=true">Edit Profile</a>
                         {% endif %}
                     </form>
 
                     <hr/>
 
-                    <h3>Delete Account</h3>
+                    <h3 class="pt-4">Delete Account</h3>
+                    <p class="pb-4">Are you sure you want to permanently delete your account? </p>
                     <form method="POST" name="user_delete"  action="{% url 'user_profile' %}">
                         {% csrf_token %}
                         {% if is_delete %}
@@ -48,7 +49,7 @@
                             </div>
                             
                         {% else %}
-                            <a class="btn btn-primary btn-block" id="del-form" name= "booking" href="{% url 'user_profile' %}?delete=true">Delete Account</a>
+                            <a class="btn btn-primary btn-block" id="del-form" name= "booking" href="{% url 'user_profile' %}?delete=true">Delete My Account</a>
                         {% endif %}
                     </form>
                 

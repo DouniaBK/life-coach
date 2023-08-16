@@ -30,6 +30,9 @@ def logout_user(request):
     return redirect('index')
 
 def register_user(request):
+
+    register_to_book = request.GET.get('rtb', "false") == 'true'
+
     if request.method == "POST":
         form = RegisterUserForm(request.POST)
         if form.is_valid():
@@ -46,7 +49,7 @@ def register_user(request):
     else:
         form = RegisterUserForm()
 
-    return render(request, 'authenticate/register_user.html', {'form': form,})
+    return render(request, 'authenticate/register_user.html', {'form': form, 'register_to_book': register_to_book,})
 
     
 def user_profile(request):

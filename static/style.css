@@ -233,11 +233,11 @@ footer {
 }
 
 #scheduler-container{
-  background: rgb(255 255 255 / 87%);
+  background: #ffffffcc;
   box-sizing: border-box;
   border-radius: 10px;
   min-height: 87vh;
-  padding: 5rem;
+  padding: 2rem;
   border: 1px solid #c3c3c3;
 }
 
@@ -403,19 +403,42 @@ table td:visited {
   color: #222;
 }
 
+.btn-form {
+  color: #fff;
+  background-color: #17a2b8b0;
+  font-size: larger;
+  font-weight: 500;
+  border: none;
+  width: 18rem;
+}
+
 #btn-form {
   color: #fff;
   background-color: #17a2b8b0;
   font-size: larger;
   font-weight: 500;
   border: none;
-  width: auto;
+  width: 18rem;
 }
 
 #body-form {
-  background-color: #e3391514;
+  background: hsla(323, 66%, 84%, 1);
+  background: linear-gradient(90deg, hsla(323, 66%, 84%, 1) 0%, hsla(185, 32%, 86%, 1) 100%);
+  background: -moz-linear-gradient(90deg, hsla(323, 66%, 84%, 1) 0%, hsla(185, 32%, 86%, 1) 100%);
+  background: -webkit-linear-gradient(90deg, hsla(323, 66%, 84%, 1) 0%, hsla(185, 32%, 86%, 1) 100%);
+  filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#F1BBDC", endColorstr="#D0E5E7", GradientType=1 );
+  }
+
+#col-form{
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
 }
 
+#del-form{
+  width: 159px;
+}
 #form-p{
   color: #117a8b;
   padding: 13px;
@@ -501,3 +524,32 @@ table td:visited {
 .h1 {
   margin-bottom: 1rem !important;
 }
+
+.step_button_wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.register_pill_container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 3rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #c1c1c1;
+}
+
+.register_pill {
+  background: #cecece;
+  color: white;
+  border-radius: 20px;
+  padding: 0.2rem 3rem;
+  font-weight: 500;
+  border: 1px solid #00000017;
+}
+
+.register_pill.active {
+  background: #5dbccc;
+}
+
