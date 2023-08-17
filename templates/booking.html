@@ -32,7 +32,7 @@
 
         
         {% if register_book_success and register_to_book %}
-            YEAH
+           <p> You have successfully booked a coaching session. </p>
         {% else %}
             <form method="post" name="booking"   action="{% url 'booking' %}{% if register_to_book %}?rtb=true{% endif %}" class="" required>
                 {% csrf_token %}

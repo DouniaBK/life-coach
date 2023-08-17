@@ -19,6 +19,8 @@ body {
     justify-content: space-between;
     background-color:#ffffff!important;
     padding: 0px;
+    border-bottom: inset;
+
 }
 
 .navbar-nav .dropdown-menu {
@@ -82,8 +84,22 @@ ul.dropdown-menu.show {
   color: #fff;
 }
 
+#btn-loginform{
+  width: 8rem;
+}
 li {
   list-style: none;
+}
+
+#login-container {
+    background: #ffffffcc;
+    box-sizing: border-box;
+    border-radius: 10px;
+    min-height: 71vh;
+    padding: 2rem;
+    border: 1px solid #c3c3c3;
+    max-width: 40vw;
+    min-width: fit-content;
 }
 
 /* Color of the links BEFORE scroll */
@@ -271,6 +287,11 @@ footer {
   overflow: hidden;
   border: 3px solid #fff;
   border-radius: 50%;
+}
+
+.card-up {
+  background-color: #dc354545 !important;
+
 }
 
 .card{

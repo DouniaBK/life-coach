@@ -1,37 +1,21 @@
-	
+{% extends 'base.html' %}	
 {% load static %}
-<link rel="stylesheet" type="text/css" href=" {% static 'style.css' %} ">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-{% block content %}
 
-{% if form.errors %}
-	<div class="alert alert-warning alert-dismissible fade show" role="alert">
-            There was an error with your form...
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-    </div>
+{% block login %}
+<title>Login</title>
+		{% if form.errors %}
+			<div class="alert alert-warning alert-dismissible fade show" role="alert">
+					There was an error with your form...
+					<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+			</div>
 
 
 
-{% endif %}	
+		{% endif %}	
 <body id="body-form">
-	<header>
-        <!-- Navbar -->
-        <nav class="nav" id="nav-form">
-            <a class="nav-link active" id="nav-form-link" href="{% url 'index' %}">Home</a>
 
-        </nav>
-        <!-- Navbar -->
-        <!-- Jumbotron 
-        <div class="p-5 text-center bg-image" style=" background-color: #117a8bb5!important;">
-        <img src="{% static 'images/selfcare.png' %}" class="img-fluid" alt="Responsive image">
-          <h1 class="mb-3">Natalie Coaching</h1>
-          <h4 class="mb-3">Succeed without the guilt</h4>
-        </div>-->
-        <!-- Jumbotron -->
-      </header>
-	<div class="row">
-		<div class="login-box">
+	<div class="col-8" id="col-form">
+		<div class="container-fluid" id="login-container">
 		<h1>Log In</h1>
 
 		<form method="POST" action="" class="">
@@ -44,15 +28,16 @@
 					<label class="form-label" for="form1Example2">Password</label>
 					<input type="password" id="form1Example2" class="form-control" name="password" />
 				</div>
-				<button type="submit" class=" btn btn-primary btn-block" id="btn-form">Log In</button>
 				<div class="text-center">
+					<button type="submit" class=" btn btn-primary btn-block" id="btn-loginform">Log In</button>
 					<p id="form-p">Don't Have An Account?</p>
-					<button href="{% url 'register_user' %}" name="register_user" class="btn btn-primary btn-block" id="btn-form">Register</button> 
+					<button href="{% url 'register_user' %}" name="register_user" class="btn btn-primary btn-block" id="btn-loginform">Register</button> 
 				</div>
 		</form>
 		</div>	
-</div>
+	</div>
+
 </body>	
-{% endblock %}
+{% endblock login %}
 
 
