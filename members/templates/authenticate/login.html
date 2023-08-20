@@ -2,7 +2,12 @@
 {% load static %}
 
 {% block login %}
+
 <title>Login</title>
+<div id="body-form">
+
+	<div class="col-8" id="col-form">
+
 		{% if form.errors %}
 			<div class="alert alert-warning alert-dismissible fade show" role="alert">
 					There was an error with your form...
@@ -12,9 +17,7 @@
 
 
 		{% endif %}	
-<body id="body-form">
 
-	<div class="col-8" id="col-form">
 		<div class="container-fluid" id="login-container">
 		<h1>Log In</h1>
 
@@ -37,7 +40,7 @@
 		</div>	
 	</div>
 
-</body>	
+</div>	
 {% endblock login %}
 
 

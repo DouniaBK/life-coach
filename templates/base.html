@@ -46,6 +46,9 @@
                   <li class="nav-item">
                     <a class="nav-link" id="nav-text" href="{% url 'services' %}">Coaching Services</a>
                   </li>
+                  <li class="nav-item">
+                    <a class="nav-link" id="nav-text" href="{% url 'resources' %}">Free Resources</a>
+                  </li>
                   {% if user.is_authenticated %}
                     <li class="nav-item">
                       <a class="nav-link" id="nav-text" href="{% url 'booking' %}"> Coaching Sessions</a>
@@ -100,6 +103,10 @@
         {% block index %} 
         <!-- Index Content -->
         {% endblock index %}
+
+        {% block resources %} 
+        <!-- Free Resources -->
+        {% endblock resources %}
 
         {% block profile %}
         <!-- Profile Content -->

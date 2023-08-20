@@ -71,7 +71,6 @@ ul.dropdown-menu.show {
 }
 
 .dropdown-menu[data-bs-popper] {
-  right: 0!important;
   left: auto;
 }
 /*LOGIN Btn*/
@@ -85,7 +84,7 @@ ul.dropdown-menu.show {
 }
 
 #btn-loginform{
-  width: 8rem;
+  width: 9rem;
 }
 li {
   list-style: none;
@@ -300,7 +299,7 @@ footer {
 
 
 
-/*Calendar Table*/
+/*Booking sessions*/
 
 table.paleBlueRows {
   font-family: "Times New Roman", Times, serif;
@@ -369,13 +368,30 @@ table td:visited {
 }
 
 .cancel_session_container {
-    margin: 1rem;
-    /* width: auto; */
-    border: 1px solid grey;
     padding: 5px;
-    width: 30%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
 }
 
+#datetimepicker {
+    background-color: #ffffff08;
+    border: none;
+}
+/*
+.datetime {
+  display: none;
+}
+
+label[for=id_service]{
+  display: none;
+}
+
+label[for="id_time_0"]{
+  display: none;
+}/*
 /*Login*/
 
 
@@ -574,3 +590,11 @@ table td:visited {
   background: #5dbccc;
 }
 
+/* Free Resources*/
+.resources-text {
+  text-align: justify;
+}
+
+#header-resources{
+  color: cadetblue;
+}

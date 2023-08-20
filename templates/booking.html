@@ -72,13 +72,18 @@
                     </tr>
                     </thead>
                     <tbody>
+
+                        {{scheduleHours_json}}
+                        {{weekdays_json}}
+
                         {% for hour in scheduleHours %}
                         <tr>
                                 {% for weekday, value in weekdays.items %}
                                     <td scope="row" 
                                         class="{% for session_day, session_values in weeksSessions.items %}{% if session_day == weekday %}   {% if hour in session_values %}disableME{% endif %} {% if hour|add:"me" in session_values %}disableME isMine{% endif %} {% endif %}{% endfor %}" 
+                                        id="{{weekday}}_{{hour}}"
                                         style="cursor: pointer;" 
-                                        onclick="{% for session_day, session_values in weeksSessions.items %}{% if session_day == weekday %}{% if not hour in session_values %}onClickCallback('{{value}}', '{{hour}}') {% endif %}{% endif %}{% endfor %}">
+                                        onclick="{% for session_day, session_values in weeksSessions.items %}{% if session_day == weekday %}{% if not hour in session_values %}onClickCallback('{{value}}', '{{hour}}', '{{weekday}}_{{hour}}', '{{scheduleHours_json}}') {% endif %}{% endif %}{% endfor %}">
                                         {{hour}}:00
                                     </td>
                                 {% endfor %}
@@ -89,23 +94,21 @@
                     </div>
                 
                     <!-- Appointment -->
-                <div class="mt-3">
-                    <h3 class="">Select a Coaching Service:</h3>
-                    <div class="form-select form-control fs-3" name="time" id="datetimepicker">
-                            {{ form.as_p }}
+                    <div class="mt-3">
+                        <h3 class="">Select a Coaching Service:</h3>
+                        <div class="form form-control" name="time" id="datetimepicker">
+                                {{ form.as_ul }}
+                        </div>
                     </div>
-                </div>
                     <br/>
                 <input type="submit" class="btn btn-primary text-white" id="del-form" value="Submit">
                 
-            
-        
                 <h3 class="pb-4 pt-5">Edit Your Sessions:</h3>
 
                 {% for session in allUserSessions %}
                     <div class="cancel_session_container">
                         {{session.time}}
-                        <a href="{% url 'cancel_session' %}?id={{session.id}}" class="btn btn-primary shadow text-center" id="del-form">Cancel</a>
+                        <a href="{% url 'cancel_session' %}?id={{session.id}}" class="btn btn-primary text-center" id="del-form">Cancel</a>
                     </div>
                 {% endfor %}
 

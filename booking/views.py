@@ -4,6 +4,37 @@ from bootstrap_datepicker_plus.widgets import DateTimePickerInput
 from .forms import CoachingSessionInputFormFrontEnd
 from django.contrib import messages
 from .models import CoachingSession
+import json
+
+def getDaysOfWeekForDay(t_current):
+    # get day of week as an integer
+    weekday = t_current.weekday()
+
+    days_of_the_week = {}
+    for i in range(0-weekday, 7-weekday):
+        t_day = t_current + timedelta(days=i)
+        days_of_the_week[t_day.weekday()] = t_day.strftime("%m/%d/%Y")
+
+    return days_of_the_week, weekday
+
+
+def sortSessionsByDay(all_sessions, days_of_the_week, user):
+    sessions_of_the_week = {}
+    for d in days_of_the_week:
+        date_of_that_day = days_of_the_week[d]
+        date_time_object_lower = datetime.strptime(date_of_that_day, "%m/%d/%Y")
+        date_time_object_upper = date_time_object_lower + timedelta(days=1)
+        days_sessions = all_sessions.filter(time__gte=date_time_object_lower, time__lte=date_time_object_upper)
+
+        sessions_of_the_week[d] = []
+        for s in days_sessions:
+            sessions_time_hours = s.time.strftime("%H")
+            isme = s.user == user
+            if isme:
+                sessions_time_hours = sessions_time_hours + 'me'
+            sessions_of_the_week[d].append(sessions_time_hours)
+    return sessions_of_the_week
+
 
 # Create your views here.
 def booking(request):
@@ -26,34 +57,14 @@ def booking(request):
         # Get todays date and weekday
         t_current = datetime.now() + offset_weeks
         
-        # get day of week as an integer
-        weekday = t_current.weekday()
-
-
-        days_of_the_week = {}
-        for i in range(0-weekday, 7-weekday):
-            t_day = t_current + timedelta(days=i)
-            days_of_the_week[t_day.weekday()] = t_day.strftime("%m/%d/%Y")
+        days_of_the_week, weekday = getDaysOfWeekForDay(t_current)
 
         # Check in database for existing sessions during that week
         start_dt = t_current.replace(hour=0, minute=0, second=0, microsecond=0) + timedelta(days=(0-weekday))
         end_dt = start_dt + timedelta(days=7)
         all_sessions = CoachingSession.objects.filter(time__gte=start_dt, time__lt=end_dt)
 
-        sessions_of_the_week = {}
-        for d in days_of_the_week:
-            date_of_that_day = days_of_the_week[d]
-            date_time_object_lower = datetime.strptime(date_of_that_day, "%m/%d/%Y")
-            date_time_object_upper = date_time_object_lower + timedelta(days=1)
-            days_sessions = all_sessions.filter(time__gte=date_time_object_lower, time__lte=date_time_object_upper)
-
-            sessions_of_the_week[d] = []
-            for s in days_sessions:
-                sessions_time_hours = s.time.strftime("%H")
-                isme = s.user == request.user
-                if isme:
-                    sessions_time_hours = sessions_time_hours + 'me'
-                sessions_of_the_week[d].append(sessions_time_hours)
+        sessions_of_the_week = sortSessionsByDay(all_sessions, days_of_the_week, request.user)
 
         # Fill in all sessions in the past (grey out past days sessions in scheduler)
         week_now = int(datetime.now().strftime("%V"))
@@ -110,7 +121,8 @@ def booking(request):
                                 'scheduleHours': hours_vec,
                                 'isThisWeek': week_current == week_now,
                                 'register_to_book': register_to_book,
-                                'register_book_success': success})
+                                'register_book_success': success,
+                                'scheduleHours_json': json.dumps(hours_vec),})
     except Exception as e:
         print(e.message, e.args)
         return HttpResponseRedirect("index")
