@@ -196,7 +196,7 @@ li {
 /*Footer*/
 
 footer {
-  background-color: #93c8cfbd;
+  background-color: #ffffffbd;
 }
 
 
@@ -345,13 +345,12 @@ table.paleBlueRows tfoot td {
   font-size: 14px;
 }
 
-
 table td {
   border: 1px solid  rgb(255, 255, 255)
 }
 
 table td:hover {
-  background: rgb(172 218 225);
+  background: rgb(237 217 230);
 }
 
 table td:visited {
@@ -464,7 +463,7 @@ label[for="id_time_0"]{
   background: -moz-linear-gradient(90deg, hsla(323, 66%, 84%, 1) 0%, hsla(185, 32%, 86%, 1) 100%);
   background: -webkit-linear-gradient(90deg, hsla(323, 66%, 84%, 1) 0%, hsla(185, 32%, 86%, 1) 100%);
   filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#F1BBDC", endColorstr="#D0E5E7", GradientType=1 );
-  }
+}
 
 #col-form{
   margin-top: 20px;
@@ -597,4 +596,9 @@ label[for="id_time_0"]{
 
 #header-resources{
   color: cadetblue;
+}
+
+.appointment_type_form > p {
+  visibility: hidden;
+  height: 0px;
 }

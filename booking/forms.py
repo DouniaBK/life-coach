@@ -34,7 +34,7 @@ class CoachingSessionInputForm(forms.ModelForm):
 
 class CoachingSessionInputFormFrontEnd(forms.ModelForm):
     service = forms.ChoiceField(choices=COACHING_SERVICES_CHOICES)
-    time = forms.SplitDateTimeField(widget=AdminSplitDateTime())
+    time = forms.SplitDateTimeField(label='', widget=AdminSplitDateTime())
 
     class Meta:
         model = CoachingSession
