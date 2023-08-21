@@ -29,7 +29,12 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.environ.get('DEBUG', 'False') == 'True'
+
+if DEBUG is True:
+    print('Debug mode is on.')
+elif DEBUG is False:
+    print('Debug mode is off.')
 
 ALLOWED_HOSTS = ['life-coach.herokuapp.com', 'localhost', '8000-douniabk-lifecoach-2yf3g2iqe67.ws-eu104.gitpod.io', 'life-coach-d09ed2f9c678.herokuapp.com','8000-douniabk-lifecoach-2yf3g2iqe67.ws-eu103.gitpod.io']
 
