@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Bitter&family=Lato&family=Montserrat&family=Niconne&display=swap');
+
 body {
     background-color:  #ffffff;
 }
@@ -20,7 +22,6 @@ body {
     background-color:#ffffff!important;
     padding: 0px;
     border-bottom: inset;
-
 }
 
 .navbar-nav .dropdown-menu {
@@ -46,7 +47,6 @@ body {
   background-color: rgb(248, 242, 235);
   color: #000000;
 }
-
 
 #nav-text {
     color: #3b536b!important;
@@ -86,6 +86,7 @@ ul.dropdown-menu.show {
 #btn-loginform{
   width: 9rem;
 }
+
 li {
   list-style: none;
 }
@@ -153,15 +154,11 @@ li {
     background-color: #dfd0c7!important;
     padding: 0px;
 }
-.mb-3 {
-  color: #fff;
-  font-family: initial;
+
+.carousel-wrapper {
+    box-shadow: 10px 10px 22px -7px rgb(0 0 0 / 30%);
 }
 
-.mb-4 {
-  color: #fff;
-  font-family: initial;
-}
 .c-item {
   width: 100vw !important;
   height: 50vh;
@@ -199,9 +196,17 @@ footer {
   background-color: #ffffffbd;
 }
 
-
-
 /*index content*/
+
+.showcase-container {
+  max-width: 1200px;
+  margin: 9rem;
+  margin-right: auto;
+  margin-left: auto;
+  border: 1px solid #e1e1e1;
+  border-radius: 5px;
+  box-shadow: 10px 10px 22px -7px rgb(0 0 0 / 8%);
+}
 
 /*About me*/
 #about-me {
@@ -228,19 +233,33 @@ footer {
   flex-wrap: wrap;
 }
 
+.coaching-services-item {
+  display: flex;
+  align-items: flex-end;
+  font-size: 1.25rem;
+  font-weight: 400;
+}
+
+.tab-content {
+  border: 1px solid transparent;
+  border-color: #fff #dee2e6 #dee2e6;
+  padding: 2rem;
+}
+
+
 .nav-link {
   color: #dc354599;
+  height: 100%;
 }
 
 #coaching-services-p {
   text-align: justify; 
 }
 
-#booking-btn {
+.btn-register {
   margin: 1rem;
-  width: 11rem;
+  font-size: larger;
 }
-
 
 /*Booking Sessions*/
 #no-account-p{
@@ -274,6 +293,12 @@ footer {
   padding-bottom: 4rem;
   flex-direction: row;
 }
+
+.testimonial-card-body {
+  font-family: 'Niconne', cursive;
+  font-size: 1.3rem;
+}
+
 .testimonial-card .card-up {
   height: 22px;
   overflow: hidden;
@@ -594,11 +619,29 @@ label[for="id_time_0"]{
   text-align: justify;
 }
 
-#header-resources{
+.header-showcase {
   color: cadetblue;
+  border-bottom: 1px solid #d7d7d7;
+}
+
+.subheader-showcase {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 3rem;
+  font-family: 'Niconne', cursive;
+  font-size: 1.3rem;
 }
 
 .appointment_type_form > p {
   visibility: hidden;
   height: 0px;
+}
+
+.divider-img-wrapper {
+    height: 200px;
+    overflow: hidden;
+    display: flex;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
 }
