@@ -3,16 +3,26 @@
 
 {% block profile %}
 
+
+
 <title>Profile</title>
 <div id="body-form">
     <div class="col-8" id="col-form">
 
-            {% if form.errors %}
-                <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                        There was an error with your form...
+                {% if form.errors %}
+                    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                            There was an error with your form...
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                {% endif %}
+                {% for e in user_error_msg %}
+                    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                        {{e}}
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                </div>
-            {% endif %}
+                    </div>
+                {% endfor %}
+
+
 
                 <div class="container-fluid" id="scheduler-container">
 
@@ -26,7 +36,7 @@
 
                         {% if is_edit %}
                             <div style="display:flex; width: 100%; justify-content: space-between;">
-                                <button type="submit" class="btn btn-primary" id="del-form" name= "booking" href="{% url 'user_profile' %}">Cancel</button>
+                                <a class="btn btn-primary" id="del-form" name= "booking" href="{% url 'user_profile' %}">Cancel</a>
                                 <button type="submit" class="btn btn-primary" id="del-form"  name= "booking" href="{% url 'user_profile' %}?edit=true">Save</button>
                             </div>
                            
@@ -44,7 +54,7 @@
                         {% if is_delete %}
                             <div style="display:flex; width: 100%; justify-content: space-between;">
                                 <label for="pwd_for_delete">Enter your password to confirm account deletion:</label><br>
-                                <input type="text" id="pwd_for_delete" name="pwd_for_delete" value="Password"><br>
+                                <input type="password" id="pwd_for_delete" name="pwd_for_delete" placeholder="Password"><br>
                                 <button type="submit" class="btn btn-primary" name= "Delete Account Now" href="{% url 'user_profile' %}?delete=true">Delete Account Now</button>
                             </div>
                             

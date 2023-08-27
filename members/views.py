@@ -71,11 +71,15 @@ def register_user(request):
 def user_profile(request):
     
     is_edit = request.GET.get('edit', "false") == 'true'
-    
-    is_delete = request.GET.get('delete', "false") == 'true'
 
+    is_cancel = request.GET.get('cancel', "false") == 'true'
+
+    is_delete = request.GET.get('delete', "false") == 'true'
+    
     user = request.user
     delete_pwd = ''
+
+    user_error_msg = []
 
     try:
         delete_pwd = request.POST['pwd_for_delete']
@@ -83,6 +87,7 @@ def user_profile(request):
         pass
     
     if delete_pwd != '':
+        is_delete = True
         try:
             user = authenticate(request, username=request.user.email, password=delete_pwd)
 
@@ -92,26 +97,32 @@ def user_profile(request):
                 messages.success(request, "The user is deleted")
                 return redirect('index')
             else:
-                messages.success(request, ("Delete Failed! Please, Try Again."))	
-                return redirect('index')
+                user_error_msg.append("Delete Failed! Please, Try Again.")
         except:
             messages.success(request, ("Delete Failed!"))
+            return redirect('index')
 
-        return redirect('user_profile')
+    asdkl = request.POST or None
 
-    form = EditProfile(request.POST or None, instance=user)
+    if is_delete:
+        form = EditProfile(instance=request.user)
+    else:
+        form = EditProfile(request.POST or None, instance=request.user)
+
+
     if not is_edit:
         form.fields['first_name'].widget.attrs["disabled"] = 'true'
         form.fields['last_name'].widget.attrs["disabled"] = 'true'
         form.fields['email'].widget.attrs["disabled"] = 'true'
         form.fields['address'].widget.attrs["disabled"] = 'true'
 
-    if request.method == "POST" and form.is_valid():
-        form.save()
+    if not is_delete:
+        if request.method == "POST" and form.is_valid() and not is_cancel:
+            form.save()
         
-        return redirect('user_profile')
+            return redirect('user_profile')
 
-    return render(request, 'user_profile.html', {'form': form, 'is_edit': is_edit, 'is_delete': is_delete,})
+    return render(request, 'user_profile.html', {'form': form, 'is_edit': is_edit, 'is_delete': is_delete, 'user_error_msg': user_error_msg})
 
 
 
