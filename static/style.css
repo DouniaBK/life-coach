@@ -48,7 +48,7 @@ body {
   color: #000000;
 }
 
-#nav-text {
+.nav-text {
     color: #3b536b!important;
     font-weight: 400;
     line-height: 1.2;
@@ -261,30 +261,8 @@ footer {
   font-size: larger;
 }
 
-/*Booking Sessions*/
-#no-account-p{
-  color: #000000;
-}
-
-#scheduler-container{
-  background: #ffffffcc;
-  box-sizing: border-box;
-  border-radius: 10px;
-  min-height: 87vh;
-  padding: 2rem;
-  border: 1px solid #c3c3c3;
-}
-
-#scheduler-next{
-  display: flex;
-  justify-content: space-around;
-}
 
 
-/*divider image*/
-#divider-img {
-  background-color: #0dcaf008;
-}
 /*Testimonials*/
 #testimonials {
   display: flex;
@@ -325,6 +303,35 @@ footer {
 
 
 /*Booking sessions*/
+#no-account-p{
+  color: #000000;
+}
+
+#scheduler-container{
+  background: #ffffffcc;
+  box-sizing: border-box;
+  border-radius: 10px;
+  min-height: 87vh;
+  padding: 2rem;
+  border: 1px solid #c3c3c3;
+}
+
+.scheduler-next{
+  display: flex;
+  justify-content: space-between;
+}
+
+/*divider image*/
+#divider-img {
+  background-color: #0dcaf008;
+}
+.underlined {
+  border-bottom: 1px solid #c7c7c7;
+}
+
+table {
+  text-align: center;
+}
 
 table.paleBlueRows {
   font-family: "Times New Roman", Times, serif;
@@ -403,6 +410,44 @@ table td:visited {
 #datetimepicker {
     background-color: #ffffff08;
     border: none;
+}
+
+.appointment_type_form > p {
+  visibility: hidden;
+  height: 0px;
+}
+
+.appointment_type_form > label {
+  margin-right: 1rem;
+}
+
+.scheduler-next{
+  display: flex;
+  justify-content: space-between;
+}
+
+.register_complete_main{
+  margin: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.thank_you_header {
+  font-size: 1.7rem;
+  font-weight: 600;
+  color: #d58dae;
+  border-bottom: 1px solid grey;
+  min-width: 60%;
+  text-align: center;
+}
+
+.thank_you_subheader {
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: #0e464f;
+  text-align: center;
 }
 /*
 .datetime {
@@ -582,6 +627,13 @@ label[for="id_time_0"]{
   flex-direction: column;
 }
 
+input:disabled {
+  color: black;
+  background-color: #ffffffb8;
+  border-color: black;
+  border-width: 1px;
+}
+
 .h1 {
   margin-bottom: 1rem !important;
 }
@@ -630,11 +682,6 @@ label[for="id_time_0"]{
   margin-bottom: 3rem;
   font-family: 'Niconne', cursive;
   font-size: 1.3rem;
-}
-
-.appointment_type_form > p {
-  visibility: hidden;
-  height: 0px;
 }
 
 .divider-img-wrapper {

@@ -7,15 +7,12 @@
 <title>Sign Up</title>
 <div id="body-form">
     <div class="col-8" id="col-form">
-            {% if form.errors %}
+            {% for e in form_errors %}
                 <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                        There was an error with your form...
-                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    {{e}}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
-            {% endif %}
-
-           
-
+            {% endfor %}
 
             <div class="container-fluid" id="scheduler-container">
                 
@@ -37,7 +34,6 @@
 
                 <h3 class="pb-4">Register</h3>
                 
-
                     <form method="POST" name="register_user"  action="{% url 'register_user' %}{% if register_to_book %}?rtb=true{% endif %}">
                         {% csrf_token %}
                         <div class="form-outline mb-4">
@@ -65,19 +61,18 @@
                             <label class="form-label" for="password2">Confirm Password</label>
                             <input type="password" id="password2" class="form-control" name="password2" aria-describedby="emailHelp">
                         </div>
-                            <div class="text-center">
-                                
-                                {% if register_to_book %}
-                                    <div class="step_button_wrapper">
-                                        <button type="submit" class="btn btn-primary btn-block" id="btn-loginform" name="booking" href="{% url 'booking' %}?rtb=true">Register</button>
-                                        <button class="btn btn-primary btn-block" id="btn-loginform" href="{% url 'index' %}">Cancel</button>
-                                    </div>
-                                {% else %}
-                                    <button type="submit" class="btn btn-primary btn-block" id="btn-loginform" name="booking" href="{% url 'booking' %}">Book a Session</button>
-                                {% endif %}
-        
-                                <p id="form-p">Already Have An Account?</p>
-                                <button href="{% url 'login' %}"  name="login" id="btn-loginform" class="btn btn-primary btn-block">Login</button>
+                        <div class="text-center">
+                            {% if register_to_book %}
+                                <div class="step_button_wrapper">
+                                    <button type="submit" class="btn btn-primary btn-block" id="btn-loginform" name="booking" href="{% url 'booking' %}?rtb=true">Register</button>
+                                    <button class="btn btn-primary btn-block" id="btn-loginform" href="{% url 'index' %}">Cancel</button>
+                                </div>
+                            {% else %}
+                                <button type="submit" class="btn btn-primary btn-block" id="btn-loginform" name="booking" href="{% url 'booking' %}">Register</button>
+                            {% endif %}
+    
+                            <p id="form-p">Already Have An Account?</p>
+                            <button href="{% url 'login' %}"  name="login" id="btn-loginform" class="btn btn-primary btn-block">Login</button>
                         </div>
                     </form>
             </div>

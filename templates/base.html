@@ -4,6 +4,9 @@
 <!DOCTYPE html>
 <html class="h-100">
 
+
+
+
 <head>
     <title>Life Coach Site</title>
 
@@ -41,17 +44,17 @@
               <div class="collapse navbar-collapse" id="navbarExample01">
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                   <li class="nav-item active">
-                    <a class="nav-link" aria-current="page" id="nav-text" name= "index" href="{% url 'index' %}">Home</a>
+                    <a class="nav-link nav-text" aria-current="page" id="nav-home" name= "index" href="{% url 'index' %}">Home</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" id="nav-text" href="{% url 'services' %}">Coaching Services</a>
+                    <a class="nav-link nav-text" id="nav-services" href="{% url 'services' %}">Coaching Services</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" id="nav-text" href="{% url 'resources' %}">Free Resources</a>
+                    <a class="nav-link nav-text" id="nav-resources" href="{% url 'resources' %}">Free Resources</a>
                   </li>
                   {% if user.is_authenticated %}
                     <li class="nav-item">
-                      <a class="nav-link" id="nav-text" href="{% url 'booking' %}"> Coaching Sessions</a>
+                      <a class="nav-link nav-text" id="nav-booking" href="{% url 'booking' %}"> Coaching Sessions</a>
                     </li>
                   {% endif %}
                 </div> 

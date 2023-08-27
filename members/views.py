@@ -33,6 +33,7 @@ def register_user(request):
 
     register_to_book = request.GET.get('rtb', "false") == 'true'
 
+    form_errors = []
     if request.method == "POST":
         form = RegisterUserForm(request.POST)
         if form.is_valid():
@@ -49,10 +50,22 @@ def register_user(request):
                     return redirect('/booking')
             else:
                 return redirect('index')
+        else:   
+            password1 = form.data['password1']
+            password2 = form.data['password2']
+            email = form.data['email']
+            for msg in form.errors.as_data():
+                if msg == 'email':
+                    form_errors.append(f"Declared email: {email} is not valid")
+                if msg == 'password2' and password1 == password2:
+                    form_errors.append("The selected password is not strong enough")
+                elif msg == 'password2' and password1 != password2:
+                    form_errors.append("The entered passwords do not match")
+        
     else:
         form = RegisterUserForm()
 
-    return render(request, 'authenticate/register_user.html', {'form': form, 'register_to_book': register_to_book,})
+    return render(request, 'authenticate/register_user.html', {'form': form, 'form_errors': form_errors, 'register_to_book': register_to_book,})
 
     
 def user_profile(request):
@@ -87,7 +100,12 @@ def user_profile(request):
         return redirect('user_profile')
 
     form = EditProfile(request.POST or None, instance=user)
-    
+    if not is_edit:
+        form.fields['first_name'].widget.attrs["disabled"] = 'true'
+        form.fields['last_name'].widget.attrs["disabled"] = 'true'
+        form.fields['email'].widget.attrs["disabled"] = 'true'
+        form.fields['address'].widget.attrs["disabled"] = 'true'
+
     if request.method == "POST" and form.is_valid():
         form.save()
         

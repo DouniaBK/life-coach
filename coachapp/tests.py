@@ -1,5 +1,6 @@
 from django.contrib.auth import get_user_model
 from django.test import TestCase
+from .models import Testimonial
 
 class UsersManagersTests(TestCase):
 
@@ -12,17 +13,19 @@ class UsersManagersTests(TestCase):
         self.assertFalse(user.is_staff)
         self.assertFalse(user.is_superuser)
 
-
     def test_create_superuser(self):
         print("Test super user")
         User = get_user_model()
         admin_user = User.objects.create_superuser(email="super@user.de", password="dodo")
-        print(admin_user) # noqa
         self.assertEqual(admin_user.email, "super@user.de")
         self.assertTrue(admin_user.is_active)
         self.assertTrue(admin_user.is_staff)
         self.assertTrue(admin_user.is_superuser)
-        
-        #with self.assertRaises(ValueError):
-        #    User.objects.create_superuser(email="superduper@user.de", password="dodo", is_superuser=True)  # noqa
 
+    def test_create_testimonial(self):
+        testimonial = Testimonial.objects.create(name='TestImonial', body='The testimonial is a test', status=0)
+        testimonial.save()
+
+        self.assertEqual(testimonial.name, 'TestImonial')
+        self.assertEqual(testimonial.body, 'The testimonial is a test')
+        self.assertEqual(testimonial.status, 0)

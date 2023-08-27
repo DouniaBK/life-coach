@@ -35,6 +35,11 @@ def sortSessionsByDay(all_sessions, days_of_the_week, user):
             sessions_of_the_week[d].append(sessions_time_hours)
     return sessions_of_the_week
 
+def getOffsetFromRequest(request):
+    offset_param = int(request.GET.get('offset', "0"))
+    if offset_param < 0:
+        offset_param = 0
+    return offset_param
 
 # Create your views here.
 def booking(request):
@@ -48,9 +53,7 @@ def booking(request):
         h_min = 8
         h_max = 21
 
-        offset_param = int(request.GET.get('offset', "0"))
-        if offset_param < 0:
-            offset_param = 0
+        offset_param = getOffsetFromRequest(request)
 
         offset_weeks = timedelta(weeks=offset_param)
 
@@ -82,6 +85,7 @@ def booking(request):
         for us in all_user_sessions:
             info = {}
             info["id"] =us.id
+            info["service"] =us.service
             info["time"] = us.time.strftime("%m/%d/%Y at %H:%M")
 
             all_user_sessions_templ.append(info)
@@ -107,7 +111,7 @@ def booking(request):
                 if register_to_book:
                     return HttpResponseRedirect("/booking?rtb=true&success=true")
                 else:
-                    return HttpResponseRedirect("/booking")
+                    return HttpResponseRedirect("/booking?offset=" + str(offset_param))
             else:
                 print("Error", form.errors)
             
@@ -124,14 +128,16 @@ def booking(request):
                                 'register_book_success': success,
                                 'scheduleHours_json': json.dumps(hours_vec),})
     except Exception as e:
-        print(e.message, e.args)
-        return HttpResponseRedirect("index")
+        print(str(e), e.args)
+        return HttpResponseRedirect("")
     
 def cancel_session(request):
     # this cancels
+    offset_param = getOffsetFromRequest(request)
+
     id = int(request.GET.get('id', "-1"))
     booked_session = get_object_or_404(CoachingSession, id=id) 
     if request.method == "GET":
         booked_session.delete()
-        return HttpResponseRedirect("/booking")
+        return HttpResponseRedirect("/booking?offset=" + str(offset_param))
     return render(request, "booking.html", context)

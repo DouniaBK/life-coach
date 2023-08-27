@@ -30,11 +30,16 @@
 
         
         {% if register_book_success and register_to_book %}
-           <p> You have successfully booked a coaching session. </p>
+
+            <div class="register_complete_main">
+                <p class="thank_you_header"> Thank you for your trust {{user.first_name}} </p>
+                <p class="thank_you_subheader"> You have successfully booked a coaching session. </p>
+            </div>
+
         {% else %}
-            <form method="post" name="booking"   action="{% url 'booking' %}{% if register_to_book %}?rtb=true{% endif %}" class="" required>
+            <form method="post" name="booking"   action="{% url 'booking' %}?offset={{currentWeekOffset}}{% if register_to_book %}&rtb=true{% endif %}" class="" required>
                 {% csrf_token %}
-                <h3 class="pb-4 ">Book a Session:</h3>
+                <h3 class="pb-2 mb-4 underlined">Book a Session:</h3>
                 <!-- Coaching Services 
             
                     <h3 class="pb-4 pt-5 ">Select a coaching service:</h3>
@@ -46,14 +51,22 @@
                     </select>
                 -->
 
-                <div id="scheduler-next">
+                <div class="scheduler-next">
                     <span>
                         {% if not isThisWeek %}
-                            <a href="{% url 'booking' %}?offset={{currentWeekOffset|add:-1}}"><i class="fas fa-angle-left"></i> < PREVIOUS WEEK</a>
+                            <a href="{% url 'booking' %}?offset={{currentWeekOffset|add:-1}}{% if register_to_book %}&rtb=true{% endif %}" style="text-decoration: none; display: flex; align-items: center; color:black">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16" style="margin: 10px;">
+                                    <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
+                                </svg>
+                                Previous week</a>
                         {% endif %} 
                     </span>
                     <span>
-                    <a href="{% url 'booking' %}?offset={{currentWeekOffset|add:1}}">NEXT WEEK > </a>
+                    <a href="{% url 'booking' %}?offset={{currentWeekOffset|add:1}}{% if register_to_book %}&rtb=true{% endif %}" style="text-decoration: none; display: flex; align-items: center; color:black">Next week
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16" style="margin: 10px;">
+                            <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
+                        </svg>    
+                    </a>
                     </span>
                 </div>
                 <div class="table-responsive">
@@ -89,22 +102,42 @@
                 
                     <!-- Appointment -->
                     <div class="appointment_type mt-3">
-                        <h3 class="">Select a Coaching Service:</h3>
-                        <div class="appointment_type_form form form-control" name="time" id="datetimepicker">
+                        <h3 class="pb-2 mb-4 underlined">Select a Coaching Service:</h3>
+                        <div class="appointment_type_form form form-control p-0" name="time" id="datetimepicker">
                             {{ form }}
                         </div>
                     </div>
                     <br/>
                 <input type="submit" class="btn btn-primary text-white" id="del-form" value="Submit">
                 
-                <h3 class="pb-4 pt-5">Edit Your Sessions:</h3>
+                <h3 class="pb-2 mb-4 mt-5 underlined">Booked Sessions:</h3>
 
-                {% for session in allUserSessions %}
-                    <div class="cancel_session_container">
-                        {{session.time}}
-                        <a href="{% url 'cancel_session' %}?id={{session.id}}" class="btn btn-primary text-center" id="del-form">Cancel</a>
-                    </div>
-                {% endfor %}
+
+                <table class="table">
+                    <thead class="thead-light">
+                        <tr>
+                            <th scope="col">Time</th>
+                            <th scope="col">Service</th>
+                            <th scope="col"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for session in allUserSessions %}
+                        <tr>
+                            <td>
+                                {{session.time}}
+                            </td>
+                            <td>
+                                {{session.service}}
+                            </td>
+                            <td>
+                                <a href="{% url 'cancel_session' %}?id={{session.id}}&offset={{currentWeekOffset}}" class="btn btn-primary text-center" id="del-form">Cancel</a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                    </table>
+
 
         
         
