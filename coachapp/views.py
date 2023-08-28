@@ -4,31 +4,45 @@ from django.views.generic import ListView
 from .models import Testimonial
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
-# Create your views here.
 
-
-#def index(request):
-#    return render(request, 'index.html')
 
 def index(request):
     all_testimonials = Testimonial.objects.filter(status='1')
     return render(request, 'index.html', { 'all_testimonials': all_testimonials})
 
-#def login_user(request):
-#    return render(request, 'login.html', {})
-
-# def home(request):
-#    return render(request, 'index.html')
 
 def services(request):
     return render(request, 'services.html', {})
 
-# 
+
 def resources(request):
     return render(request, 'resources.html', {})
-# 
 
 
 def error_404(request, exception):
-    return render(request, '404.html')
-# 
+    return render(request, 'errors.html', { 
+            'header': "Ooops...", 
+            'text': "We are sorry, but we could not find the page you are looking for."
+        })
+
+
+def error_500(request, *args, **argv):
+    return render(request, 'errors.html', { 
+            'header': "Ooops...", 
+            'text': "We are sorry, this should not happen but we just encountered an error."
+        })
+
+
+def error_403(request, exception):
+    return render(request, 'errors.html', { 
+            'header': "You shall not enter!", 
+            'text': "I have spoken"
+        })
+
+
+def error_400(request, exception):
+    return render(request, 'errors.html', { 
+            'header': "Ooops...", 
+            'text': "This did not work. There seems to be a communication error."
+        })
+
