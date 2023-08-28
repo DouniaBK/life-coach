@@ -509,7 +509,7 @@ label[for="id_time_0"]{
   color: #222;
 }
 
-.btn-form {
+.btn-form-large {
   color: #fff;
   background-color: #17a2b8b0;
   font-size: larger;
@@ -518,6 +518,7 @@ label[for="id_time_0"]{
   width: 18rem;
 }
 
+/*
 #btn-form {
   color: #fff;
   background-color: #17a2b8b0;
@@ -525,7 +526,7 @@ label[for="id_time_0"]{
   font-weight: 500;
   border: none;
   width: 18rem;
-}
+}*/
 
 #body-form {
   background: hsla(323, 66%, 84%, 1);
@@ -535,16 +536,22 @@ label[for="id_time_0"]{
   filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#F1BBDC", endColorstr="#D0E5E7", GradientType=1 );
 }
 
-#col-form{
+.content_main {
+  flex: 0 0 auto;
+  width: 66.6666666667%;
+}
+
+#col-form {
   margin-top: 20px;
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 20px;
 }
 
-#del-form{
-  width: 159px;
+.btn-form{
+  min-width: 159px;
 }
+
 #form-p{
   color: #117a8b;
   padding: 13px;
@@ -666,6 +673,19 @@ input:disabled {
   background: #5dbccc;
 }
 
+#register_pill_1::after {
+  content: "Register";
+}
+
+#register_pill_2::after {
+  content: "Book a Session";
+}
+
+#register_pill_3::after {
+  content: "Complete";
+}
+
+
 /* Free Resources*/
 .resources-text {
   text-align: justify;
@@ -692,3 +712,73 @@ input:disabled {
     align-items: center;
     justify-content: center;
 }
+
+h3 {
+  color: cadetblue;
+}
+
+h2 {
+  color: cadetblue;
+}
+
+h5 {
+  color: cadetblue;
+}
+
+/* Custom media queries on top of bootstrap */
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {}
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (max-width: 600px) {
+  .btn-form {
+    min-width: 1px;
+  }
+  .btn-form-large {
+    width: none;
+  }
+
+  #register_pill_1.inactive {
+    padding: 0.2rem 1rem;
+  }
+
+  #register_pill_2.inactive {
+    padding: 0.2rem 1rem;
+  }
+  
+  #register_pill_3.inactive {
+    padding: 0.2rem 1rem;
+  }
+
+  #register_pill_1.inactive::after {
+    content: "1";
+  }
+
+  #register_pill_2.inactive::after {
+    content: "2";
+  }
+
+  #register_pill_3.inactive::after {
+    content: "3";
+  }
+}
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (max-width: 992px) {
+  .content_main {
+    width: 100%;
+  }
+  .container {
+    width: 100%;
+    max-width: none;
+  }
+  .dropdown {
+    position:absolute;
+    right: 0;
+    top: 0;
+  }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {}

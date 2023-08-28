@@ -9,21 +9,21 @@
 {% if user.is_authenticated %}
 <div id="body-form">
     
-	<div class="col-8" id="col-form">
+	<div class="content_main" id="col-form">
 
     <div class="container" id="scheduler-container">
         {% if register_to_book %}
             <div class="register_pill_container">
-                <div class="register_pill">
-                    Register
+                <div class="register_pill inactive" id="register_pill_1">
+                    
                 </div>
 
-                <div class="register_pill{% if not register_book_success and register_to_book %} active{% endif %}">
-                    Book a session
+                <div class="register_pill{% if not register_book_success and register_to_book %} active {% else %} inactive {% endif %}" id="register_pill_2">
+                    
                 </div>
 
-                <div class="register_pill{% if  register_book_success and register_to_book %} active{% endif %}">
-                    Complete
+                <div class="register_pill{% if  register_book_success and register_to_book %} active {% else %} inactive {% endif %}"  id="register_pill_3">
+                    
                 </div>
             </div>
         {% endif %}
@@ -32,8 +32,9 @@
         {% if register_book_success and register_to_book %}
 
             <div class="register_complete_main">
-                <p class="thank_you_header"> Thank you for your trust {{user.first_name}} </p>
-                <p class="thank_you_subheader"> You have successfully booked a coaching session. </p>
+                <p class="thank_you_header"> Thank you for your trust {{user.first_name}}.</p>
+                <p class="thank_you_subheader"> You have successfully booked a coaching session. Head to Coaching Sessions to manage your bookings. </p>
+                <a type="button" class=" btn btn-danger" id="booking-btn" href="{% url 'booking' %}" name="booking">Coaching Sessions </a>
             </div>
 
         {% else %}
@@ -70,55 +71,55 @@
                     </span>
                 </div>
                 <div class="table-responsive">
-                <table class="table">
-                    <thead class="thead-light">
-                    <tr>
-                    <th scope="col">Monday {{weekdays.0}}</th>
-                    <th scope="col">Tuesday  {{weekdays.1}}</th>
-                    <th scope="col">Wednesday  {{weekdays.2}}</th>
-                    <th scope="col">Thursday  {{weekdays.3}}</th>
-                    <th scope="col">Friday  {{weekdays.4}}</th>
-                    <th scope="col">Saturday  {{weekdays.5}}</th>
-                    <th scope="col">Sunday  {{weekdays.6}}</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                        {% for hour in scheduleHours %}
+                    <table class="table">
+                        <thead class="thead-light">
                         <tr>
-                                {% for weekday, value in weekdays.items %}
-                                    <td scope="row" 
-                                        class="{% for session_day, session_values in weeksSessions.items %}{% if session_day == weekday %}   {% if hour in session_values %}disableME{% endif %} {% if hour|add:"me" in session_values %}disableME isMine{% endif %} {% endif %}{% endfor %}" 
-                                        id="{{weekday}}_{{hour}}"
-                                        style="cursor: pointer;" 
-                                        onclick="{% for session_day, session_values in weeksSessions.items %}{% if session_day == weekday %}{% if not hour in session_values %}onClickCallback('{{value}}', '{{hour}}', '{{weekday}}_{{hour}}', '{{scheduleHours_json}}') {% endif %}{% endif %}{% endfor %}">
-                                        {{hour}}:00
-                                    </td>
-                                {% endfor %}
+                        <th class="fw-normal" scope="col">Monday {{weekdays.0}}</th>
+                        <th class="fw-normal" scope="col">Tuesday  {{weekdays.1}}</th>
+                        <th class="fw-normal" scope="col">Wednesday  {{weekdays.2}}</th>
+                        <th class="fw-normal" scope="col">Thursday  {{weekdays.3}}</th>
+                        <th class="fw-normal" scope="col">Friday  {{weekdays.4}}</th>
+                        <th class="fw-normal" scope="col">Saturday  {{weekdays.5}}</th>
+                        <th class="fw-normal" scope="col">Sunday  {{weekdays.6}}</th>
                         </tr>
-                        {% endfor %}
-                    </tbody>
+                        </thead>
+                        <tbody>
+                            {% for hour in scheduleHours %}
+                            <tr>
+                                    {% for weekday, value in weekdays.items %}
+                                        <td scope="row" 
+                                            class="{% for session_day, session_values in weeksSessions.items %}{% if session_day == weekday %}   {% if hour in session_values %}disableME{% endif %} {% if hour|add:"me" in session_values %}disableME isMine{% endif %} {% endif %}{% endfor %}" 
+                                            id="{{weekday}}_{{hour}}"
+                                            style="cursor: pointer;" 
+                                            onclick="{% for session_day, session_values in weeksSessions.items %}{% if session_day == weekday %}{% if not hour in session_values %}onClickCallback('{{value}}', '{{hour}}', '{{weekday}}_{{hour}}', '{{scheduleHours_json}}') {% endif %}{% endif %}{% endfor %}">
+                                            {{hour}}:00
+                                        </td>
+                                    {% endfor %}
+                            </tr>
+                            {% endfor %}
+                        </tbody>
                     </table>
-                    </div>
+                </div>
                 
                     <!-- Appointment -->
-                    <div class="appointment_type mt-3">
-                        <h3 class="pb-2 mb-4 underlined">Select a Coaching Service:</h3>
-                        <div class="appointment_type_form form form-control p-0" name="time" id="datetimepicker">
-                            {{ form }}
-                        </div>
+                <div class="appointment_type mt-3">
+                    <h3 class="pb-2 mb-4 underlined">Select a Coaching Service:</h3>
+                    <div class="appointment_type_form form form-control p-0" name="time" id="datetimepicker">
+                        {{ form }}
                     </div>
-                    <br/>
-                <input type="submit" class="btn btn-primary text-white" id="del-form" value="Submit">
-                
+                </div>
+                <br/>
+                <input type="submit" class="btn btn-primary text-white btn-form-large" value="Submit">
+            
                 <h3 class="pb-2 mb-4 mt-5 underlined">Booked Sessions:</h3>
 
 
                 <table class="table">
                     <thead class="thead-light">
                         <tr>
-                            <th scope="col">Time</th>
-                            <th scope="col">Service</th>
-                            <th scope="col"></th>
+                            <th style="border-bottom: none;" scope="col"></th>
+                            <th style="border-bottom: none;" scope="col"></th>
+                            <th style="border-bottom: none;" scope="col"></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -131,16 +132,12 @@
                                 {{session.service}}
                             </td>
                             <td>
-                                <a href="{% url 'cancel_session' %}?id={{session.id}}&offset={{currentWeekOffset}}" class="btn btn-primary text-center" id="del-form">Cancel</a>
+                                <a href="{% url 'cancel_session' %}?id={{session.id}}&offset={{currentWeekOffset}}" class="btn btn-primary text-center btn-form-large">Cancel</a>
                             </td>
                         </tr>
                         {% endfor %}
                     </tbody>
-                    </table>
-
-
-        
-        
+                </table>
             </form>
         {% endif %}
 

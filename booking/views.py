@@ -106,7 +106,6 @@ def booking(request):
                 # process the data in form.cleaned_data as required
                 service = form.cleaned_data['service']
                 time = form.cleaned_data['time']
-                messages.success(request, ('Your appointment has been booked.'))
                 # redirect to a new URL:
                 if register_to_book:
                     return HttpResponseRedirect("/booking?rtb=true&success=true")

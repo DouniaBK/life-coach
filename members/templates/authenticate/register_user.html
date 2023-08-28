@@ -6,7 +6,7 @@
 
 <title>Sign Up</title>
 <div id="body-form">
-    <div class="col-8" id="col-form">
+    <div class="content_main" id="col-form">
             {% for e in form_errors %}
                 <div class="alert alert-warning alert-dismissible fade show" role="alert">
                     {{e}}
@@ -18,16 +18,16 @@
                 
                 {% if register_to_book %}
                 <div class="register_pill_container">
-                    <div class="register_pill active">
-                        Register
+                    <div class="register_pill active" id="register_pill_1">
+                        
                     </div>
     
-                    <div class="register_pill">
-                        Book a session
+                    <div class="register_pill inactive" id="register_pill_2">
+                        
                     </div>
     
-                    <div class="register_pill">
-                        Complete
+                    <div class="register_pill inactive" id="register_pill_3">
+                        
                     </div>
                 </div>
                 {% endif %}
@@ -64,8 +64,8 @@
                         <div class="text-center">
                             {% if register_to_book %}
                                 <div class="step_button_wrapper">
-                                    <button type="submit" class="btn btn-primary btn-block" id="btn-loginform" name="booking" href="{% url 'booking' %}?rtb=true">Register</button>
                                     <button class="btn btn-primary btn-block" id="btn-loginform" href="{% url 'index' %}">Cancel</button>
+                                    <button type="submit" class="btn btn-primary btn-block" id="btn-loginform" name="booking" href="{% url 'booking' %}?rtb=true">Register</button>
                                 </div>
                             {% else %}
                                 <button type="submit" class="btn btn-primary btn-block" id="btn-loginform" name="booking" href="{% url 'booking' %}">Register</button>

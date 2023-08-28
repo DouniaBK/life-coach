@@ -18,7 +18,6 @@ def login_user(request):
             login(request, user)
             return redirect('index')
         else:
-            messages.success(request, ("Login Failed! Please, Try Again."))	
             return redirect('booking')	
 
     else:
@@ -26,7 +25,6 @@ def login_user(request):
 
 def logout_user(request):
     logout(request)
-    messages.success(request, ("You are logged out."))
     return redirect('index')
 
 def register_user(request):
@@ -43,14 +41,13 @@ def register_user(request):
             user = authenticate(username=username, password=password)
             if user is not None:
                 login(request, user)
-                messages.success(request, ('Registration Successful!'))
                 if register_to_book:
                     return redirect('/booking?rtb=true')
                 else:
                     return redirect('/booking')
             else:
                 return redirect('index')
-        else:   
+        else:
             password1 = form.data['password1']
             password2 = form.data['password2']
             email = form.data['email']
@@ -94,12 +91,10 @@ def user_profile(request):
             if user is not None:
                 logout(request)
                 user.delete()
-                messages.success(request, "The user is deleted")
                 return redirect('index')
             else:
                 user_error_msg.append("Delete Failed! Please, Try Again.")
         except:
-            messages.success(request, ("Delete Failed!"))
             return redirect('index')
 
     asdkl = request.POST or None
