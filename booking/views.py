@@ -108,9 +108,9 @@ def booking(request):
                 time = form.cleaned_data['time']
                 # redirect to a new URL:
                 if register_to_book:
-                    return HttpResponseRedirect("booking/booking?rtb=true&success=true")
+                    return HttpResponseRedirect("/booking?rtb=true&success=true")
                 else:
-                    return HttpResponseRedirect("booking/booking?offset=" + str(offset_param))
+                    return HttpResponseRedirect("/booking?offset=" + str(offset_param))
             else:
                 print("Error", form.errors)
             
@@ -138,5 +138,5 @@ def cancel_session(request):
     booked_session = get_object_or_404(CoachingSession, id=id) 
     if request.method == "GET":
         booked_session.delete()
-        return HttpResponseRedirect("booking/booking?offset=" + str(offset_param))
-    return render(request, "bookingbooking.html", context)
+        return HttpResponseRedirect("/booking?offset=" + str(offset_param))
+    return render(request, "booking/booking.html", context)

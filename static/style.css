@@ -80,6 +80,14 @@ body {
   padding-bottom: 5px;
 }
 
+.btn-primary:focus {
+  box-shadow: none!important;
+} 
+.btn-primary:hover {
+  background: #72c1cf!important;
+} 
+
+
 
 /*Background image*/
 
@@ -251,22 +259,31 @@ footer {
   border-bottom: 1px solid #c7c7c7;
 }
 
-table {
+.table {
   text-align: center;
 }
 
 /* Booking sessions*/
-table td {
+.table td {
   border: 1px solid  rgb(255, 255, 255)
 }
 
-table td:hover {
+.table td:hover {
   background: rgb(237 217 230);
 }
 
-table td:visited {
+.table td:visited {
   background: rgb(172 218 225);
 }
+
+.table-session-overview {
+  width: 100%;
+}
+
+.table-session-overview td {
+  padding: 4px;
+}
+
 
 .disableME {
   background-color: rgb(204, 204, 204) !important;
@@ -400,8 +417,8 @@ table td:visited {
   font-size: larger;
   font-weight: 500;
   border: none;
-  width: 18rem;
 }
+
 /*LOGIN Icon*/
 .fa-user:before {
   content: "\f007";
@@ -451,6 +468,7 @@ li {
 }
 
 #body-form {
+  flex: 1;
   background: hsla(323, 66%, 84%, 1);
   background: linear-gradient(90deg, hsla(323, 66%, 84%, 1) 0%, hsla(185, 32%, 86%, 1) 100%);
   background: -moz-linear-gradient(90deg, hsla(323, 66%, 84%, 1) 0%, hsla(185, 32%, 86%, 1) 100%);
@@ -677,10 +695,6 @@ h5 {
   .btn-form {
     min-width: 1px;
   }
-  .btn-form-large {
-    width: none;
-  }
-
   #register_pill_1.inactive {
     padding: 0.2rem 1rem;
   }
