@@ -8,20 +8,21 @@ from .forms import RegisterUserForm, EditProfile
 
 
 def login_user(request):
+    error_messages = []
     if request.method == "POST":
-        print("request")
 
+        # Try to authenticate the user
         username = request.POST['email']
         password = request.POST['password']
         user = authenticate(request, username=username, password=password)
+        # Login if it worked, show an error otherwise
         if user is not None:
             login(request, user)
             return redirect('index')
         else:
-            return redirect('booking')	
+            error_messages.append("That did not work. Please try again.")
 
-    else:
-        return render(request, 'authenticate/login.html', {})
+    return render(request, 'members/authenticate/login.html', {'error_messages': error_messages})
 
 def logout_user(request):
     logout(request)
@@ -62,7 +63,7 @@ def register_user(request):
     else:
         form = RegisterUserForm()
 
-    return render(request, 'authenticate/register_user.html', {'form': form, 'form_errors': form_errors, 'register_to_book': register_to_book,})
+    return render(request, 'members/authenticate/register_user.html', {'form': form, 'form_errors': form_errors, 'register_to_book': register_to_book,})
 
     
 def user_profile(request):
@@ -117,18 +118,5 @@ def user_profile(request):
         
             return redirect('user_profile')
 
-    return render(request, 'user_profile.html', {'form': form, 'is_edit': is_edit, 'is_delete': is_delete, 'user_error_msg': user_error_msg})
+    return render(request, 'members/user_profile.html', {'form': form, 'is_edit': is_edit, 'is_delete': is_delete, 'user_error_msg': user_error_msg})
 
-
-
-
-'''
-    except:
-        # do nothing
-
-    if delete_pwd != None:
-        print('DELETE')
-        return redirect('user_profile')
-
-
-'''

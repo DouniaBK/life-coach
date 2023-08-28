@@ -56,52 +56,6 @@ body {
     font-size:large;
 }
 
-/*LOGIN Icon*/
-.fa-user:before {
-  content: "\f007";
-  color: #4fa3bf;
-  padding: 3px;
-}
-
-ul.dropdown-menu.show {
-  top: 100%;
-  margin-top: 0.125rem;
-  background-color: #ffffffed;
-  border-radius: 5px;
-  color: black;
-}
-
-.dropdown-menu[data-bs-popper] {
-  left: auto;
-}
-/*LOGIN Btn*/
-.btn-danger {
-  background-color: #ef8791;
-  border-color: #ef8791;
-}
-
-#login-btn{
-  color: #fff;
-}
-
-#btn-loginform{
-  width: 9rem;
-}
-
-li {
-  list-style: none;
-}
-
-#login-container {
-    background: #ffffffcc;
-    box-sizing: border-box;
-    border-radius: 10px;
-    min-height: 71vh;
-    padding: 2rem;
-    border: 1px solid #c3c3c3;
-    max-width: 40vw;
-    min-width: fit-content;
-}
 
 /* Color of the links BEFORE scroll */
 .navbar-scroll .nav-link,
@@ -125,16 +79,7 @@ li {
   padding-top: 5px;
   padding-bottom: 5px;
 }
-/* navbar logo 
-.navbar-light .navbar-brand {
-  color: rgba(0,0,0,.9);
-  max-height: 7rem;
-  max-width: 9rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
-}*/
+
 
 /*Background image*/
 
@@ -194,7 +139,7 @@ li {
 /*Footer*/
 
 footer {
-  background-color: #ffffffbd;
+  background-color: #66a9c075;;
 }
 
 /*index content*/
@@ -209,7 +154,7 @@ footer {
   box-shadow: 10px 10px 22px -7px rgb(0 0 0 / 8%);
 }
 
-/*About me*/
+/*About The Coach*/
 #about-me {
   display: flex;
   justify-content: center !important;
@@ -298,27 +243,6 @@ footer {
   width: 100%;
 }
 
-
-
-/*Booking sessions*/
-#no-account-p{
-  color: #000000;
-}
-
-#scheduler-container{
-  background: #ffffffcc;
-  box-sizing: border-box;
-  border-radius: 10px;
-  min-height: 87vh;
-  padding: 2rem;
-  border: 1px solid #c3c3c3;
-}
-
-.scheduler-next{
-  display: flex;
-  justify-content: space-between;
-}
-
 /*divider image*/
 #divider-img {
   background-color: #0dcaf008;
@@ -331,50 +255,7 @@ table {
   text-align: center;
 }
 
-table.paleBlueRows {
-  font-family: "Times New Roman", Times, serif;
-  border: 1px solid #FFFFFF;
-  width: 350px;
-  height: 200px;
-  text-align: center;
-  border-collapse: collapse;
-}
-table.paleBlueRows td, table.paleBlueRows th {
-  border: 1px solid #FFFFFF;
-  padding: 3px 2px;
-}
-table.paleBlueRows tbody td {
-  font-size: 13px;
-}
-table.paleBlueRows tr:nth-child(even) {
-  background: #D5E9EF;
-}
-table.paleBlueRows thead {
-  background: #B1DEEF;
-  border-bottom: 5px solid #FFFFFF;
-}
-table.paleBlueRows thead th {
-  font-size: 17px;
-  font-weight: bold;
-  color: #FFFFFF;
-  text-align: center;
-  border-left: 2px solid #FFFFFF;
-}
-table.paleBlueRows thead th:first-child {
-  border-left: none;
-}
-
-table.paleBlueRows tfoot {
-  font-size: 14px;
-  font-weight: bold;
-  color: #333333;
-  background: #D0E4F5;
-  border-top: 3px solid #444444;
-}
-table.paleBlueRows tfoot td {
-  font-size: 14px;
-}
-
+/* Booking sessions*/
 table td {
   border: 1px solid  rgb(255, 255, 255)
 }
@@ -403,6 +284,24 @@ table td:visited {
     flex-wrap: wrap;
     justify-content: space-around;
     align-items: center;
+}
+
+#no-account-p{
+  color: #000000;
+}
+
+#scheduler-container{
+  background: #ffffffcc;
+  box-sizing: border-box;
+  border-radius: 10px;
+  min-height: 87vh;
+  padding: 2rem;
+  border: 1px solid #c3c3c3;
+}
+
+.scheduler-next{
+  display: flex;
+  justify-content: space-between;
 }
 
 #datetimepicker {
@@ -447,20 +346,8 @@ table td:visited {
   color: #0e464f;
   text-align: center;
 }
-/*
-.datetime {
-  display: none;
-}
 
-label[for=id_service]{
-  display: none;
-}
-
-label[for="id_time_0"]{
-  display: none;
-}/*
-/*Login*/
-
+/* Login Form */
 
 .login-box {
   position: absolute;
@@ -515,16 +402,53 @@ label[for="id_time_0"]{
   border: none;
   width: 18rem;
 }
+/*LOGIN Icon*/
+.fa-user:before {
+  content: "\f007";
+  color: #4fa3bf;
+  padding: 3px;
+}
 
-/*
-#btn-form {
+ul.dropdown-menu.show {
+  top: 100%;
+  margin-top: 0.125rem;
+  background-color: #ffffffed;
+  border-radius: 5px;
+  color: black;
+}
+
+.dropdown-menu[data-bs-popper] {
+  left: auto;
+  right: 0;
+}
+
+/*LOGIN Btn*/
+.btn-danger {
+  background-color: #ef8791;
+  border-color: #ef8791;
+}
+
+#login-btn{
   color: #fff;
-  background-color: #17a2b8b0;
-  font-size: larger;
-  font-weight: 500;
-  border: none;
-  width: 18rem;
-}*/
+}
+
+#btn-loginform{
+  width: 9rem;
+}
+
+li {
+  list-style: none;
+}
+
+#login-container {
+    background: #ffffffcc;
+    box-sizing: border-box;
+    border-radius: 10px;
+    min-height: 71vh;
+    padding: 2rem;
+    border: 1px solid #c3c3c3;
+    min-width: fit-content;
+}
 
 #body-form {
   background: hsla(323, 66%, 84%, 1);
@@ -537,6 +461,7 @@ label[for="id_time_0"]{
 .content_main {
   flex: 0 0 auto;
   width: 66.6666666667%;
+  max-width: 1200px;
 }
 
 #col-form {

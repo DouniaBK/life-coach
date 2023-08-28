@@ -108,15 +108,15 @@ def booking(request):
                 time = form.cleaned_data['time']
                 # redirect to a new URL:
                 if register_to_book:
-                    return HttpResponseRedirect("/booking?rtb=true&success=true")
+                    return HttpResponseRedirect("booking/booking?rtb=true&success=true")
                 else:
-                    return HttpResponseRedirect("/booking?offset=" + str(offset_param))
+                    return HttpResponseRedirect("booking/booking?offset=" + str(offset_param))
             else:
                 print("Error", form.errors)
             
         # if a GET (or any other method) we'll create a blank form
         form = CoachingSessionInputFormFrontEnd()
-        return render(request,  'booking.html', {'form': form, 
+        return render(request,  'booking/booking.html', {'form': form, 
                                 'weekdays': days_of_the_week, 
                                 'currentWeekOffset': offset_param, 
                                 'weeksSessions': sessions_of_the_week, 
@@ -138,5 +138,5 @@ def cancel_session(request):
     booked_session = get_object_or_404(CoachingSession, id=id) 
     if request.method == "GET":
         booked_session.delete()
-        return HttpResponseRedirect("/booking?offset=" + str(offset_param))
-    return render(request, "booking.html", context)
+        return HttpResponseRedirect("booking/booking?offset=" + str(offset_param))
+    return render(request, "bookingbooking.html", context)
