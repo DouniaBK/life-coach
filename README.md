@@ -46,8 +46,9 @@ The site has a minimal aesthetic and color palette to avoid sensory overstimulat
 ### Fonts:
 
 # Features:
+## Page Elements:
 The site contains various pages to introduce the user to the services and approaches this particular life coach/therapist offers. The following pages are accessible from the extendable navbar on top:
-## Home page:
+### Home page:
 
 The first page welcomes the user into a simple and serene site of a life coach that offers different services and information to help female cancer patients. The site has a simple navbar that redirects the user to the Coaching Services, Free Resouces, Coaching Sessions, a dropdown menu for login/logout/register/Profile feature and back to the Home page. Once logged in or registered the navbar expands adding the coaching sessions section, where the user can book sessions with the therapist, and the profile section, where the user can edit or delete their account to protect their privacy. Furthermore, the home page is divided into 4 main sections:
 
@@ -58,24 +59,26 @@ The first page welcomes the user into a simple and serene site of a life coach t
     3. Coaching services section is headed with a brief introduction of the coaching packages the coach offers including a button, get started, which prompts the user to register, and account and eventually book a first free session with the coach using the booking calendar.
     
     4. Testimonials section is here displayed as a powerful marketing tool to build trust and inspire professionalism.
-## Coaching services:
+    
+### Coaching services:
 This part is featured twice on the site, once with brief information on the home page and again accessible from the navbar with more detailed information about the number of sessions, the duration, price and techniques used allowing the user to delve in and find the most suitable package. This section includes a button that will redirect the user to registering or logging in and then selecting a service and eventually booking a session at a suitable time and canceling it in case of a change of plan.
 
-## Coaching resources:
+### Coaching resources:
 This page is intended to simply give more information about the free resources available to them at the clinic and during the therapy sessions. As the goal is to inform, the esthetic is clean, minimal, light and familiar to help the user's brain focus and pay attention. 
  
-## Coaching sessions:
+### Coaching sessions:
 This page is accessible from the navbar once registered or logged in as well as from the coaching sections and the home page. This section allows the user to select a service and then book a session with the coach with a handy calendar that shows which days and times are still available in white and the sessions that are not available greyed out as well as the sessions selected by that particular user in blue. Once the user selects an appropriate time and a service and submits it that session then appears in their personal list of sessions which in turn can be cancelled. To sum up, the user selects a service from the drop-down list then an available session on the calendar, clicks submit and that session will then appear as booked by them on the calendar in a light blue colour as well as on the my sessions section. The coach/admin will then personally review their schedule and the user’s profile information on the admin panel to contact the user if needed. 
 
-## Accounts:
+### Accounts:
 
 A site user has to register in order to book a session and edit their profile. The user can log in, log out and access their profile through the right end section of the navbar, login and drop-down menu list profile and logout. These account features have been implemented to give the necessary information to the admin/coach for billing purposes, client and time management. However, the account can also be deleted giving the user the right to privacy thus all CRUD functionalities have been implemented for better usability.
 
 
-## Testimonials:
+### Testimonials:
 The ancient Greek philosopher, Pythagoras, postulated that the number 3 was considered the perfect number, the number of harmony, wisdom and understanding which is often used in hypnotherapy, neurolinguistics and the realm of psychology and thus the Testimonials section features only three testimonials to foster esthetic balance and harmony of the site and not overwhelm the user risking losing them as patients. The admin can update, delete, publish or choose to keep some testimonials saved as drafts for later. This site section is minimal, responsive and centered containing the author of the testimonial and the body of the testimonial. The therapist is then in control of the image they want to portray to other/future patients.
 
-## Account management
+## Admin Page Elements:
+### Account management
 The admin Panel contains three main sections:
 ### Custom User:
 The patients that register are saved and displayed in the panel with the status of active or not and staff or not. The super user has then all the permission and can also grant permissions to the users for example if another user such as an assistant can be given permission to maintain the site and manage the clients sessions and accounts.
@@ -83,7 +86,7 @@ The patients that register are saved and displayed in the panel with the status 
 ### User Profile
 The custom user information section combined with the registration form display the First Name, Last Name, Address, Email address of the user that can be changed using the CRUD functionality available to the user on the home page
 
-### Coaching Sessions:
+### Coaching Sessions Calendar and Display:
 Displaying the user information, the time and date of the session chosen by the user. These sessions can be cancelled by the user, from the site once logged in, if they chose to.
 
 ### Testimonials:
