@@ -8,6 +8,8 @@ from django.utils import timezone
 # Create your models here.
 
 STATUS = ((0, "Draft"), (1, "Published"))
+
+
 class CustomUser(AbstractBaseUser, PermissionsMixin):
     first_name = models.CharField(max_length=50, default='Client')
     last_name = models.CharField(max_length=100, default='Client')
@@ -35,5 +37,4 @@ class Testimonial(models.Model):
         ordering = ["-name"]
 
     def __str__(self):
-        return f'{self.name}' # change the string to return self.name
-
+        return f'{self.name}'

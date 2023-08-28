@@ -4,20 +4,24 @@ from django import forms
 from coachapp.models import CustomUser
 
 
+# Credit to John Atler from Codemy.com
 class RegisterUserForm(UserCreationForm):
     first_name = forms.CharField(max_length=50)
     last_name = forms.CharField(max_length=100)
     address = forms.CharField(max_length=400)
     email = forms.EmailField()
+
     class Meta:
         model = CustomUser
-        fields = ('first_name', 'last_name', 'email', 'address', 'password1', 'password2')
+        fields = ('first_name', 'last_name', 'email', 'address', 'password1', 'password2')   # noqa
+
 
 class EditProfile(forms.ModelForm):
     first_name = forms.CharField(max_length=50)
     last_name = forms.CharField(max_length=100)
     address = forms.CharField(max_length=400)
     email = forms.EmailField()
+
     class Meta:
         model = CustomUser
         fields = ('first_name', 'last_name', 'email', 'address')

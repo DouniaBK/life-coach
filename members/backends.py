@@ -23,15 +23,14 @@ class EmailBackend(ModelBackend):
 
         return user if self.user_can_authenticate(user) else None
 
-
         '''
         try: # allow authentication through phone number or any other field
-            user = UserModel.objects.get(Q(username__iexact=username) | Q(email__iexact=username))
+            user = UserModel.objects.get(Q(username__iexact=username) | Q(email__iexact=username))   # noqa
         except UserModel.DoesNotExist:
             UserModel().set_password(password)
         except MultipleObjectsReturned:
             return User.objects.filter(email=username).order_by('id').first()
         else:
-            if user.check_password(password) and self.user_can_authenticate(user):
+            if user.check_password(password) and self.user_can_authenticate(user):   # noqa
                 return user
-        '''
+        '''   # noqa

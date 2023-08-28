@@ -7,6 +7,7 @@
 <title>Sign Up</title>
 <div id="body-form">
     <div class="content_main" id="col-form">
+        <!-- Error message -->
         {% for e in form_errors %}
         <div class="alert alert-warning alert-dismissible fade show" role="alert">
             {{e}}
@@ -15,7 +16,7 @@
         {% endfor %}
 
         <div class="container-fluid" id="scheduler-container">
-
+            <!-- Register & Book form -->
             {% if register_to_book %}
             <div class="register_pill_container">
                 <div class="register_pill active" id="register_pill_1">

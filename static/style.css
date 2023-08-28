@@ -83,11 +83,10 @@ body {
 .btn-primary:focus {
   box-shadow: none!important;
 } 
+
 .btn-primary:hover {
   background: #72c1cf!important;
 } 
-
-
 
 /*Background image*/
 
@@ -628,6 +627,7 @@ input:disabled {
 
 
 /* Free Resources*/
+
 .resources-text {
   text-align: justify;
 }
@@ -684,7 +684,6 @@ h5 {
   font-size: 2rem;
   color: white;
 }
-
 
 
 /* Custom media queries on top of bootstrap */

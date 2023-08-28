@@ -28,7 +28,7 @@ urlpatterns = [
     path('booking/', include('booking.urls')),
 ]
 
-handler400= 'coachapp.views.error_400'
-handler403= 'coachapp.views.error_403'
-handler404= 'coachapp.views.error_404'
-handler500= 'coachapp.views.error_500'
+handler400 = 'coachapp.views.error_400'
+handler403 = 'coachapp.views.error_403'
+handler404 = 'coachapp.views.error_404'
+handler500 = 'coachapp.views.error_500'

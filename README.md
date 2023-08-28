@@ -43,8 +43,14 @@ This particular site is solely dedicated to women diagnosed with cancer and unde
 The site has a minimal aesthetic and color palette to avoid sensory overstimulation often as a result of chemotherapy as well as offers an intuitive workflow leading to booking a session and starting a journey of mental repair. Furthermore, as the site contains key information about the therapy packages, familiar colors, fonts, images, and other matching elements have been used throughout to reflect the site's organization as well as alert the patient to pay attention.
 
 ### Color Palette:
-### Fonts:
 
+### Fonts:
+The font family and style used are:
+
+   * font-family: 'Open Sans'
+   * Lead feature from Bootstrap
+### Favicon:
+A minimalistic favicon with the life coach's initials has been added giving the site a professional look. The favicon has been generated using [favicon.io](https://favicon.io/favicon-generator/).
 # Features:
 ## Page Elements:
 The site contains various pages to introduce the user to the services and approaches this particular life coach/therapist offers. The following pages are accessible from the extendable navbar on top:
@@ -52,13 +58,13 @@ The site contains various pages to introduce the user to the services and approa
 
 The first page welcomes the user into a simple and serene site of a life coach that offers different services and information to help female cancer patients. The site has a simple navbar that redirects the user to the Coaching Services, Free Resouces, Coaching Sessions, a dropdown menu for login/logout/register/Profile feature and back to the Home page. Once logged in or registered the navbar expands adding the coaching sessions section, where the user can book sessions with the therapist, and the profile section, where the user can edit or delete their account to protect their privacy. Furthermore, the home page is divided into 4 main sections:
 
-    1. Hero section features as a background an image of a sunset with a gradient that sets the tone of the entire website, evoking a calm, relaxing and welcoming atmosphere, topped with text to showcase the coach's name/brand and inspirational quotes. 
+    1. The hero section features as a background an image of a sunset with a gradient that sets the tone of the entire website, evoking a calm, relaxing and welcoming atmosphere, topped with text to showcase the coach's name/brand and inspirational quotes. 
 
-    2. About the Coach section features a personal introduction of the coach, who is also a cancer survivor and a certified therapist.
+    2. The About the Coach section features a personal introduction of the coach, who is also a cancer survivor and a certified therapist.
  
-    3. Coaching services section is headed with a brief introduction of the coaching packages the coach offers including a button, get started, which prompts the user to register, and account and eventually book a first free session with the coach using the booking calendar.
+    3. The Coaching Services section is headed with a brief introduction of the coaching packages the coach offers including a button, get started, which prompts the user to register, and an account and eventually book a first free session with the coach using the booking calendar.
     
-    4. Testimonials section is here displayed as a powerful marketing tool to build trust and inspire professionalism.
+    4. The Testimonials section is displayed as a powerful marketing tool to build trust and inspire professionalism.
     
 ### Coaching services:
 This part is featured twice on the site, once with brief information on the home page and again accessible from the navbar with more detailed information about the number of sessions, the duration, price and techniques used allowing the user to delve in and find the most suitable package. This section includes a button that will redirect the user to registering or logging in and then selecting a service and eventually booking a session at a suitable time and canceling it in case of a change of plan.
@@ -71,26 +77,33 @@ This page is accessible from the navbar once registered or logged in as well as 
 
 ### Accounts:
 
-A site user has to register in order to book a session and edit their profile. The user can log in, log out and access their profile through the right end section of the navbar, login and drop-down menu list profile and logout. These account features have been implemented to give the necessary information to the admin/coach for billing purposes, client and time management. However, the account can also be deleted giving the user the right to privacy thus all CRUD functionalities have been implemented for better usability.
+A site user has to register to book a session and edit their profile. The user can log in, log out and access their profile through the right end section of the navbar, login and drop-down menu list profile and logout. These account features have been implemented to give the necessary information to the admin/coach for billing purposes, client and time management. However, the account can also be deleted giving the user the right to privacy thus all CRUD functionalities have been implemented for better usability.
 
 
 ### Testimonials:
 The ancient Greek philosopher, Pythagoras, postulated that the number 3 was considered the perfect number, the number of harmony, wisdom and understanding which is often used in hypnotherapy, neurolinguistics and the realm of psychology and thus the Testimonials section features only three testimonials to foster esthetic balance and harmony of the site and not overwhelm the user risking losing them as patients. The admin can update, delete, publish or choose to keep some testimonials saved as drafts for later. This site section is minimal, responsive and centered containing the author of the testimonial and the body of the testimonial. The therapist is then in control of the image they want to portray to other/future patients.
 
+### Error Pages:
+* 400 Error page appears when the server can not or will not process the request due to something that is perceived to be a client error 
+* 403 Error page appears when the user does not have the necessary permissions to access the wanted page
+* 404 Error page appears when the server can not find the page requested
+* 500 Error page appears when the server encounters a problem, and can not complete a request
+
 ## Admin Page Elements:
 ### Account management
 The admin Panel contains three main sections:
 ### Custom User:
-The patients that register are saved and displayed in the panel with the status of active or not and staff or not. The super user has then all the permission and can also grant permissions to the users for example if another user such as an assistant can be given permission to maintain the site and manage the clients sessions and accounts.
+The patients that register are saved and displayed in the panel with the status of active or not and staff or not. The super user has then all the permissions and can also grant permissions to the users for example if another user such as an assistant can be permitted to maintain the site and manage the clients' sessions and accounts.
 
 ### User Profile
-The custom user information section combined with the registration form display the First Name, Last Name, Address, Email address of the user that can be changed using the CRUD functionality available to the user on the home page
+The custom user information section combined with the registration form displays the First Name, Last Name, Address, and Email address of the user that can be changed using the CRUD functionality available to the user on the home page
 
 ### Coaching Sessions Calendar and Display:
-Displaying the user information, the time and date of the session chosen by the user. These sessions can be cancelled by the user, from the site once logged in, if they chose to.
+Displaying the user information, the time and date of the session chosen by the user. These sessions can be canceled by the user, from the site once logged in, if they choose to.
 
 ### Testimonials:
-Displaying the name, body and status of the testimonials published will publish it on the site and draft will save it but not publish it. The testimonials are solely managed by and through the admin panel.
+Displaying the name, body and status of the testimonials published will publish them on the site and draft status will save them. The testimonials are solely managed by and through the admin panel.
+
 
 ## Features Not Yet Implemented:
 ### Post Content;
@@ -128,7 +141,7 @@ The admin ability to post articles, meditation guides, journals and workbooks.
 
 
 # Testing
-Testing was conducted automatically as well as manually. Automatic testing was used for backend functions, with an easily testable input-output relatioship. Manual testing was added to account for interactive scenarios, that are not easily testable with automation. 
+Testing was conducted automatically as well as manually. Automatic testing was used for backend functions, with an easily testable input-output relationship. Manual testing was added to account for interactive scenarios, that are not easily testable with automation. 
 
 ## Automated Testing:
 ### Why use Automated Unit Testing?
@@ -146,45 +159,44 @@ Automated testing was used to efficiently test the core functionality, such as d
 
  
 ##  Manual Testing:
+A detailed Manual Test Protocol has been created to document the steps taken for testing. The Manual Test Protocol is accessible through this [drive link](https://docs.google.com/document/d/14n4rjhPBfW3SxVGAPirSdckw8lhdePbPkPKzS86_8wo/edit?usp=sharing)
 ### Why Use Manual Testing?
 Manual testing was conducted for scenarios, that can not easily be tested via automation and thus involve a system-level interaction across several components. Regardless, the manual tests are written in a strictly repeatable manner, to ensure consistency across testers and time.
 
 ### The features tested manually are:
 
-1. User registration: Can the user enter the required information such as name, email address, password, and address and subsequently register. Test error messages are displayed to the user. 
+1. User registration: Test if the can user enter the required information such as name, email address, password, and address and subsequently register. Test error messages are displayed to the user. 
 2. Account management: Test if the user can edit their profile information and view their newly edited saved profile. Test profile deletion and robustness to incorrect entries.
 3. Accessibility: Test if the website's features and functions are accessible to users with disabilities, such as screen readers or keyboard-only users.
 4. Booking process: Test booking page navigation and session booking, as well as session cancelation.
 
 ## Bugs:
-1) Issue:       User was able to book session in the past.
+1) Issue:       The user was able to book a session in the past.
    Resolution:  The user is now prevented from booking past sessions, by disabling the possible user interaction for the present day and all previous days.
 
 2) Issue:       Regardless of the error, the user always received the same "Passwords do not match" error when making a mistake in the registration form.
-   Resolution:  A custom routine was added in the user registration routines to extract the exact error from the available information.
+   Resolution:  A custom routine was added to the user registration routines to extract the exact error from the available information.
 
 3) Issue:       Although for the current week, no "Previous week" button is shown, the user was able to manipulate the URL parameters manually to change the calendar to any previous week.
    Resolution:  Negative URL parameters for the week offset are now blocked.
 
-
-///////////////////////
 ## Deployment
 
 * Local Deployment
 
-    1. Install Django and supporting libraries mentioned above, create a requirements file, a project and an app, save, migrate and runserver using the command "python3 manage.py runserver".
+    1. Install Django and supporting libraries mentioned above, create a requirements file, a project and an app, and save, migrate and run the server using the command "python3 manage.py runserver".
 
 * Heroku Deployment:
 
-    1. Create an external database:
-        Create an ElephantSQL account and instance and then set up the plan and the instance as instructed and finaly add the ElephantSQL database URL to Heroku.
-    2. Create the Heroku app
-        Create the app, add the Config Vars then attach the database .
-    3. Prepare environment and settings.py file:
-        Create new env.py file, import os library, set environment variables including the secret key, add the links to the DATATBASE_URL variable on Heroku and finally add Heroku Hostname to ALLOWED_HOSTS and deploy through Heroku.
+    1. Create an external database: Create an ElephantSQL account and instance then set up the plan and the instance as instructed and finally add the ElephantSQL database URL to Heroku.
+    2. Create the Heroku app: Create the app, add the Config Vars then attach the database.
+    3. Prepare the environment and settings.py file: Create a new env.py file, import the Os library, set environment variables including the secret key, add the links to the DATATBASE_URL variable on Heroku and finally add Heroku Hostname to ALLOWED_HOSTS and deploy through Heroku.
 
 ## Credit
-* Code
+* The code has been created following the Django and Bootstrap official documentation as well as the courses provided by the Code Institute. 
+* Testing code used in test_create_user() and test_create_superuser() have been done following the guide "Create a Custom User Model in Django" by Michael Herman published in [testdriven. io](https://testdriven.io/blog/django-custom-user-model/ 
+    #settings).
+* The RegisterUserForm() has been adapted from courses taken on [Codemy.com](https://codemy.com/).
 
 
 
