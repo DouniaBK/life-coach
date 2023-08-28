@@ -1,8 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Bitter&family=Lato&family=Montserrat&family=Niconne&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bitter&family=Lato&family=Montserrat&family=Niconne&family=Open+Sans:wght@300&display=swap');
 
 body {
     background-color:  #ffffff;
 }
+
 /*Navigation*/
 .container {
   position:relative !important;
@@ -260,8 +261,6 @@ footer {
   font-size: larger;
 }
 
-
-
 /*Testimonials*/
 #testimonials {
   display: flex;
@@ -272,8 +271,8 @@ footer {
 }
 
 .testimonial-card-body {
-  font-family: 'Niconne', cursive;
-  font-size: 1.3rem;
+  font-family: 'Open Sans', cursive;
+  font-size: 1.1rem;
 }
 
 .testimonial-card .card-up {
@@ -699,7 +698,7 @@ input:disabled {
   width: 100%;
   text-align: center;
   margin-bottom: 3rem;
-  font-family: 'Niconne', cursive;
+  font-family: 'Open Sans', cursive;
   font-size: 1.3rem;
 }
 
