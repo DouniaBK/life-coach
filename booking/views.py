@@ -7,26 +7,33 @@ from .models import CoachingSession
 import json
 
 
+# Returns the days of the week for a specific day
 def getDaysOfWeekForDay(t_current):
-    # get day of week as an integer
+    # Get day of week as an integer
     weekday = t_current.weekday()
 
+    # Iterate over the days of the week and write them to the output
     days_of_the_week = {}
     for i in range(0-weekday, 7-weekday):
         t_day = t_current + timedelta(days=i)
         days_of_the_week[t_day.weekday()] = t_day.strftime("%m/%d/%Y")
 
+    # Returns days of the week and weekday as an int
     return days_of_the_week, weekday
 
 
+# Sort all_sessions by the day they occur
 def sortSessionsByDay(all_sessions, days_of_the_week, user):
     sessions_of_the_week = {}
+    # Iterate over all weekdays
     for d in days_of_the_week:
+        # Filter the sessions that occur on the specific day
         date_of_that_day = days_of_the_week[d]
         date_time_object_lower = datetime.strptime(date_of_that_day, "%m/%d/%Y")  # noqa
         date_time_object_upper = date_time_object_lower + timedelta(days=1)
         days_sessions = all_sessions.filter(time__gte=date_time_object_lower, time__lte=date_time_object_upper)  # noqa
 
+        # Format the time for the template and add 'me' if the session belongs to the current user # noqa
         sessions_of_the_week[d] = []
         for s in days_sessions:
             sessions_time_hours = s.time.strftime("%H")
@@ -37,32 +44,41 @@ def sortSessionsByDay(all_sessions, days_of_the_week, user):
     return sessions_of_the_week
 
 
+# Extract the week offset from the request, return 0 if not defined
 def getOffsetFromRequest(request):
     offset_param = int(request.GET.get('offset', "0"))
+    # In case a negative value is given, set back to zero
+    # (protection against manual URL manipulation)
     if offset_param < 0:
         offset_param = 0
     return offset_param
 
 
-# Create your views here.
+# Booking view
+# This view acts as middleware for the calendar, thus assembling all
+# necessary information for viewing the calendar and handling session booking and cancelation. # noqa
 def booking(request):
-
     try:
+        # Special variable to indicate whether the booking is done in the context of the new registration # noqa
         register_to_book = request.GET.get('rtb', "false") == 'true'
+        # Special variable to indicate whether the register and booking workflow was successful # noqa
         success = False
         if register_to_book:
             success = request.GET.get('success', "false") == 'true'
 
+        # Min. hour to show in the calendar
         h_min = 8
+        # Max. hour to show in the calendar
         h_max = 21
 
+        # Week offset from current week
         offset_param = getOffsetFromRequest(request)
-
         offset_weeks = timedelta(weeks=offset_param)
 
         # Get todays date and weekday
         t_current = datetime.now() + offset_weeks
 
+        # The all days of the current week and current weekday as int
         days_of_the_week, weekday = getDaysOfWeekForDay(t_current)
 
         # Check in database for existing sessions during that week
@@ -94,20 +110,21 @@ def booking(request):
 
             all_user_sessions_templ.append(info)
 
+        # Assemble which hours need to be shown in the calendar
         hours_vec = []
         for i in range(h_min, h_max):
             hours_vec.append(str(i))
 
-        # if this is a POST request we need to process the form data
+        # if this is a POST request, handle saving the session
         if request.method == "POST":
             # create a form instance and populate it with
             #  data from the request:
             form = CoachingSessionInputFormFrontEnd(request.POST)
-            # check whether it's valid:
+            # check whether the form is valid:
             if form.is_valid():
-                your_object = form.save(commit=False)
-                your_object.user = request.user
-                your_object.save()
+                session_object = form.save(commit=False)
+                session_object.user = request.user
+                session_object.save()
                 # process the data in form.cleaned_data as required
                 service = form.cleaned_data['service']
                 time = form.cleaned_data['time']

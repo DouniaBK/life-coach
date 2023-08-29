@@ -10,6 +10,7 @@
     <div class="content_main" id="col-form">
 
         <div class="container" id="scheduler-container">
+            <!-- If the booking is part of registration workflow, show pills -->
             {% if register_to_book %}
             <div class="register_pill_container">
                 <div class="register_pill inactive" id="register_pill_1">
@@ -28,7 +29,7 @@
             </div>
             {% endif %}
 
-
+            <!-- Show success message if the booking is part of registration and was successful -->
             {% if register_book_success and register_to_book %}
 
             <div class="register_complete_main">
@@ -38,15 +39,17 @@
                 <a class="btn btn-danger" id="booking-btn" href="{% url 'booking' %}">Coaching Sessions </a>
             </div>
 
+            <!-- otherwise render the normal booking view-->
             {% else %}
             <form method="post" name="booking"
                 action="{% url 'booking' %}?offset={{currentWeekOffset}}{% if register_to_book %}&rtb=true{% endif %}"
                 required>
                 {% csrf_token %}
-                <h3 class="pb-2 mb-4 underlined">Book a Session:</h3>
+                <h3 class="pb-2 mb-4 underlined text-center">Book a Session</h3>
 
                 <div class="scheduler-next">
                     <span>
+                        <!-- Disable previous week button for the current week -->
                         {% if not isThisWeek %}
                         <a href="{% url 'booking' %}?offset={{currentWeekOffset|add:-1}}{% if register_to_book %}&rtb=true{% endif %}"
                             style="text-decoration: none; display: flex; align-items: center; color:black">
@@ -83,6 +86,7 @@
                             </tr>
                         </thead>
                         <tbody>
+                            <!-- Assemble calendar by iterating over all hours and days template parameters, also adjust styling and selectability via custom class and id selectors -->
                             {% for hour in scheduleHours %}
                             <tr>
                                 {% for weekday, value in weekdays.items %}
@@ -101,7 +105,7 @@
 
                 <!-- Appointment -->
                 <div class="appointment_type mt-3">
-                    <h3 class="pb-2 mb-4 underlined">Select a Coaching Service:</h3>
+                    <h4 class="pb-2 mb-4 underlined">Select a Coaching Service</h4>
                     <div class="appointment_type_form form form-control p-0" id="datetimepicker">
                         {{ form }}
                     </div>
@@ -109,7 +113,7 @@
                 <br />
                 <input type="submit" class="btn btn-primary text-white btn-form-large" value="Submit">
 
-                <h3 class="pb-2 mb-4 mt-5 underlined">Booked Sessions:</h3>
+                <h4 class="pb-2 mb-4 mt-5 underlined">Booked Sessions</h4>
 
 
                 <table class="table-session-overview">
@@ -121,6 +125,7 @@
                         </tr>
                     </thead>
                     <tbody>
+                        <!-- Assemble booked sessions with cancelation button-->
                         {% for session in allUserSessions %}
                         <tr>
                             <td>

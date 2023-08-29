@@ -16,7 +16,7 @@
         {% endfor %}
 
         <div class="container-fluid" id="scheduler-container">
-            <!-- Register & Book form -->
+            <!-- If the registration is part of booking workflow, show pills -->
             {% if register_to_book %}
             <div class="register_pill_container">
                 <div class="register_pill active" id="register_pill_1">
@@ -33,8 +33,9 @@
             </div>
             {% endif %}
 
-            <h3 class="pb-4">Register</h3>
+            <h3 class="pb-2 mb-4 underlined" >Register</h3>
 
+            <!-- Submission form, register_to_book indicates whether the registration is part of a registration/booking workflow -->
             <form method="POST" name="register_user"
                 action="{% url 'register_user' %}{% if register_to_book %}?rtb=true{% endif %}">
                 {% csrf_token %}

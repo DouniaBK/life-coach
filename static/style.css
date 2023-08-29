@@ -4,6 +4,10 @@ body {
     background-color:  #ffffff;
 }
 
+.opensans {
+  font-family: 'Open Sans', cursive;
+}
+
 /*Navigation*/
 .container {
   position:relative !important;
@@ -665,11 +669,16 @@ input:disabled {
     justify-content: center;
 }
 
+
+h2 {
+  color: cadetblue;
+}
+
 h3 {
   color: cadetblue;
 }
 
-h2 {
+h4 {
   color: cadetblue;
 }
 
