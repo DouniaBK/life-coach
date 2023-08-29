@@ -35,8 +35,7 @@
                 <p class="thank_you_header"> Thank you for your trust {{user.first_name}}.</p>
                 <p class="thank_you_subheader"> You have successfully booked a coaching session. Head to Coaching
                     Sessions to manage your bookings. </p>
-                <a class="btn btn-danger" id="booking-btn" href="{% url 'booking' %}"
-                    name="booking">Coaching Sessions </a>
+                <a class="btn btn-danger" id="booking-btn" href="{% url 'booking' %}">Coaching Sessions </a>
             </div>
 
             {% else %}
@@ -102,7 +101,7 @@
                 <!-- Appointment -->
                 <div class="appointment_type mt-3">
                     <h3 class="pb-2 mb-4 underlined">Select a Coaching Service:</h3>
-                    <div class="appointment_type_form form form-control p-0" name="time" id="datetimepicker">
+                    <div class="appointment_type_form form form-control p-0" id="datetimepicker">
                         {{ form }}
                     </div>
                 </div>

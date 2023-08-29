@@ -22,8 +22,6 @@ class BookingTests(TestCase):
         session = CoachingSession.objects.create(user=user, service='Freedom and Thrive', time=t, duration=timedelta(minutes=60))   # noqa
         session.save()
         all_user_sessions = CoachingSession.objects.filter(user=user)
-        print('all_user_sessions')
-        print(all_user_sessions)
 
         self.assertEqual(len(all_user_sessions), 1)
         for s in all_user_sessions:

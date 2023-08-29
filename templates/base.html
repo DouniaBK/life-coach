@@ -37,7 +37,7 @@
         <div class="collapse navbar-collapse" id="navbarExample01">
           <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
             <li class="nav-item active">
-              <a class="nav-link nav-text" aria-current="page" id="nav-home" name="index"
+              <a class="nav-link nav-text" aria-current="page" id="nav-home"
                 href="{% url 'index' %}">Home</a>
             </li>
             <li class="nav-item">
@@ -64,13 +64,13 @@
               <a class="dropdown-item" class="nav-link" id="nav-text" href="{% url 'user_profile' %}">Profile</a>
             </li>
             <li>
-              <a class="dropdown-item" class="nav-link" id="nav-text" name="logout" href="{% url 'logout' %}">
+              <a class="dropdown-item" class="nav-link" id="nav-text" href="{% url 'logout' %}">
                 Logout
               </a>
             </li>
             {% else %}
             <li>
-              <a class="dropdown-item" class="nav-link" id="nav-text" name="register_user"
+              <a class="dropdown-item" class="nav-link" id="nav-text"
                 href="{% url 'register_user' %}">
                 Register
               </a>
@@ -79,7 +79,7 @@
               <hr class="dropdown-divider" />
             </li>
             <li>
-              <a class="dropdown-item" class="nav-link" id="nav-text" name="login" href="{% url 'login' %}">
+              <a class="dropdown-item" class="nav-link" id="nav-text" href="{% url 'login' %}">
                 Login
               </a>
             </li>

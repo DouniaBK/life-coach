@@ -36,12 +36,12 @@
 
                 {% if is_edit %}
                 <div style="display:flex; width: 100%; justify-content: space-between;">
-                    <a class="btn btn-primary btn-form" name="booking" href="{% url 'user_profile' %}">Cancel</a>
+                    <a class="btn btn-primary btn-form" href="{% url 'user_profile' %}">Cancel</a>
                     <button type="submit" class="btn btn-primary btn-form" name="booking">Save</button>
                 </div>
 
                 {% else %}
-                <a class="btn btn-primary btn-block btn-form" name="booking"
+                <a class="btn btn-primary btn-block btn-form"
                     href="{% url 'user_profile' %}?edit=true">Edit Profile</a>
                 {% endif %}
             </form>
@@ -61,7 +61,7 @@
                 </div>
 
                 {% else %}
-                <a class="btn btn-primary btn-block btn-form" name="booking"
+                <a class="btn btn-primary btn-block btn-form"
                     href="{% url 'user_profile' %}?delete=true">Delete My Account</a>
                 {% endif %}
             </form>
