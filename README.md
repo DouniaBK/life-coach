@@ -76,6 +76,8 @@ This part is featured twice on the site, once with brief information on the home
 This page is intended to simply give more information about the free resources available to them at the clinic and during the therapy sessions. As the goal is to inform, the esthetic is clean, minimal, light and familiar to help the user's brain focus and pay attention. 
  
 ### Coaching sessions:
+
+![Coaching Sessions](static/images/booking-screenshot.png)
 This page is accessible from the navbar once registered or logged in as well as from the coaching sections and the home page. This section allows the user to select a service and then book a session with the coach with a handy calendar that shows which days and times are still available in white and the sessions that are not available greyed out as well as the sessions selected by that particular user in blue. Once the user selects an appropriate time and a service and submits it that session then appears in their personal list of sessions which in turn can be cancelled. To sum up, the user selects a service from the drop-down list then an available session on the calendar, clicks submit and that session will then appear as booked by them on the calendar in a light blue colour as well as on the my sessions section. The coach/admin will then personally review their schedule and the user’s profile information on the admin panel to contact the user if needed. 
 
 ### Accounts:
@@ -174,7 +176,21 @@ Automated testing was used to efficiently test the core functionality, such as d
     Middleware:
         - Calendar date and session processing functions, which are vital for the correct visualization of the calendar
 
- 
+The result of the automated testing is as follows:
+
+Debug mode is on.
+Creating test database for alias 'default'...
+System check identified no issues (0 silenced).
+normal@user.de | service: Freedom and Thrive
+..Test super user
+create_superuser
+..Test normal user
+.
+----------------------------------------------------------------------
+Ran 5 tests in 0.481s
+
+OK
+Destroying test database for alias 'default'...
 ##  Manual Testing:
 A detailed Manual Test Protocol has been created to document the steps taken for testing including responsiveness, Please, see the document for further details. The Manual Test Protocol is accessible through this [drive link](https://drive.google.com/drive/folders/1L4WP4BcJh_ixJev1f9W-9LHCpFTmigTt?usp=sharing)
 ### Why Use Manual Testing?
