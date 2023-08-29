@@ -168,7 +168,7 @@ footer {
   flex-wrap: wrap;
 }
 
-#about-me-p {
+.about-me-p {
   text-align: justify; 
   color: black;
 }
@@ -204,7 +204,7 @@ footer {
   height: 100%;
 }
 
-#coaching-services-p {
+.coaching-services-p {
   text-align: justify; 
 }
 
@@ -212,6 +212,17 @@ footer {
   margin: 1rem;
   font-size: larger;
 }
+
+.acc-services {
+    color: cadetblue;
+    font-size: 1.25rem;
+}
+
+#header-services-1 {
+  color: cadetblue;
+  padding-bottom: 2rem;
+}
+
 
 /*Testimonials*/
 #testimonials {
@@ -448,7 +459,7 @@ ul.dropdown-menu.show {
   color: #fff;
 }
 
-#btn-loginform{
+.btn-loginform{
   width: 9rem;
 }
 
@@ -665,6 +676,8 @@ h2 {
 h5 {
   color: cadetblue;
 }
+
+
 
 /* Error pages */
 

@@ -7,13 +7,13 @@
 <div id="body-form">
   <div class="content_main" id="col-form">
     <div class="container" id="scheduler-container">
-      <div class="container coaching-services" name="services">
+      <div class="container coaching-services">
         <div class="row " id="coaching-services">
 
           <div class="text-center">
 
-            <h3 id="header-resources">Coaching Services</h3>
-            <p class="lead" id="coaching-services-p">
+            <h3 id="header-services-1">Coaching Services</h3>
+            <p class="lead coaching-services-p">
               Choose the path that resonates with you and take the
               first step towards a life of transformation and empowerment.
               Don't let this opportunity slip away—reserve your spot today
@@ -26,15 +26,15 @@
           <div class="accordion" id="accordionExample">
             <div class="accordion-item">
               <h2 class="accordion-header" id="headingOne">
-                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
+                <button class="accordion-button collapsed acc-services" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
                   aria-expanded="false" aria-controls="collapseOne">
-                  <h5 id="header-resources">Freedom and Thrive</h5>
+                  Freedom and Thrive
                 </button>
               </h2>
-              <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+              <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne"
                 data-bs-parent="#accordionExample">
                 <div class="accordion-body">
-                  <p class="lead" id="coaching-services-p">
+                  <p class="lead coaching-services-p">
                     <strong>A transformative 12-week program</strong>
                     designed exclusively for cancer patients on their journey to
                     reclaiming their lives. Whether you've recently been diagnosed,
@@ -70,16 +70,16 @@
 
             <div class="accordion-item">
               <h2 class="accordion-header" id="headingTwo">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                <button class="accordion-button collapsed acc-services" type="button" data-bs-toggle="collapse"
                   data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                  <h5 id="header-resources">Ignite Your Potential</h5>
+                  Ignite Your Potential
                 </button>
               </h2>
               <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
                 data-bs-parent="#accordionExample">
                 <div class="accordion-body">
 
-                  <p class="lead" id="coaching-services-p">
+                  <p class="lead coaching-services-p">
                     <strong>In these four personalised one-hour coaching sessions</strong>
                     , we will embark on a deep exploration of your goals, dreams, and aspirations,
                     meticulously tailoring our approach to your unique needs. Whether
@@ -102,15 +102,15 @@
 
             <div class="accordion-item">
               <h2 class="accordion-header" id="headingThree">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                <button class="accordion-button collapsed acc-services" type="button" data-bs-toggle="collapse"
                   data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                  <h5 id="header-resources">Unleash Your Extraordinary Life</h5>
+                  Unleash Your Extraordinary Life
                 </button>
               </h2>
               <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
                 data-bs-parent="#accordionExample">
                 <div class="accordion-body">
-                  <p class="lead" id="coaching-services-p">
+                  <p class="lead coaching-services-p">
                     For those seeking a more comprehensive experience,<strong>
                       "Unleash Your Extraordinary: A Journey of 8 Transformative Sessions"</strong>
                     offers an immersive series of eight one-hour bespoke coaching sessions.
@@ -142,15 +142,15 @@
 
             <div class="accordion-item">
               <h2 class="accordion-header" id="headingFour">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                <button class="accordion-button collapsed acc-services" type="button" data-bs-toggle="collapse"
                   data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                  <h5 id="header-resources">Breakthrough to Freedom</h5>
+                  Breakthrough to Freedom
                 </button>
               </h2>
               <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour"
                 data-bs-parent="#accordionExample">
                 <div class="accordion-body">
-                  <p class="lead" id="coaching-services-p">
+                  <p class="lead coaching-services-p">
                     <strong>Experience Rapid Transformation and Unleash Your Full Potential in
                       a Single Power-Packed Session! </strong>Are you tired of being held back by fears, phobias, or
                     negative habits that are keeping you from living your best life? Imagine the exhilarating feeling of
@@ -192,7 +192,7 @@
           </div>
           <!-- Tabs content -->
           <div class="text-center">
-            <p class="lead pt-3" id="coaching-services-p">
+            <p class="lead pt-3 coaching-services-p">
               Are you ready to take the first step towards a transformative
               life journey? Book your free 30-minute discovery call with me
               today and let's explore how I can support you in achieving your
@@ -205,8 +205,7 @@
 
 
             </p>
-            <a type="button" class=" btn btn-danger" id="booking-btn" href="{% url 'register_user' %}?rtb=true"
-              name="register_user">
+            <a class=" btn btn-danger" id="booking-btn" href="{% url 'register_user' %}?rtb=true">
               Get Started
             </a>
           </div>

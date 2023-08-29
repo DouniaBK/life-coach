@@ -37,8 +37,7 @@
                 {% if is_edit %}
                 <div style="display:flex; width: 100%; justify-content: space-between;">
                     <a class="btn btn-primary btn-form" name="booking" href="{% url 'user_profile' %}">Cancel</a>
-                    <button type="submit" class="btn btn-primary btn-form" name="booking"
-                        href="{% url 'user_profile' %}?edit=true">Save</button>
+                    <button type="submit" class="btn btn-primary btn-form" name="booking">Save</button>
                 </div>
 
                 {% else %}
@@ -58,8 +57,7 @@
                 <div style="display:flex; width: 100%; justify-content: space-between;">
                     <label for="pwd_for_delete">Enter your password to confirm account deletion:</label><br>
                     <input type="password" id="pwd_for_delete" name="pwd_for_delete" placeholder="Password"><br>
-                    <button type="submit" class="btn btn-primary" name="Delete Account Now"
-                        href="{% url 'user_profile' %}?delete=true">Delete Account Now</button>
+                    <button type="submit" class="btn btn-primary" name="Delete Account Now">Delete Account Now</button>
                 </div>
 
                 {% else %}
@@ -67,10 +65,7 @@
                     href="{% url 'user_profile' %}?delete=true">Delete My Account</a>
                 {% endif %}
             </form>
-
-
         </div>
-
     </div>
 </div>
 

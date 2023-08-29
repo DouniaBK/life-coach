@@ -41,48 +41,46 @@
                 <div class="form-outline mb-4">
                     <label class="form-label" for="first_name">First Name</label>
                     <input type="text" id="first_name" class="form-control" name="first_name"
-                        aria-describedby="emailHelp">
+                        aria-label="First Name">
                 </div>
                 <div class="form-outline mb-4">
                     <label class="form-label" for="last_name">Last Name</label>
                     <input type="text" id="last_name" class="form-control" name="last_name"
-                        aria-describedby="emailHelp">
+                        aria-label="Last Name">
                 </div>
 
                 <div class="form-outline mb-4">
                     <label class="form-label" for="address">Address</label>
-                    <input type="text" id="address" class="form-control" name="address" aria-describedby="emailHelp">
+                    <input type="text" id="address" class="form-control" name="address" aria-label="Address">
                 </div>
                 <div class="form-outline mb-4">
                     <label class="form-label" for="email">email</label>
-                    <input type="email" id="email" class="form-control" name="email" aria-describedby="emailHelp">
+                    <input type="email" id="email" class="form-control" name="email" aria-label="Email">
                 </div>
                 <div class="form-outline mb-4">
                     <label class="form-label" for="password1">Password</label>
                     <input type="password" id="password1" class="form-control" name="password1"
-                        aria-describedby="emailHelp">
+                        aria-label="Password">
                 </div>
                 <div class="form-outline mb-4">
                     <label class="form-label" for="password2">Confirm Password</label>
                     <input type="password" id="password2" class="form-control" name="password2"
-                        aria-describedby="emailHelp">
+                        aria-label="Repeat Password">
                 </div>
                 <div class="text-center">
                     {% if register_to_book %}
                     <div class="step_button_wrapper">
-                        <button class="btn btn-primary btn-block" id="btn-loginform"
-                            href="{% url 'index' %}">Cancel</button>
-                        <button type="submit" class="btn btn-primary btn-block" id="btn-loginform" name="booking"
-                            href="{% url 'booking' %}?rtb=true">Register</button>
+                        <a class="btn btn-primary btn-block btn-loginform"
+                            href="{% url 'index' %}" aria-label="Cancel">Cancel</a>
+                        <button type="submit" class="btn btn-primary btn-block btn-loginform" name="booking" aria-label="Register">Register</button>
                     </div>
                     {% else %}
-                    <button type="submit" class="btn btn-primary btn-block" id="btn-loginform" name="booking"
-                        href="{% url 'booking' %}">Register</button>
+                    <button type="submit" class="btn btn-primary btn-block btn-loginform" name="booking" aria-label="Register">Register</button>
                     {% endif %}
 
                     <p id="form-p">Already Have An Account?</p>
-                    <a href="{% url 'login' %}" name="login" id="btn-loginform"
-                        class="btn btn-primary btn-block">Login</a>
+                    <a href="{% url 'login' %}" name="login"
+                        class="btn btn-primary btn-block btn-loginform">Login</a>
                 </div>
             </form>
         </div>

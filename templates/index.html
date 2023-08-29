@@ -21,7 +21,7 @@
               <h1 class="mb-3">Natalie Rider Coaching</h1>
               <h4 class="mb-4">Honest self reflection opens your mind to reprogramming,
                 change, success and freedom — Vikas Runwal</h4>
-              <a type="button" class=" btn btn-danger" id="booking-btn" href="{% url 'register_user' %}?rtb=true"
+              <a class=" btn btn-danger booking-btn" href="{% url 'register_user' %}?rtb=true"
                 name="register_user">Get Started </a>
             </div>
           </div>
@@ -33,7 +33,7 @@
               <h1 class="mb-3">Natalie Rider Coaching</h1>
               <h4 class="mb-4">Just one small positive thought in the morning can change your whole day
                 — Dalai Lama</h4>
-              <a type="button" class=" btn btn-danger" id="booking-btn" href="{% url 'register_user' %}?rtb=true"
+              <a class=" btn btn-danger booking-btn" href="{% url 'register_user' %}?rtb=true"
                 name="register_user">Get Started </a>
             </div>
           </div>
@@ -46,7 +46,7 @@
               <h4 class="mb-4">You can be a victim of cancer, or a survivor of cancer. It's a mindset.
                 — Dave Pelzer
               </h4>
-              <a type="button" class=" btn btn-danger" id="booking-btn" href="{% url 'register_user' %}?rtb=true"
+              <a class=" btn btn-danger booking-btn" href="{% url 'register_user' %}?rtb=true"
                 name="register_user">Get Started </a>
             </div>
           </div>
@@ -68,7 +68,7 @@
   </div>
 
   <!--  Introduction Coach section here-->
-  <div class="showcase-container" name="about">
+  <div class="showcase-container">
 
     <!-- Content here -->
     <div id="about-me">
@@ -94,7 +94,7 @@
 
   <div>
     <!--Coaching Services section here -->
-    <div class="showcase-container coaching-services" name="services">
+    <div class="showcase-container coaching-services">
       <div class="row" id="coaching-services">
 
         <div class="header-showcase mb-2 col-10 pb-3 pt-5 text-center">
@@ -128,7 +128,7 @@
                 aria-controls="ex3-tabs-3" aria-selected="true">Unleash Your Extraordinary Life</a>
             </li>
             <li class="nav-item coaching-services-item" role="presentation">
-              <a class="nav-link" id="ex3-tab-3" data-bs-toggle="tab" href="#ex3-tabs-4" role="tab"
+              <a class="nav-link" id="ex3-tab-4" data-bs-toggle="tab" href="#ex3-tabs-4" role="tab"
                 aria-controls="ex3-tabs-4" aria-selected="true">Breakthrough to Freedom</a>
             </li>
           </ul>
@@ -137,8 +137,8 @@
           <!-- Tabs content -->
           <div class="tab-content mb-2" id="ex2-content">
             <div class="tab-pane fade show active" id="ex3-tabs-1" role="tabpanel" aria-labelledby="ex3-tab-1">
-              <h4 id="header-resources"> 12 Week Program total of 10 sessions</h4>
-              <p class="lead" id="coaching-services-p">
+              <h4 id="header-resources-1"> 12 Week Program total of 10 sessions</h4>
+              <p class="lead coaching-services-p">
                 A transformative 12-week program
                 designed exclusively for cancer patients on their journey to
                 reclaiming their lives. Whether you've recently been diagnosed,
@@ -148,8 +148,8 @@
               </p>
             </div>
             <div class="tab-pane fade" id="ex3-tabs-2" role="tabpanel" aria-labelledby="ex3-tab-2">
-              <h4 id="header-resources"> The Transformational 4-Session Journey </h4>
-              <p class="lead" id="coaching-services-p">
+              <h4 id="header-resources-2"> The Transformational 4-Session Journey </h4>
+              <p class="lead" id="coaching-services-2">
                 In these four personalised one-hour coaching sessions, we will
                 embark on a deep exploration of your goals, dreams, and aspirations,
                 meticulously tailoring our approach to your unique needs. Whether
@@ -159,8 +159,8 @@
               </p>
             </div>
             <div class="tab-pane fade" id="ex3-tabs-3" role="tabpanel" aria-labelledby="ex3-tab-3">
-              <h4 id="header-resources"> A Journey of 8 Transformative Sessions </h4>
-              <p class="lead" id="coaching-services-p">
+              <h4 id="header-resources-3"> A Journey of 8 Transformative Sessions </h4>
+              <p class="lead coaching-services-p">
                 For those seeking a more comprehensive experience,
                 "Unleash Your Extraordinary: A Journey of 8 Transformative Sessions"
                 offers an immersive series of eight one-hour bespoke coaching sessions.
@@ -169,8 +169,8 @@
               </p>
             </div>
             <div class="tab-pane fade" id="ex3-tabs-4" role="tabpanel" aria-labelledby="ex3-tabs-4">
-              <h4 id="header-resources"> Rapid Transformation for Lasting Change</h4>
-              <p class="lead" id="coaching-services-p">
+              <h4 id="header-resources-4"> Rapid Transformation for Lasting Change</h4>
+              <p class="lead coaching-services-p">
                 Experience Rapid Transformation and Unleash Your Full Potential in
                 a Single Power-Packed Session! Are you tired of being held back by
                 fears, phobias, or negative habits that are keeping you from living
@@ -187,7 +187,7 @@
 
 
           <div class="text-center">
-            <a type="button" class="btn btn-danger btn-register" id="booking-btn"
+            <a class="btn btn-danger btn-register booking-btn"
               href="{% url 'register_user' %}?rtb=true" name="register_user">
               Register & Book a Session
             </a>
@@ -204,7 +204,6 @@
     <img src="{% static 'images/selfcare.png' %}" class="img-fluid" id="divider-img" alt="Responsive image">
   </div>
 
-  {% block content %}
   <!--Testimonials go here-->
   <div class="showcase-container">
     <div class="row" id="testimonials">
@@ -226,7 +225,7 @@
             <div class="card-up" style="background-color: #f2e1c3;"></div>
             <div class="card-body">
               <h4 class="mb-5">{{testimonial.name}}</h4>
-              <hr />
+              <hr/>
               <p class="testimonial-card-body dark-grey-text mt-4">
                 <i class="fas fa-quote-left pe-2"></i>{{testimonial.body}}
               </p>
@@ -238,7 +237,6 @@
       </div>
     </div>
 
-    {% endblock content %}
 
 </main>
 

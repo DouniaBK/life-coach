@@ -25,17 +25,17 @@ The life coach site is designed and dedicated to promoting mental health, balanc
 ## Deployment
 * Local Deployment
 * Heroku Deployment
-## Credit and Developer's story
+## Credit
 * Code
-* Developer
 
-# Goals:
-### User:
+# Goals
+## User:
 The site is designed for cancer patients seeking the help of a therapist to guide them through the emotional rollercoaster of cancer treatments. The goal is to help them navigate the site with ease to get to know what the therapist's approach, techniques and services are in order to book a session and sign up for a therapy treatment.
 
-### Site owner:
+## Site owner:
 The therapist/life coach needs a landing page with a custom design to inform the patients of the different techniques and services available to them to improve their life journey through these tough times. The admin part is meant to ease the process of patient management such as the sessions schedule and the admin information. The therapist specializing in cancer treatments, warns of the patient's sensitivity to overwhelming designs, bright colors and difficulty concentrating and thus wishes to use calming sunset/beach/nature themes, soothing pink and blue color palettes, simple feminine aesthetics and intuitive workflow.
 
+## Visual Design:
 ### Site Design:
 
 This particular site is solely dedicated to women diagnosed with cancer and undergoing cancer treatment and thus the design has a feminine touch with calming pastel colors inspired by a sunset with pink and blue hues matching the wished-for palette. Intended as a healing meditative space that takes the anxiety of seeking yet another medical assistance away from the patient. The header also features a carousel with inspirational quotes to encourage cancer patients to seek help and regain their strength as well as set a meditative and empowering mood creating an emotional connection between the user and the coach. The site also features a divider image quoting self-care to remind the user that self-care is essential to surviving cancer. 
@@ -51,7 +51,7 @@ The font family and style used are:
    * Lead feature from Bootstrap
 ### Favicon:
 A minimalistic favicon with the life coach's initials has been added giving the site a professional look. The favicon has been generated using [favicon.io](https://favicon.io/favicon-generator/).
-# Features:
+# Features
 ## Page Elements:
 The site contains various pages to introduce the user to the services and approaches this particular life coach/therapist offers. The following pages are accessible from the extendable navbar on top:
 ### Home page:
@@ -89,7 +89,7 @@ The ancient Greek philosopher, Pythagoras, postulated that the number 3 was cons
 * 404 Error page appears when the server can not find the page requested
 * 500 Error page appears when the server encounters a problem, and can not complete a request
 
-## Admin Page Elements:
+## Admin Page Elements
 ### Account management
 The admin Panel contains three main sections:
 ### Custom User:
@@ -105,8 +105,8 @@ Displaying the user information, the time and date of the session chosen by the 
 Displaying the name, body and status of the testimonials published will publish them on the site and draft status will save them. The testimonials are solely managed by and through the admin panel.
 
 
-## Features Not Yet Implemented:
-### Post Content;
+## Features Not Yet Implemented
+### Post Content:
 The admin ability to post articles, meditation guides, journals and workbooks. 
 
 # Information Architecture
@@ -115,14 +115,14 @@ The admin ability to post articles, meditation guides, journals and workbooks.
 
 
 
-## Data Models
+## Data Models:
 * Custom User:
 * Testimonials:
 * Booking:
 * Profile:
 
-## Technologies Used
-### Languages
+# Technologies Used
+## Languages:
 
 * Logic:
     - Python
@@ -134,11 +134,23 @@ The admin ability to post articles, meditation guides, journals and workbooks.
 * Database:
     - Structured Query Language
 
-### Libraries
+## Libraries:
     1. dj_database_url==0.5.0 psycopg2
     2. os library
     3. Cloudinary
 
+## Tools:
+Code validation was done using the following tools:
+
+| **Tools** | **Language**   |**Validation Result** |
+| -----     | ----------     | -----------------    |
+| W3C       | HTML           | Passed               |
+| W3C       | CSS            | Passed               |
+| W3C       | Javascript     | Passed               |
+|           | Python         | Passed               |
+
+Code validation was done using the following tools:
+  * [Codemy.com](https://codemy.com/)
 
 # Testing
 Testing was conducted automatically as well as manually. Automatic testing was used for backend functions, with an easily testable input-output relationship. Manual testing was added to account for interactive scenarios, that are not easily testable with automation. 
@@ -159,7 +171,7 @@ Automated testing was used to efficiently test the core functionality, such as d
 
  
 ##  Manual Testing:
-A detailed Manual Test Protocol has been created to document the steps taken for testing. The Manual Test Protocol is accessible through this [drive link](https://docs.google.com/document/d/14n4rjhPBfW3SxVGAPirSdckw8lhdePbPkPKzS86_8wo/edit?usp=sharing)
+A detailed Manual Test Protocol has been created to document the steps taken for testing including responsiveness, Please, see the document for further details. The Manual Test Protocol is accessible through this [drive link](https://docs.google.com/document/d/14n4rjhPBfW3SxVGAPirSdckw8lhdePbPkPKzS86_8wo/edit?usp=sharing)
 ### Why Use Manual Testing?
 Manual testing was conducted for scenarios, that can not easily be tested via automation and thus involve a system-level interaction across several components. Regardless, the manual tests are written in a strictly repeatable manner, to ensure consistency across testers and time.
 
@@ -197,6 +209,7 @@ Manual testing was conducted for scenarios, that can not easily be tested via au
 * Testing code used in test_create_user() and test_create_superuser() have been done following the guide "Create a Custom User Model in Django" by Michael Herman published in [testdriven. io](https://testdriven.io/blog/django-custom-user-model/ 
     #settings).
 * The RegisterUserForm() has been adapted from courses taken on [Codemy.com](https://codemy.com/).
+
 
 
 

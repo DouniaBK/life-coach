@@ -27,7 +27,7 @@
 		<div class="container-fluid" id="login-container">
 			<h1>Log In</h1>
 
-			<form method="POST" action="" class="">
+			<form method="POST">
 				{% csrf_token %}
 				<div class="form-outline mb-4">
 					<label class="form-label" for="form1Example1">Email</label>
@@ -39,10 +39,9 @@
 					<input type="password" id="form1Example2" class="form-control" name="password" />
 				</div>
 				<div class="text-center">
-					<button type="submit" class=" btn btn-primary btn-block" id="btn-loginform">Log In</button>
+					<button type="submit btn-loginform" class=" btn btn-primary btn-block">Log In</button>
 					<p id="form-p">Don't Have An Account?</p>
-					<button href="{% url 'register_user' %}" name="register_user" class="btn btn-primary btn-block"
-						id="btn-loginform">Register</button>
+					<a href="{% url 'register_user' %}" name="register_user" class="btn btn-primary btn-block btn-loginform">Register</a>
 				</div>
 			</form>
 		</div>
