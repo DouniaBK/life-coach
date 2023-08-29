@@ -1,3 +1,5 @@
+![Life Coach](static/images/site-screenshot.png)
+
 The life coach site is designed and dedicated to promoting mental health, balance and empowerment to female cancer patients by proposing the services of a life coach/therapist who will help them overcome the anxiety and trauma of cancer. The site is designed with a calming feminine esthetic and intuitive workflow to avoid overwhelming the cancer patient/user seeking the help they need. The patients can read through the resources and the different services made available to them by the therapist and then choose to register and book a session to start their mental recovery journey. The life coach on the other hand, being the admin, is able to see who and when a session is booked, as well as have the patients’ information at hand for various admin purposes. The admin has also control over their marketed image by publishing carefully selected testimonials onto their site from the admin panel. As of control, the patient is also equipped with CRUD functionality for their profile as well as flexible booking functionalities. Moreover, the site's visual hierarchy is well observed so contents are presented in relative importance to the patient. Since testimonials build trust, they are presented professionally too. The footer also integrates social media links for more effective marketing.
 
 # Table of Contents
@@ -22,11 +24,13 @@ The life coach site is designed and dedicated to promoting mental health, balanc
 * Automated Testing
 * Manual Testing
 * Bugs
+* Accessibility
 ## Deployment
 * Local Deployment
 * Heroku Deployment
 ## Credit
 * Code
+* Content
 
 # Goals
 ## User:
@@ -36,13 +40,12 @@ The site is designed for cancer patients seeking the help of a therapist to guid
 The therapist/life coach needs a landing page with a custom design to inform the patients of the different techniques and services available to them to improve their life journey through these tough times. The admin part is meant to ease the process of patient management such as the sessions schedule and the admin information. The therapist specializing in cancer treatments, warns of the patient's sensitivity to overwhelming designs, bright colors and difficulty concentrating and thus wishes to use calming sunset/beach/nature themes, soothing pink and blue color palettes, simple feminine aesthetics and intuitive workflow.
 
 ## Visual Design:
+A folder with further design elements can be accessed [here](https://drive.google.com/drive/folders/10s7BAd4owB5MGW1j-WFyv9pZy37bf08E?usp=sharing) as well as the [flowchart](https://drive.google.com/drive/folders/1BzyiPCHem474jnxKKmtgODtBxWiFTp0v?usp=sharing).
 ### Site Design:
 
 This particular site is solely dedicated to women diagnosed with cancer and undergoing cancer treatment and thus the design has a feminine touch with calming pastel colors inspired by a sunset with pink and blue hues matching the wished-for palette. Intended as a healing meditative space that takes the anxiety of seeking yet another medical assistance away from the patient. The header also features a carousel with inspirational quotes to encourage cancer patients to seek help and regain their strength as well as set a meditative and empowering mood creating an emotional connection between the user and the coach. The site also features a divider image quoting self-care to remind the user that self-care is essential to surviving cancer. 
 
 The site has a minimal aesthetic and color palette to avoid sensory overstimulation often as a result of chemotherapy as well as offers an intuitive workflow leading to booking a session and starting a journey of mental repair. Furthermore, as the site contains key information about the therapy packages, familiar colors, fonts, images, and other matching elements have been used throughout to reflect the site's organization as well as alert the patient to pay attention.
-
-### Color Palette:
 
 ### Fonts:
 The font family and style used are:
@@ -110,16 +113,15 @@ Displaying the name, body and status of the testimonials published will publish 
 The admin ability to post articles, meditation guides, journals and workbooks. 
 
 # Information Architecture
-## Database
+## Database:
 
-
-
+ElephantSQL is hosted by PostgreSQL has been used as a database.
 
 ## Data Models:
-* Custom User:
-* Testimonials:
-* Booking:
-* Profile:
+
+* Custom User: CustomUser() has been created and migrated to create a user account to access the booking system to book a session with the coach and manage the bookings.
+* Testimonials: Testimonial() has been created and migrated to publish testimonials from the admin panel as a marketing tool
+* Booking: CoachingSession() has been created and migrated to book a session with the coach as well as manage booked sessions such as canceling a session.
 
 # Technologies Used
 ## Languages:
@@ -130,6 +132,7 @@ The admin ability to post articles, meditation guides, journals and workbooks.
 * Template:
     - HTML
     - CSS
+    - Javascript
 
 * Database:
     - Structured Query Language
@@ -142,15 +145,17 @@ The admin ability to post articles, meditation guides, journals and workbooks.
 ## Tools:
 Code validation was done using the following tools:
 
-| **Tools** | **Language**   |**Validation Result** |
-| -----     | ----------     | -----------------    |
-| W3C       | HTML           | Passed               |
-| W3C       | CSS            | Passed               |
-| W3C       | Javascript     | Passed               |
-|           | Python         | Passed               |
+| **Tools**     | **Language**   |**Validation Result** |
+| -----         | ----------     | -----------------    |
+| W3C           | HTML           | Valid                |
+| CSS Portal    | CSS            | Valid                |
+| esprima.org   | Javascript     | Valid                |
+| PEP8          | Python         | Valid                |
 
-Code validation was done using the following tools:
-  * [Codemy.com](https://codemy.com/)
+Responsiveness has been tested using:
+
+  * [BrowserStack](https://www.browserstack.com/)
+  * Screenshots of responsiveness have been added to this drive [file](https://www.browserstack.com/).
 
 # Testing
 Testing was conducted automatically as well as manually. Automatic testing was used for backend functions, with an easily testable input-output relationship. Manual testing was added to account for interactive scenarios, that are not easily testable with automation. 
@@ -171,7 +176,7 @@ Automated testing was used to efficiently test the core functionality, such as d
 
  
 ##  Manual Testing:
-A detailed Manual Test Protocol has been created to document the steps taken for testing including responsiveness, Please, see the document for further details. The Manual Test Protocol is accessible through this [drive link](https://docs.google.com/document/d/14n4rjhPBfW3SxVGAPirSdckw8lhdePbPkPKzS86_8wo/edit?usp=sharing)
+A detailed Manual Test Protocol has been created to document the steps taken for testing including responsiveness, Please, see the document for further details. The Manual Test Protocol is accessible through this [drive link](https://drive.google.com/drive/folders/1L4WP4BcJh_ixJev1f9W-9LHCpFTmigTt?usp=sharing)
 ### Why Use Manual Testing?
 Manual testing was conducted for scenarios, that can not easily be tested via automation and thus involve a system-level interaction across several components. Regardless, the manual tests are written in a strictly repeatable manner, to ensure consistency across testers and time.
 
@@ -182,6 +187,10 @@ Manual testing was conducted for scenarios, that can not easily be tested via au
 3. Accessibility: Test if the website's features and functions are accessible to users with disabilities, such as screen readers or keyboard-only users.
 4. Booking process: Test booking page navigation and session booking, as well as session cancelation.
 
+## Accessibility
+
+![Site Performance Score](static/images/lighthouse-performance-test.png)
+  * The overall performance of the site has been tested on desktop and mobile using Lighthouse and the site has passed the accessibility test
 ## Bugs:
 1) Issue:       The user was able to book a session in the past.
    Resolution:  The user is now prevented from booking past sessions, by disabling the possible user interaction for the present day and all previous days.
@@ -210,7 +219,9 @@ Manual testing was conducted for scenarios, that can not easily be tested via au
     #settings).
 * The RegisterUserForm() has been adapted from courses taken on [Codemy.com](https://codemy.com/).
 
+## Content
 
+The content of the Website has been used and developed with the consent of a certified Life Coach whose name has been changed for privacy reasons. The content can be seen [here](https://drive.google.com/drive/folders/1_awslZHQsQfMlFC5cb1gW_YfR_6Asccn?usp=sharing).
 
 
 

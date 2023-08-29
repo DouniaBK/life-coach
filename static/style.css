@@ -21,7 +21,7 @@ body {
     align-items: center;
     justify-content: space-between;
     background-color:#ffffff!important;
-    padding: 0px;
+    padding: 0;
     border-bottom: inset;
 }
 
@@ -105,7 +105,7 @@ body {
     align-items: center;
     justify-content: space-between;
     background-color: #dfd0c7!important;
-    padding: 0px;
+    padding: 0;
 }
 
 .carousel-wrapper {
@@ -338,7 +338,7 @@ footer {
 
 .appointment_type_form > p {
   visibility: hidden;
-  height: 0px;
+  height: 0;
 }
 
 .appointment_type_form > label {

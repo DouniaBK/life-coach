@@ -40,7 +40,8 @@
 
             {% else %}
             <form method="post" name="booking"
-                action="{% url 'booking' %}?offset={{currentWeekOffset}}{% if register_to_book %}&rtb=true{% endif %}" required>
+                action="{% url 'booking' %}?offset={{currentWeekOffset}}{% if register_to_book %}&rtb=true{% endif %}"
+                required>
                 {% csrf_token %}
                 <h3 class="pb-2 mb-4 underlined">Book a Session:</h3>
 
